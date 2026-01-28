@@ -29,6 +29,8 @@ export const metadata: Metadata = {
   description: "Collect Badges. Grow The Ecosystem. Win Rewards.",
   icons: {
     icon: '/shaka.png',
+    shortcut: '/shaka.png',
+    apple: '/shaka.png',
   }
 };
 
