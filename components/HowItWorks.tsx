@@ -185,7 +185,7 @@ export default function HowItWorks() {
                 >
                     <div className="flex items-center justify-center gap-3 mb-2">
                         <Coins className="w-8 h-8 text-gvc-gold" />
-                        <h3 className="text-xl font-cooper font-bold text-white uppercase">TRADING GENERATES FEES</h3>
+                        <h3 className="text-xl font-cooper font-bold text-white uppercase">PROTOCOL GENERATES FEES</h3>
                     </div>
                     <p className="text-white/60 font-mundial text-sm">
                         <span className="font-bold text-gvc-gold">10%</span> of buy and sell volume is taken as a fee.

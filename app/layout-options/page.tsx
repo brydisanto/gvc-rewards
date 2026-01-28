@@ -51,7 +51,7 @@ export default function LayoutOptions() {
                     {/* Step 2 */}
                     <div className="flex-1 bg-gvc-dark border border-white/20 rounded-xl p-6 text-center">
                         <Coins className="w-8 h-8 text-gvc-gold mx-auto mb-2" />
-                        <h3 className="text-lg font-cooper font-bold uppercase">TRADING GENERATES FEES</h3>
+                        <h3 className="text-lg font-cooper font-bold uppercase">PROTOCOL GENERATES FEES</h3>
                         <p className="text-white/60 text-xs font-mundial mt-2"><span className="font-bold text-gvc-gold">10%</span> of buy and sell volume is taken as a fee.</p>
                     </div>
 
@@ -114,7 +114,7 @@ export default function LayoutOptions() {
                         <Coins className="w-6 h-6 text-gvc-gold" />
                     </div>
                     <div className="md:w-1/2 md:pl-12 text-center md:text-left order-3 md:order-2">
-                        <h3 className="text-xl font-cooper font-bold text-gvc-gold uppercase">TRADING GENERATES FEES</h3>
+                        <h3 className="text-xl font-cooper font-bold text-gvc-gold uppercase">PROTOCOL GENERATES FEES</h3>
                         <p className="text-white/60 text-sm font-mundial"><span className="font-bold text-gvc-gold">10%</span> of buy and sell volume is taken as a fee.</p>
                     </div>
                 </div>
@@ -163,7 +163,7 @@ export default function LayoutOptions() {
                             <span className="bg-gvc-gold/20 text-gvc-gold text-xs px-2 py-1 rounded font-bold">10% FEE</span>
                         </div>
                         <div>
-                            <h3 className="text-2xl font-cooper font-bold uppercase mb-2">TRADING GENERATES FEES</h3>
+                            <h3 className="text-2xl font-cooper font-bold uppercase mb-2">PROTOCOL GENERATES FEES</h3>
                             <p className="text-white/60 text-sm">Every transaction contributes to the ecosystem sustainability.</p>
                         </div>
                     </div>
