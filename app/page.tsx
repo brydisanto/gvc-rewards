@@ -180,7 +180,7 @@ export default function Home() {
         if (diff > 0) {
           toast.success(
             <div>
-              <span className="font-bold">NEW REWARDS!</span><br />
+              <span className="font-cooper font-bold text-lg">NEW REWARDS ADDED!</span><br />
               {formatNumber(diff)} $VIBESTR added to the Rewards Pool
             </div>,
             { duration: 5000 }
@@ -195,7 +195,7 @@ export default function Home() {
         if (diff > 0) {
           toast.success(
             <div>
-              <span className="font-bold">NEW REWARDS!</span><br />
+              <span className="font-cooper font-bold text-lg">NEW REWARDS ADDED!</span><br />
               {formatNumber(diff)} $PNKSTR added to the Rewards Pool
             </div>,
             { duration: 5000 }
@@ -210,7 +210,7 @@ export default function Home() {
         if (diff > 0.0001) { // Ignore tiny dust
           toast.success(
             <div>
-              <span className="font-bold">NEW REWARDS!</span><br />
+              <span className="font-cooper font-bold text-lg">NEW REWARDS ADDED!</span><br />
               {diff.toFixed(3)} ETH added to the Rewards Pool
             </div>,
             { duration: 5000 }
@@ -252,7 +252,7 @@ export default function Home() {
       const newCount = nfts.length - prevNftCount.current;
       toast.success(
         <div>
-          <span className="font-bold">NEW REWARDS!</span><br />
+          <span className="font-cooper font-bold text-lg">NEW REWARDS ADDED!</span><br />
           {newCount} NFT{newCount > 1 ? 's' : ''} added to the Rewards Pool
         </div>,
         { duration: 5000 }

@@ -220,14 +220,14 @@ export default function HowItWorks() {
                                 </div>
                                 <h3 className="text-xl font-cooper font-bold text-white uppercase mb-4">2/ BUYS GVCS</h3>
                                 <p className="text-white/60 text-sm font-mundial leading-relaxed">
-                                    Another % of the protocol fee is used to buy GVCs off OpenSea. These are then added to the VibeStrategy treasury and re-listed at a premium. All sale proceeds are used to buy & burn $VIBESTR.
+                                    Another % of the protocol fee is used to buy GVCs from OpenSea. These are then added to the VibeStrategy treasury and re-listed at a premium. All sale proceeds are used to buy & burn $VIBESTR.
                                 </p>
                             </div>
                         </div>
 
                         {/* Unified Footer/Label */}
-                        <div className="bg-black/40 py-3 text-center border-t border-white/10">
-                            <span className="text-xs font-mono text-gvc-gold uppercase tracking-widest italic">This entire process happens programmatically at the protocol level.</span>
+                        <div className="bg-black/40 py-3 text-center border-t border-white/10 px-4">
+                            <span className="text-[10px] md:text-xs font-mono text-gvc-gold uppercase tracking-widest italic">This entire process happens programmatically at the VibeStrategy protocol level.</span>
                         </div>
                     </div>
                 </motion.div>
