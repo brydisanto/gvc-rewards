@@ -210,7 +210,7 @@ export default function HowItWorks() {
                     >
                         <div className="flex flex-col items-center gap-2">
                             <Trophy className="w-8 h-8 text-gvc-gold mb-2" />
-                            <h3 className="text-lg font-cooper font-bold text-white uppercase">#1: GROWS THE REWARDS POOL</h3>
+                            <h3 className="text-lg font-cooper font-bold text-white uppercase">1/ GROWS THE REWARDS POOL</h3>
                             <p className="text-white/60 text-sm font-mundial">A % of the protocol fee automatically accrues as ETH to the VibeStrategy.eth Rewards wallet. This reserve is used to build the community Rewards Pool.</p>
                         </div>
                     </motion.div>
@@ -223,7 +223,7 @@ export default function HowItWorks() {
                     >
                         <div className="flex flex-col items-center gap-2">
                             <BroomIcon className="w-8 h-8 text-gvc-gold mb-2" />
-                            <h3 className="text-lg font-cooper font-bold text-white uppercase">#2: BUYS GVCS</h3>
+                            <h3 className="text-lg font-cooper font-bold text-white uppercase">2/ BUYS GVCS</h3>
                             <p className="text-white/60 text-sm font-mundial">A % of the protocol fee is used to buy GVCs off OpenSea. These are then added to the VibeStrategy treasury and re-listed at a premium. All sale proceeds buy & burn $VIBESTR. This all happens programmatically at the protocol level.</p>
                         </div>
                     </motion.div>
