@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Border Animations</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Mundial', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #050505;
+            color: white;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #FFE048;
+            text-align: center;
+            margin-bottom: 16px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #ffffff80;
+            margin-bottom: 60px;
+            font-size: 16px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .option h2 {
+            color: #FFE048;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .option .desc {
+            color: #ffffff80;
+            font-size: 13px;
+            margin-bottom: 24px;
+            text-align: center;
+            max-width: 300px;
+            line-height: 1.4;
+        }
+
+        /* Base Card Style */
+        .card {
+            width: 300px;
+            background: #121212;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-wrap {
+            width: 100%;
+            aspect-ratio: 1;
+            position: relative;
+        }
+
+        .punk-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 20px;
+            background: #121212;
+            position: relative;
+            z-index: 2;
+        }
+
+        .name {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #FFE048, #FF6B9D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .usd {
+            font-size: 14px;
+            color: #ffffff60;
+            font-weight: normal;
+            -webkit-text-fill-color: #ffffff60;
+        }
+
+        /* --- OPTION 1: ROTATING GRADIENT --- */
+        .card-rotating {
+            position: relative;
+            background: #121212;
+            border-radius: 16px;
+            z-index: 0;
+        }
+
+        /* The border container */
+        .card-rotating::before {
+            content: "";
+            position: absolute;
+            inset: -4px;
+            border-radius: 20px;
+            background: conic-gradient(from 0deg,
+                    #FFE048,
+                    #FF6B9D,
+                    #9333ea,
+                    #FFE048);
+            animation: spin 4s linear infinite;
+            z-index: -1;
+        }
+
+        /* Inner mask to show the border */
+        .card-rotating::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: #121212;
+            border-radius: 16px;
+            z-index: -1;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* --- OPTION 2: PULSING GLOW --- */
+        .card-pulsing {
+            border: 2px solid #FFE048;
+            box-shadow: 0 0 0 0 rgba(255, 224, 72, 0.7);
+            animation: pulse-gold 2s infinite;
+        }
+
+        @keyframes pulse-gold {
+            0% {
+                transform: scale(0.98);
+                box-shadow: 0 0 0 0 rgba(255, 224, 72, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 15px rgba(255, 224, 72, 0);
+            }
+
+            100% {
+                transform: scale(0.98);
+                box-shadow: 0 0 0 0 rgba(255, 224, 72, 0);
+            }
+        }
+
+        /* --- OPTION 3: SHIMMER BORDER --- */
+        .card-shimmer {
+            border: 3px solid #333;
+            position: relative;
+            /* Masking trick for border shimmer could be complex, using mask-image or similar. 
+               Simpler approach: overlaid pseudo-element */
+        }
+
+        .card-shimmer::before {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 16px;
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, #FF6B9D, #FFE048, #FF6B9D) border-box;
+            -webkit-mask:
+                linear-gradient(#fff 0 0) padding-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            background-size: 200% 200%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Add a glow behind it too */
+        .card-shimmer::after {
+            content: "";
+            position: absolute;
+            inset: -10px;
+            background: linear-gradient(45deg, #FF6B9D, #FFE048);
+            filter: blur(20px);
+            z-index: -2;
+            opacity: 0.4;
+            animation: pulse-opacity 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-opacity {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        /* --- OPTION 4: SNAKE BORDER --- */
+        .card-snake {
+            position: relative;
+            overflow: hidden;
+            background: #121212;
+        }
+
+        .card-snake span {
+            position: absolute;
+            display: block;
+        }
+
+        .card-snake span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #FFE048);
+            animation: snake1 2s linear infinite;
+        }
+
+        @keyframes snake1 {
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 100%;
+            }
+        }
+
+        .card-snake span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #FFE048);
+            animation: snake2 2s linear infinite;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes snake2 {
+            0% {
+                top: -100%;
+            }
+
+            50%,
+            100% {
+                top: 100%;
+            }
+        }
+
+        .card-snake span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(270deg, transparent, #FFE048);
+            animation: snake3 2s linear infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes snake3 {
+            0% {
+                right: -100%;
+            }
+
+            50%,
+            100% {
+                right: 100%;
+            }
+        }
+
+        .card-snake span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #FFE048);
+            animation: snake4 2s linear infinite;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes snake4 {
+            0% {
+                bottom: -100%;
+            }
+
+            50%,
+            100% {
+                bottom: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Animated Border Concepts</h1>
+    <p class="subtitle">Looking for "Prominent" & "Standing Out" - Which vibe fits best?</p>
+
+    <div class="options-grid">
+
+        <!-- OPTION 1 -->
+        <div class="option">
+            <h2>1. Rotating Spectrum</h2>
+            <p class="desc">A continuous, high-energy border that cycles through the brand colors. Very noticeable.</p>
+            <div class="card card-rotating">
+                <div class="img-wrap">
+                    <img src="https://i.seadn.io/gae/ZWEV7BBCssLj4I2XD9zlPjbPTMcmR6gM9dSl96WqFHS02o4mucLFuM8gVxQ9PncRiCB-PnJG6AqrZJGJCY5OH0sJgDc0R6Jxmq_s?w=500"
+                        class="punk-img" alt="Punk">
+                </div>
+                <div class="info">
+                    <div class="name">CryptoPunk #2457</div>
+                    <div class="price">28.80 ETH <span class="usd">($83k)</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OPTION 2 -->
+        <div class="option">
+            <h2>2. Golden Pulse</h2>
+            <p class="desc">A "breathing" effect that feels alive. Suggests value and importance without too much
+                movement.</p>
+            <div class="card card-pulsing">
+                <div class="img-wrap">
+                    <img src="https://i.seadn.io/gae/ZWEV7BBCssLj4I2XD9zlPjbPTMcmR6gM9dSl96WqFHS02o4mucLFuM8gVxQ9PncRiCB-PnJG6AqrZJGJCY5OH0sJgDc0R6Jxmq_s?w=500"
+                        class="punk-img" alt="Punk">
+                </div>
+                <div class="info">
+                    <div class="name">CryptoPunk #2457</div>
+                    <div class="price">28.80 ETH <span class="usd">($83k)</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OPTION 3 -->
+        <div class="option">
+            <h2>3. Shimmer & Glow</h2>
+            <p class="desc">A premium metallic shimmer moving across the border, with a soft ambient backlight.</p>
+            <div class="card card-shimmer">
+                <div class="img-wrap">
+                    <img src="https://i.seadn.io/gae/ZWEV7BBCssLj4I2XD9zlPjbPTMcmR6gM9dSl96WqFHS02o4mucLFuM8gVxQ9PncRiCB-PnJG6AqrZJGJCY5OH0sJgDc0R6Jxmq_s?w=500"
+                        class="punk-img" alt="Punk">
+                </div>
+                <div class="info">
+                    <div class="name">CryptoPunk #2457</div>
+                    <div class="price">28.80 ETH <span class="usd">($83k)</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OPTION 4 -->
+        <div class="option">
+            <h2>4. Laser Snake</h2>
+            <p class="desc">Lines chasing each other around the card. Futuristic and tech-forward.</p>
+            <div class="card card-snake">
+                <span></span><span></span><span></span><span></span>
+                <div class="img-wrap">
+                    <img src="https://i.seadn.io/gae/ZWEV7BBCssLj4I2XD9zlPjbPTMcmR6gM9dSl96WqFHS02o4mucLFuM8gVxQ9PncRiCB-PnJG6AqrZJGJCY5OH0sJgDc0R6Jxmq_s?w=500"
+                        class="punk-img" alt="Punk">
+                </div>
+                <div class="info">
+                    <div class="name">CryptoPunk #2457</div>
+                    <div class="price">28.80 ETH <span class="usd">($83k)</span></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
