@@ -227,7 +227,7 @@ export default function HowItWorks() {
 
                         {/* Unified Footer/Label */}
                         <div className="bg-black/40 py-3 text-center border-t border-white/10 px-4">
-                            <span className="text-[10px] md:text-xs font-mono text-gvc-gold tracking-widest italic">This entire process happens programmatically at the VibeStrategy protocol level.</span>
+                            <span className="text-[10px] md:text-xs font-mono text-gvc-gold tracking-wide italic">This entire process happens programmatically at the VibeStrategy protocol level</span>
                         </div>
                     </div>
                 </motion.div>
