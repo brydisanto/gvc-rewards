@@ -111,7 +111,7 @@ export default function TotalValueDisplay({ totalUsd, ethInflow, isLoading, onCh
             {/* Footnote */}
             <div className="text-center mt-3">
                 <p className="text-[10px] md:text-xs text-white/30 font-mundial tracking-wide">
-                    Rewards are held in the{' '}
+                    $VIBESTR was launched by TokenWorks. Rewards are held in the{' '}
                     <a
                         href="https://opensea.io/vibestrategy.eth"
                         target="_blank"
@@ -120,7 +120,7 @@ export default function TotalValueDisplay({ totalUsd, ethInflow, isLoading, onCh
                     >
                         VibeStrategy.eth
                     </a>
-                    {' '}wallet
+                    {' '}wallet.
                 </p>
             </div>
         </motion.div>
