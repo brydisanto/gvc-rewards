@@ -211,7 +211,7 @@ export default function HowItWorks() {
                         <div className="flex flex-col items-center gap-2">
                             <Trophy className="w-8 h-8 text-gvc-gold mb-2" />
                             <h3 className="text-lg font-cooper font-bold text-white uppercase">#1: GROWS THE REWARDS POOL</h3>
-                            <p className="text-white/60 text-sm font-mundial">A % of protocol fees automatically accrue as ETH to the VibeStrategy.eth Rewards wallet. This reserve is used to establish the community Rewards Pool.</p>
+                            <p className="text-white/60 text-sm font-mundial">A % of the protocol fee automatically accrues as ETH to the VibeStrategy.eth Rewards wallet. This reserve is used to build the community Rewards Pool.</p>
                         </div>
                     </motion.div>
 
@@ -224,7 +224,7 @@ export default function HowItWorks() {
                         <div className="flex flex-col items-center gap-2">
                             <BroomIcon className="w-8 h-8 text-gvc-gold mb-2" />
                             <h3 className="text-lg font-cooper font-bold text-white uppercase">#2: BUYS GVCS</h3>
-                            <p className="text-white/60 text-sm font-mundial">Another % of those fees are used to buy GVCs off OpenSea. These are then added to the VibeStrategy™ treasury and re-listed at a premium. All sale proceeds buy & burn $VIBESTR. This all happens programmatically at the protocol level.</p>
+                            <p className="text-white/60 text-sm font-mundial">A % of the protocol fee is used to buy GVCs off OpenSea. These are then added to the VibeStrategy treasury and re-listed at a premium. All sale proceeds buy & burn $VIBESTR. This all happens programmatically at the protocol level.</p>
                         </div>
                     </motion.div>
                 </div>
@@ -282,10 +282,10 @@ export default function HowItWorks() {
                     </div>
 
                     <div className="flex items-center justify-center gap-3 mb-4">
-                        <h3 className="text-3xl font-cooper font-bold text-gvc-gold uppercase">REWARDS GO TO BADGE COLLECTORS!</h3>
+                        <h3 className="text-3xl font-cooper font-bold text-gvc-gold uppercase">REWARDS GO TO BADGE COLLECTORS</h3>
                     </div>
                     <p className="text-white/80 font-mundial text-lg leading-relaxed max-w-2xl mx-auto">
-                        The Rewards Pool is used to support our collector ecosystem. Collect Badges to be eligible to win $VIBESTR, $PNKSTR, GVCs, and other special rewards like CryptoPunk #2457. More badges = greater access to the Rewards Pool.
+                        The Rewards Pool is used to support GVC's growing collector ecosystem. <span className="font-bold text-white">This is determined based on your Badge Collection</span>. Collect Badges to be eligible to win $VIBESTR, $PNKSTR, GVCs, and other special rewards like CryptoPunk #2457. More badges = greater access to the Rewards Pool.
                     </p>
                 </motion.div>
 
