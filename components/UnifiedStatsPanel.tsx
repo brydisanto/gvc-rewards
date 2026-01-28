@@ -56,6 +56,19 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
         }).format(num);
     };
 
+    const formatEthValue = (num: number) => {
+        const str = num.toFixed(2);
+        if (!str.includes('.')) return str;
+        const [int, dec] = str.split('.');
+        return (
+            <>
+                {int}
+                <span className="mx-[2px]">.</span>
+                {dec}
+            </>
+        );
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -115,7 +128,7 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
                     {isLoadingTokens ? (
                         <span className="animate-pulse">...</span>
                     ) : tokenStats ? (
-                        tokenStats.eth.toFixed(2)
+                        formatEthValue(tokenStats.eth)
                     ) : (
                         '—'
                     )}
