@@ -39,22 +39,22 @@ export default function BadgeMarquee() {
     return (
         <div className="fixed inset-0 pointer-events-none z-0 flex flex-col justify-between opacity-30 py-10 scale-110">
             {/* Top Row - Left */}
-            <div className="flex gap-12 overflow-hidden w-full rotate-[-2deg]">
+            <div className="flex gap-4 overflow-hidden w-full rotate-[-2deg]">
                 <MarqueeRow images={row1} direction="left" speed={40} />
             </div>
 
             {/* Middle Row - Right */}
-            <div className="flex gap-12 overflow-hidden w-full rotate-[2deg]">
+            <div className="flex gap-4 overflow-hidden w-full rotate-[2deg]">
                 <MarqueeRow images={row2} direction="right" speed={50} />
             </div>
 
             {/* Middle-Bottom Row - Left */}
-            <div className="flex gap-12 overflow-hidden w-full rotate-[-1deg]">
+            <div className="flex gap-4 overflow-hidden w-full rotate-[-1deg]">
                 <MarqueeRow images={row3} direction="left" speed={45} />
             </div>
 
             {/* Bottom Row - Right */}
-            <div className="flex gap-12 overflow-hidden w-full rotate-[3deg]">
+            <div className="flex gap-4 overflow-hidden w-full rotate-[3deg]">
                 <MarqueeRow images={row2} direction="right" speed={60} />
             </div>
         </div>
@@ -63,12 +63,12 @@ export default function BadgeMarquee() {
 
 function MarqueeRow({ images, direction, speed }: { images: string[], direction: 'left' | 'right', speed: number }) {
     return (
-        <div className="flex gap-12 flex-shrink-0">
+        <div className="flex gap-4 flex-shrink-0">
             {/* Duplicate 4 times to ensure coverage on wide screens */}
             {[1, 2, 3, 4].map((key) => (
                 <motion.div
                     key={key}
-                    className="flex gap-12 flex-shrink-0"
+                    className="flex gap-4 flex-shrink-0"
                     initial={{ x: direction === 'left' ? '0%' : '-100%' }}
                     animate={{ x: direction === 'left' ? '-100%' : '0%' }}
                     transition={{ ease: "linear", duration: speed, repeat: Infinity }}
