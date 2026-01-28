@@ -207,7 +207,7 @@ export default function HowItWorks() {
                                 <div className="inline-flex p-4 bg-black/40 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300 border border-gvc-gold/20 group-hover:border-gvc-gold">
                                     <Trophy className="w-8 h-8 text-gvc-gold" />
                                 </div>
-                                <h3 className="text-xl font-cooper font-bold text-white uppercase mb-4">1/ GROWS THE REWARDS POOL</h3>
+                                <h3 className="text-xl font-cooper font-bold text-white uppercase mb-4">1/ GROWS REWARDS</h3>
                                 <p className="text-white/60 text-sm font-mundial leading-relaxed">
                                     A % of the protocol fee automatically accrues as ETH to the VibeStrategy.eth Rewards wallet. This reserve is used to build the community Rewards Pool.
                                 </p>
@@ -220,14 +220,14 @@ export default function HowItWorks() {
                                 </div>
                                 <h3 className="text-xl font-cooper font-bold text-white uppercase mb-4">2/ BUYS GVCS</h3>
                                 <p className="text-white/60 text-sm font-mundial leading-relaxed">
-                                    A % of the protocol fee is used to buy GVCs off OpenSea. These are then added to the VibeStrategy treasury and re-listed at a premium. All sale proceeds buy & burn $VIBESTR. This all happens programmatically at the protocol level.
+                                    Another % of the protocol fee is used to buy GVCs off OpenSea. These are then added to the VibeStrategy treasury and re-listed at a premium. All sale proceeds are used to buy & burn $VIBESTR.
                                 </p>
                             </div>
                         </div>
 
                         {/* Unified Footer/Label */}
                         <div className="bg-black/40 py-3 text-center border-t border-white/10">
-                            <span className="text-xs font-mono text-gvc-gold uppercase tracking-widest">Automatic Protocol Step</span>
+                            <span className="text-xs font-mono text-gvc-gold uppercase tracking-widest italic">This entire process happens programmatically at the protocol level.</span>
                         </div>
                     </div>
                 </motion.div>
@@ -241,7 +241,7 @@ export default function HowItWorks() {
                 <motion.div
                     variants={item}
                     whileHover={{ scale: 1.02 }}
-                    className="relative z-10 mt-8 bg-gradient-to-br from-gvc-gold/10 to-transparent border border-gvc-gold rounded-xl p-10 md:p-14 w-full max-w-3xl text-center backdrop-blur-sm shadow-[0_0_50px_rgba(255,224,72,0.2)] group cursor-default"
+                    className="relative z-10 mt-16 bg-gradient-to-br from-gvc-gold/10 to-transparent border border-gvc-gold rounded-xl p-10 md:p-14 w-full max-w-3xl text-center backdrop-blur-sm shadow-[0_0_50px_rgba(255,224,72,0.2)] group cursor-default"
                 >
                     {/* Floating Badges Decoration - Hidden on small screens to prevent clutter, visible on md+ */}
                     <div className="absolute inset-0 pointer-events-none hidden md:block overflow-visible">
