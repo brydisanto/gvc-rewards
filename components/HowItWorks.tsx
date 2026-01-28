@@ -183,7 +183,7 @@ export default function HowItWorks() {
                         <h3 className="text-xl font-cooper font-bold text-white uppercase">PROTOCOL GENERATES FEES</h3>
                     </div>
                     <p className="text-white/60 font-mundial text-sm">
-                        <span className="font-bold text-gvc-gold">10%</span> of $VIBESTR trading volume is reserved as a fee at the protocol level. This automatically flows into 2 different buckets:
+                        <span className="font-bold text-gvc-gold">10%</span> of $VIBESTR trading volume is reserved as a fee by the protocol. This automatically flows into 2 different buckets.
                     </p>
                 </motion.div>
 
