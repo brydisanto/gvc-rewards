@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, TrendingUp, Coins, Trophy } from 'lucide-react';
+import { ArrowDown, TrendingUp, Coins, Trophy, ChevronsDown } from 'lucide-react';
 
 const BroomIcon = ({ className }: { className?: string }) => (
     <svg
@@ -169,7 +169,7 @@ export default function HowItWorks() {
 
                 {/* Arrow */}
                 <motion.div variants={item}>
-                    <ArrowDown className="w-8 h-8 text-white/20 animate-bounce" />
+                    <ChevronsDown className="w-12 h-12 text-white/50 animate-bounce" />
                 </motion.div>
 
                 {/* Step 2: Fees Generated */}
@@ -189,7 +189,7 @@ export default function HowItWorks() {
 
                 {/* Arrow Down to Combined Step */}
                 <motion.div variants={item}>
-                    <ArrowDown className="w-8 h-8 text-white/20 animate-bounce" />
+                    <ChevronsDown className="w-12 h-12 text-white/50 animate-bounce" />
                 </motion.div>
 
                 {/* UNIFIED DUAL-CHAMBER CARD (Option A) */}
@@ -234,7 +234,7 @@ export default function HowItWorks() {
 
                 {/* Arrow to Next Step */}
                 <motion.div variants={item}>
-                    <ArrowDown className="w-8 h-8 text-white/20 animate-bounce" />
+                    <ChevronsDown className="w-12 h-12 text-white/50 animate-bounce" />
                 </motion.div>
 
                 {/* Final Step: Rewards */}
