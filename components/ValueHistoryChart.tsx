@@ -135,7 +135,7 @@ export default function ValueHistoryChart({ data, isLoading }: ValueHistoryChart
                             boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
                         }}
                         labelFormatter={formatDate}
-                        formatter={(value: any) => ['$' + value.toLocaleString(), 'Total Value']}
+                        formatter={(value: any) => ['$' + value.toLocaleString(undefined, { maximumFractionDigits: 0 }), 'Total Value']}
                         itemStyle={{ color: '#FFE048' }}
                         labelStyle={{ color: '#ffffff', marginBottom: '8px', fontSize: '18px' }}
                     />
