@@ -177,84 +177,96 @@ export default function HowItWorks() {
                     <ArrowDown className="w-8 h-8 text-white/20 animate-bounce" />
                 </motion.div>
 
-                {/* Step 2: Fees Generated */}
+                {/* CIRCUIT DIAGRAM SECTION */}
                 <motion.div
                     variants={item}
-                    whileHover={{ scale: 1.05 }}
-                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-6 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
+                    className="w-full relative bg-gvc-black border border-white/10 rounded-3xl p-8 md:p-12 overflow-hidden mt-8 mb-12"
                 >
-                    <div className="flex items-center justify-center gap-3 mb-2">
-                        <Coins className="w-8 h-8 text-gvc-gold" />
-                        <h3 className="text-xl font-cooper font-bold text-white uppercase">PROTOCOL GENERATES FEES</h3>
-                    </div>
-                    <p className="text-white/60 font-mundial text-sm">
-                        <span className="font-bold text-gvc-gold">10%</span> of $VIBESTR buy and sell volume is taken as a fee at the protocol level. This automatically flows to 2 different places:
-                    </p>
-                </motion.div>
+                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gvc-gold via-transparent to-transparent pointer-events-none" />
 
-                {/* Split Arrow */}
-                <motion.div variants={item} className="w-full max-w-2xl hidden md:flex justify-center h-12 relative">
-                    <div className="absolute top-0 left-1/2 w-0.5 h-6 bg-white/20 -translate-x-1/2" />
-                    <div className="absolute top-6 left-1/4 right-1/4 h-0.5 bg-white/20 border-t border-white/20 rounded-full" />
-                    <div className="absolute top-6 left-1/4 w-0.5 h-6 bg-white/20" />
-                    <div className="absolute top-6 right-1/4 w-0.5 h-6 bg-white/20" />
-                </motion.div>
+                    <div className="grid grid-cols-1 gap-8 relative z-10">
 
-                {/* Mobile Arrow */}
-                <motion.div variants={item} className="md:hidden">
-                    <ArrowDown className="w-8 h-8 text-white/20 animate-bounce" />
-                </motion.div>
+                        {/* Source Column */}
+                        <div className="flex justify-center relative">
+                            <div className="relative z-10 w-full max-w-lg bg-stone-900 border-2 border-gvc-gold rounded-xl p-6 shadow-[0_0_30px_rgba(255,224,72,0.1)] text-center">
+                                {/* Horizontal connectors for desktop */}
+                                <div className="hidden md:block absolute top-1/2 right-full w-24 h-[2px] bg-gradient-to-l from-gvc-gold/50 to-transparent" />
+                                <div className="hidden md:block absolute top-1/2 left-full w-24 h-[2px] bg-gradient-to-r from-gvc-gold/50 to-transparent" />
 
-                {/* Split Branches */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
-                    {/* Branch 1 */}
-                    <motion.div
-                        variants={item}
-                        whileHover={{ scale: 1.05 }}
-                        className="bg-gvc-dark border border-gvc-gold/30 rounded-xl p-6 text-center h-full hover:border-gvc-gold transition-colors cursor-default"
-                    >
-                        <div className="flex flex-col items-center gap-2">
-                            <Trophy className="w-8 h-8 text-gvc-gold mb-2" />
-                            <h3 className="text-lg font-cooper font-bold text-white uppercase">ADDS TO THE REWARDS POOL</h3>
-                            <p className="text-white/60 text-sm font-mundial">A % of protocol fees automatically accrue as ETH to the VibeStrategy.eth Rewards wallet. This reserve is used to establish the community Rewards Pool.</p>
+                                <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+                                    <div className="p-3 bg-gvc-gold text-black rounded-lg font-bold shrink-0">FEES</div>
+                                    <div className="text-left">
+                                        <h3 className="font-cooper text-white uppercase text-lg">PROTOCOL GENERATES FEES</h3>
+                                        <p className="text-white/60 font-mundial text-xs leading-relaxed max-w-xs">
+                                            <span className="font-bold text-gvc-gold">10%</span> of buy/sell volume is taken as a fee, automatically flowing to 2 places:
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Vertical Line Down to Splitter */}
+                                <div className="absolute left-1/2 top-full w-[2px] h-12 bg-gvc-gold">
+                                    <motion.div
+                                        className="w-full bg-white h-4 shadow-[0_0_10px_white]"
+                                        animate={{ y: [0, 48] }}
+                                        transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                                    />
+                                </div>
+                            </div>
                         </div>
-                    </motion.div>
 
-                    {/* Branch 2 */}
-                    <motion.div
-                        variants={item}
-                        whileHover={{ scale: 1.05 }}
-                        className="bg-gvc-dark border border-gvc-gold/30 rounded-xl p-6 text-center h-full hover:border-gvc-gold transition-colors cursor-default"
-                    >
-                        <div className="flex flex-col items-center gap-2">
-                            <BroomIcon className="w-8 h-8 text-gvc-gold mb-2" />
-                            <h3 className="text-lg font-cooper font-bold text-white uppercase">BUYS GVCS OFF THE FLOOR</h3>
-                            <p className="text-white/60 text-sm font-mundial">Another % of those fees are used to buy GVCs off OpenSea. These are then added to the VibeStrategy™ treasury and re-listed at a premium. All sale proceeds buy & burn $VIBESTR. This all happens programmatically at the protocol level.</p>
+                        {/* Split Logic Visual */}
+                        <div className="h-8 relative mt-4 mb-4 hidden md:block">
+                            {/* Horizontal Bar */}
+                            <div className="absolute top-0 left-[20%] right-[20%] h-[2px] bg-gvc-gold/50">
+                                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-gvc-gold rounded-full shadow-[0_0_10px_#FFE048]" />
+                                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-gvc-gold rounded-full shadow-[0_0_10px_#FFE048]" />
+                                <div className="absolute left-1/2 top-1/2 -translate-y-1/2 w-4 h-4 bg-black border-2 border-gvc-gold rounded-full z-10" />
+                            </div>
+                            {/* Vertical Drops */}
+                            <div className="absolute top-0 left-[20%] w-[2px] h-8 bg-gradient-to-b from-gvc-gold/50 to-gvc-gold/20" />
+                            <div className="absolute top-0 right-[20%] w-[2px] h-8 bg-gradient-to-b from-gvc-gold/50 to-gvc-gold/20" />
                         </div>
-                    </motion.div>
-                </div>
 
-                {/* Converging Bracket */}
-                <motion.div variants={item} className="w-full max-w-3xl hidden md:flex justify-center h-24 relative">
-                    {/* Vertical lines from boxes */}
-                    <div className="absolute top-0 left-1/4 w-0.5 h-12 bg-white/20" />
-                    <div className="absolute top-0 right-1/4 w-0.5 h-12 bg-white/20" />
+                        {/* Destinations */}
+                        <div className="flex flex-col md:flex-row gap-6 justify-center">
 
-                    {/* Horizontal connecting line */}
-                    <div className="absolute top-12 left-1/4 right-1/4 h-0.5 bg-white/20" />
+                            {/* BUCKET #1 */}
+                            <div className="flex-1 bg-white/5 border border-white/10 p-1 relative group rounded-2xl md:rounded-none">
+                                {/* Corner Accents (Desktop only) */}
+                                <div className="hidden md:block absolute top-0 left-0 w-2 h-2 border-t border-l border-gvc-gold" />
+                                <div className="hidden md:block absolute top-0 right-0 w-2 h-2 border-t border-r border-gvc-gold" />
+                                <div className="hidden md:block absolute bottom-0 left-0 w-2 h-2 border-b border-l border-gvc-gold" />
+                                <div className="hidden md:block absolute bottom-0 right-0 w-2 h-2 border-b border-r border-gvc-gold" />
 
-                    {/* Central downward line */}
-                    <div className="absolute top-12 left-1/2 w-0.5 h-12 bg-white/20 -translate-x-1/2" />
+                                <div className="bg-black/50 p-6 h-full flex flex-col items-center text-center rounded-xl md:rounded-none">
+                                    <Trophy className="w-10 h-10 text-white mb-4 opacity-50 group-hover:opacity-100 group-hover:text-gvc-gold transition-all" />
+                                    <h4 className="font-mono text-gvc-gold text-sm mb-2 tracking-widest">BUCKET #1</h4>
+                                    <h3 className="font-cooper text-xl text-white mb-2 uppercase">ADDS TO THE REWARDS POOL</h3>
+                                    <p className="text-white/60 text-xs font-mundial leading-relaxed">
+                                        A % of protocol fees automatically accrue as ETH to the VibeStrategy.eth Rewards wallet. This reserve is used to establish the community Rewards Pool.
+                                    </p>
+                                </div>
+                            </div>
 
-                    {/* Arrow at the bottom */}
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
-                        <ArrowDown className="w-8 h-8 text-white/20 animate-bounce bg-gvc-black rounded-full" />
+                            {/* BUCKET #2 */}
+                            <div className="flex-1 bg-white/5 border border-white/10 p-1 relative group rounded-2xl md:rounded-none">
+                                {/* Corner Accents (Desktop only) */}
+                                <div className="hidden md:block absolute top-0 left-0 w-2 h-2 border-t border-l border-gvc-gold" />
+                                <div className="hidden md:block absolute top-0 right-0 w-2 h-2 border-t border-r border-gvc-gold" />
+                                <div className="hidden md:block absolute bottom-0 left-0 w-2 h-2 border-b border-l border-gvc-gold" />
+                                <div className="hidden md:block absolute bottom-0 right-0 w-2 h-2 border-b border-r border-gvc-gold" />
+
+                                <div className="bg-black/50 p-6 h-full flex flex-col items-center text-center rounded-xl md:rounded-none">
+                                    <BroomIcon className="w-10 h-10 text-white mb-4 opacity-50 group-hover:opacity-100 group-hover:text-gvc-gold transition-all" />
+                                    <h4 className="font-mono text-gvc-gold text-sm mb-2 tracking-widest">BUCKET #2</h4>
+                                    <h3 className="font-cooper text-xl text-white mb-2 uppercase">BUYS GVCS OFF THE FLOOR</h3>
+                                    <p className="text-white/60 text-xs font-mundial leading-relaxed">
+                                        Another % of those fees are used to buy GVCs off OpenSea. These are then added to the VibeStrategy™ treasury and re-listed at a premium. All sale proceeds buy & burn $VIBESTR. This all happens programmatically at the protocol level.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </motion.div>
-
-                {/* Mobile Arrow for small screens */}
-                <motion.div variants={item} className="md:hidden pt-4">
-                    <ArrowDown className="w-8 h-8 text-white/20 animate-bounce" />
                 </motion.div>
 
                 {/* Final Step: Rewards */}
