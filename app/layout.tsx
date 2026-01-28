@@ -25,7 +25,7 @@ const mundial = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "THE GOOD VIBES REWARDS POOL",
+  title: "The VibeStrategy Rewards Pool",
   description: "Collect Badges. Grow The Ecosystem. Win Rewards.",
   icons: {
     icon: '/shaka.png',
