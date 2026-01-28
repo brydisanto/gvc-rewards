@@ -27,10 +27,10 @@ export default function TextOptions() {
                 <MarqueeBackground />
                 <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
                     <p className="absolute top-4 left-4 text-xs tracking-widest text-white/50 font-mono">OPTION 1: HEAVY DROP SHADOW</p>
-                    <h2 className="text-5xl md:text-7xl font-cooper font-bold text-gvc-gold leading-none tracking-tight drop-shadow-[0_4px_0_rgba(0,0,0,1)] filter">
+                    <h2 className="text-5xl md:text-7xl font-cooper font-bold text-gvc-gold leading-none tracking-tight drop-shadow-[0_6px_0_rgba(0,0,0,1)] filter">
                         BADGES ARE
                     </h2>
-                    <h2 className="text-6xl md:text-8xl font-cooper font-bold text-white leading-none tracking-tight mt-1 drop-shadow-[0_8px_8px_rgba(0,0,0,0.9)]">
+                    <h2 className="text-6xl md:text-8xl font-cooper font-bold text-white leading-none tracking-tight mt-1 drop-shadow-[0_6px_0_rgba(0,0,0,1)]">
                         THE ALPHA
                     </h2>
                 </div>

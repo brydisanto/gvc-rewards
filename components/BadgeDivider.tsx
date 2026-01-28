@@ -83,10 +83,10 @@ export default function BadgeDivider({ reverse = false }: BadgeDividerProps) {
             {/* Foreground Text - Hidden by default, grows and fades in on hover */}
             {/* OPTION 1 STYLE AS REQUESTED */}
             <div className="relative z-10 text-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-90">
-                <h2 className="text-4xl md:text-6xl font-cooper font-bold text-gvc-gold leading-none tracking-tight drop-shadow-[0_4px_0_rgba(0,0,0,1)] filter">
+                <h2 className="text-4xl md:text-6xl font-cooper font-bold text-gvc-gold leading-none tracking-tight drop-shadow-[0_6px_0_rgba(0,0,0,1)] filter">
                     BADGES ARE
                 </h2>
-                <h2 className="text-5xl md:text-7xl font-cooper font-bold text-white leading-none tracking-tight mt-1 drop-shadow-[0_8px_8px_rgba(0,0,0,0.9)]">
+                <h2 className="text-5xl md:text-7xl font-cooper font-bold text-white leading-none tracking-tight mt-1 drop-shadow-[0_6px_0_rgba(0,0,0,1)]">
                     THE ALPHA
                 </h2>
             </div>
