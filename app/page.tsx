@@ -345,7 +345,7 @@ export default function Home() {
         </p>
 
         <p>
-          As <span className="text-gvc-gold font-bold">$VIBESTR</span>, a strategy token launched by TokenWorks, trades the Rewards Pool grows. Automatically.
+          As <span className="text-gvc-gold font-bold">$VIBESTR</span> trades, the Rewards Pool grows. Automatically.
           It currently holds <span className="text-gvc-gold font-bold">$VIBESTR</span>,{' '}
           <span className="text-gvc-gold font-bold">$PNKSTR</span>,{' '}
           <span className="text-gvc-gold font-bold">ETH</span>, and <span className="text-gvc-gold font-bold">GVCs</span>...

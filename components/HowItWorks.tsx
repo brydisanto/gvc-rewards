@@ -188,9 +188,7 @@ export default function HowItWorks() {
                         <h3 className="text-xl font-cooper font-bold text-white uppercase">PROTOCOL GENERATES FEES</h3>
                     </div>
                     <p className="text-white/60 font-mundial text-sm">
-                        <span className="font-bold text-gvc-gold">10%</span> of $VIBESTR buy and sell volume is taken as a fee at the protocol level.
-                        <br />
-                        This automatically flows to 2 different places:
+                        <span className="font-bold text-gvc-gold">10%</span> of $VIBESTR buy and sell volume is taken as a fee at the protocol level. This automatically flows to 2 different places:
                     </p>
                 </motion.div>
 
@@ -218,7 +216,7 @@ export default function HowItWorks() {
                         <div className="flex flex-col items-center gap-2">
                             <Trophy className="w-8 h-8 text-gvc-gold mb-2" />
                             <h3 className="text-lg font-cooper font-bold text-white uppercase">ADDS TO THE REWARDS POOL</h3>
-                            <p className="text-white/60 text-sm font-mundial">A portion of protocol fees automatically accrue as ETH to the VibeStrategy.eth Rewards wallet.</p>
+                            <p className="text-white/60 text-sm font-mundial">A % of protocol fees automatically accrue as ETH to the VibeStrategy.eth Rewards wallet. This reserve is used to establish the community Rewards Pool.</p>
                         </div>
                     </motion.div>
 
@@ -231,7 +229,7 @@ export default function HowItWorks() {
                         <div className="flex flex-col items-center gap-2">
                             <BroomIcon className="w-8 h-8 text-gvc-gold mb-2" />
                             <h3 className="text-lg font-cooper font-bold text-white uppercase">BUYS GVCS OFF THE FLOOR</h3>
-                            <p className="text-white/60 text-sm font-mundial">Another portion of those fees are used to programmatically buy GVCs off OpenSea. These are then added to the VibeStrategy™ treasury and re-listed at a premium. All sale proceeds buy & burn $VIBESTR.</p>
+                            <p className="text-white/60 text-sm font-mundial">Another % of those fees are used to buy GVCs off OpenSea. These are then added to the VibeStrategy™ treasury and re-listed at a premium. All sale proceeds buy & burn $VIBESTR. This all happens programmatically at the protocol level.</p>
                         </div>
                     </motion.div>
                 </div>
