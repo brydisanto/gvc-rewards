@@ -285,10 +285,10 @@ export default function HowItWorks() {
                         <h3 className="text-3xl font-cooper font-bold text-gvc-gold uppercase">REWARDS GO TO BADGE COLLECTORS</h3>
                     </div>
                     <p className="text-white/80 font-mundial text-lg leading-relaxed max-w-2xl mx-auto mb-6">
-                        The Rewards Pool is designed to support GVC's growing collector ecosystem. <span className="font-bold text-white">This is determined by your Badge Collection</span>. Collect Badges to be eligible to win $VIBESTR, $PNKSTR, GVCs, and other special rewards like CryptoPunk #2457.
+                        The Rewards Pool is designed to support GVC's growing collector ecosystem. <span className="font-bold text-white">This is determined by your Badge Collection.</span>
                     </p>
-                    <p className="text-white font-mundial text-lg font-bold">
-                        More badges = greater access to the Rewards Pool.
+                    <p className="text-white/80 font-mundial text-lg leading-relaxed max-w-2xl mx-auto">
+                        Collect Badges to be eligible to win $VIBESTR, $PNKSTR, GVCs, and other special rewards like CryptoPunk #2457. More badges = greater access to the Rewards Pool.
                     </p>
                 </motion.div>
 
