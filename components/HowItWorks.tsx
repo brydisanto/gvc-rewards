@@ -187,68 +187,53 @@ export default function HowItWorks() {
                     </p>
                 </motion.div>
 
-                {/* Split Arrow */}
-                <motion.div variants={item} className="w-full max-w-2xl hidden md:flex justify-center h-12 relative">
-                    <div className="absolute top-0 left-1/2 w-0.5 h-6 bg-white/20 -translate-x-1/2" />
-                    <div className="absolute top-6 left-1/4 right-1/4 h-0.5 bg-white/20 border-t border-white/20 rounded-full" />
-                    <div className="absolute top-6 left-1/4 w-0.5 h-6 bg-white/20" />
-                    <div className="absolute top-6 right-1/4 w-0.5 h-6 bg-white/20" />
-                </motion.div>
-
-                {/* Mobile Arrow */}
-                <motion.div variants={item} className="md:hidden">
+                {/* Arrow Down to Combined Step */}
+                <motion.div variants={item}>
                     <ArrowDown className="w-8 h-8 text-white/20 animate-bounce" />
                 </motion.div>
 
-                {/* Split Branches */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
-                    {/* Branch 1 */}
-                    <motion.div
-                        variants={item}
-                        whileHover={{ scale: 1.05 }}
-                        className="bg-gvc-dark border border-gvc-gold/30 rounded-xl p-6 text-center h-full hover:border-gvc-gold transition-colors cursor-default"
-                    >
-                        <div className="flex flex-col items-center gap-2">
-                            <Trophy className="w-8 h-8 text-gvc-gold mb-2" />
-                            <h3 className="text-lg font-cooper font-bold text-white uppercase">1/ GROWS THE REWARDS POOL</h3>
-                            <p className="text-white/60 text-sm font-mundial">A % of the protocol fee automatically accrues as ETH to the VibeStrategy.eth Rewards wallet. This reserve is used to build the community Rewards Pool.</p>
+                {/* UNIFIED DUAL-CHAMBER CARD (Option A) */}
+                <motion.div
+                    variants={item}
+                    className="w-full max-w-4xl mx-auto"
+                >
+                    <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden relative backdrop-blur-sm">
+                        {/* Shared Background Effects */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-gvc-gold/5 to-transparent pointer-events-none" />
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
+                            {/* Bucket 1 */}
+                            <div className="p-8 md:p-12 text-center group hover:bg-white/5 transition-colors">
+                                <div className="inline-flex p-4 bg-black/40 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300 border border-gvc-gold/20 group-hover:border-gvc-gold">
+                                    <Trophy className="w-8 h-8 text-gvc-gold" />
+                                </div>
+                                <h3 className="text-xl font-cooper font-bold text-white uppercase mb-4">1/ GROWS THE REWARDS POOL</h3>
+                                <p className="text-white/60 text-sm font-mundial leading-relaxed">
+                                    A % of the protocol fee automatically accrues as ETH to the VibeStrategy.eth Rewards wallet. This reserve is used to build the community Rewards Pool.
+                                </p>
+                            </div>
+
+                            {/* Bucket 2 */}
+                            <div className="p-8 md:p-12 text-center group hover:bg-white/5 transition-colors">
+                                <div className="inline-flex p-4 bg-black/40 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300 border border-gvc-gold/20 group-hover:border-gvc-gold">
+                                    <BroomIcon className="w-8 h-8 text-gvc-gold" />
+                                </div>
+                                <h3 className="text-xl font-cooper font-bold text-white uppercase mb-4">2/ BUYS GVCS</h3>
+                                <p className="text-white/60 text-sm font-mundial leading-relaxed">
+                                    A % of the protocol fee is used to buy GVCs off OpenSea. These are then added to the VibeStrategy treasury and re-listed at a premium. All sale proceeds buy & burn $VIBESTR. This all happens programmatically at the protocol level.
+                                </p>
+                            </div>
                         </div>
-                    </motion.div>
 
-                    {/* Branch 2 */}
-                    <motion.div
-                        variants={item}
-                        whileHover={{ scale: 1.05 }}
-                        className="bg-gvc-dark border border-gvc-gold/30 rounded-xl p-6 text-center h-full hover:border-gvc-gold transition-colors cursor-default"
-                    >
-                        <div className="flex flex-col items-center gap-2">
-                            <BroomIcon className="w-8 h-8 text-gvc-gold mb-2" />
-                            <h3 className="text-lg font-cooper font-bold text-white uppercase">2/ BUYS GVCS</h3>
-                            <p className="text-white/60 text-sm font-mundial">A % of the protocol fee is used to buy GVCs off OpenSea. These are then added to the VibeStrategy treasury and re-listed at a premium. All sale proceeds buy & burn $VIBESTR. This all happens programmatically at the protocol level.</p>
+                        {/* Unified Footer/Label */}
+                        <div className="bg-black/40 py-3 text-center border-t border-white/10">
+                            <span className="text-xs font-mono text-gvc-gold uppercase tracking-widest">Automatic Protocol Step</span>
                         </div>
-                    </motion.div>
-                </div>
-
-                {/* Converging Bracket */}
-                <motion.div variants={item} className="w-full max-w-3xl hidden md:flex justify-center h-24 relative">
-                    {/* Vertical lines from boxes */}
-                    <div className="absolute top-0 left-1/4 w-0.5 h-12 bg-white/20" />
-                    <div className="absolute top-0 right-1/4 w-0.5 h-12 bg-white/20" />
-
-                    {/* Horizontal connecting line */}
-                    <div className="absolute top-12 left-1/4 right-1/4 h-0.5 bg-white/20" />
-
-                    {/* Central downward line */}
-                    <div className="absolute top-12 left-1/2 w-0.5 h-12 bg-white/20 -translate-x-1/2" />
-
-                    {/* Arrow at the bottom */}
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20">
-                        <ArrowDown className="w-8 h-8 text-white/20 animate-bounce bg-gvc-black rounded-full" />
                     </div>
                 </motion.div>
 
-                {/* Mobile Arrow for small screens */}
-                <motion.div variants={item} className="md:hidden pt-4">
+                {/* Arrow to Next Step */}
+                <motion.div variants={item}>
                     <ArrowDown className="w-8 h-8 text-white/20 animate-bounce" />
                 </motion.div>
 
