@@ -353,7 +353,7 @@ export default function Home() {
         </p>
 
         <p>
-          More details about the program will be revealed soon. We call it <span className="text-gvc-orange font-bold">Project Eruption</span>.
+          More details about the program will be revealed soon (we call it <span className="text-gvc-orange font-bold">Project Eruption</span>).
         </p>
       </motion.div>
 
