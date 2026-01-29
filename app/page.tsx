@@ -313,7 +313,7 @@ export default function Home() {
             transition={{ delay: 0.1, duration: 0.5 }}
             className="text-gvc-gold/80 font-mundial font-bold tracking-[0.2em] text-xs md:text-sm mb-4 uppercase"
           >
-            A VIBESTRATEGY PROTOCOL TRACKER
+            VIBESTRATEGY PROTOCOL TRACKER
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
@@ -341,11 +341,11 @@ export default function Home() {
         className="z-10 max-w-3xl text-center text-white/80 font-mundial text-base md:text-lg mt-8 leading-relaxed flex flex-col gap-6"
       >
         <p className="font-bold text-white">
-          Collect Badges. Grow The Ecosystem. Win Rewards.
+          Collect Badges. Participate in the Eco. Access Rewards.
         </p>
 
         <p>
-          As <span className="text-gvc-gold font-bold">$VIBESTR</span> trades, the Rewards Pool grows. Automatically.
+          As <span className="text-gvc-gold font-bold">$VIBESTR</span> trades, the Rewards Pool updates. Automatically.
           It currently holds <span className="text-gvc-gold font-bold">$VIBESTR</span>,{' '}
           <span className="text-gvc-gold font-bold">$PNKSTR</span>,{' '}
           <span className="text-gvc-gold font-bold">ETH</span>, and <span className="text-gvc-gold font-bold">GVCs</span>...
@@ -353,7 +353,7 @@ export default function Home() {
         </p>
 
         <p>
-          More details will be revealed soon. But just know, it'll be <span className="italic">explosive</span>.
+          More details about the program will be revealed soon. We call it <span className="text-gvc-orange font-bold">Project Eruption</span>.
         </p>
       </motion.div>
 
