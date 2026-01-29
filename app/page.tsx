@@ -354,7 +354,6 @@ export default function Home() {
 
         <p>
           More details will be revealed soon. But just know, it'll be <span className="italic">explosive</span>.
-          We call it <span className="text-gvc-orange font-bold">Project Eruption</span>.
         </p>
       </motion.div>
 
