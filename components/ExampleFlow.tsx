@@ -348,6 +348,22 @@ export default function ExampleFlow() {
                     </div>
                 </motion.div>
 
+                {/* Final Summary Note */}
+                <motion.div
+                    variants={item}
+                    className="relative z-10 w-full max-w-2xl mx-auto text-center mt-12 mb-8"
+                >
+                    <div className="inline-block relative">
+                        {/* Decorative lines */}
+                        <div className="absolute top-1/2 -left-12 w-8 h-[1px] bg-gradient-to-r from-transparent to-gvc-gold/50"></div>
+                        <div className="absolute top-1/2 -right-12 w-8 h-[1px] bg-gradient-to-l from-transparent to-gvc-gold/50"></div>
+
+                        <p className="font-cooper font-bold text-white text-xl md:text-2xl leading-relaxed italic tracking-wide">
+                            ...and that's just in a single <span className="text-gvc-gold">$1M</span> trading day!
+                        </p>
+                    </div>
+                </motion.div>
+
             </motion.div>
         </div >
     );
