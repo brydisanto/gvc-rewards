@@ -159,10 +159,10 @@ export default function ExampleFlow() {
                     <StepRibbon text="STEP 3" />
                     <div className="space-y-3">
                         <p className="font-cooper font-bold text-white text-lg leading-tight uppercase">
-                            THE PROTOCOL IMMEDIATELY RELISTS THE <span className="text-gvc-gold">30 GVCS</span> AT A PREMIUM
+                            THE PROTOCOL IMMEDIATELY RELISTS THE 30 GVCS AT A PREMIUM
                         </p>
                         <p className="text-white/60 font-mundial text-base leading-tight">
-                            They're automatically relisted on OpenSea at <span className="text-gvc-gold font-bold">~1.2 ETH</span>. They never move until sold.
+                            They're automatically relisted on OpenSea at ~1.2 ETH. They never move until sold.
                         </p>
                         <p className="text-xs italic text-white/40 font-mundial">(Uses a randomized premium between 1.2-1.5x)</p>
                     </div>
@@ -182,7 +182,7 @@ export default function ExampleFlow() {
                     <StepRibbon text="STEP 4" />
                     <div className="space-y-3">
                         <p className="font-cooper font-bold text-white text-lg leading-tight uppercase">
-                            AS THE <span className="text-gvc-gold">30 GVCS</span> SELL, THE PROTOCOL AUTOMATICALLY BUYS $VIBESTR
+                            AS THE 30 GVCS SELL, THE PROTOCOL AUTOMATICALLY BUYS $VIBESTR
                         </p>
                         <p className="text-white/60 text-base font-mundial leading-tight">
                             This purchases <span className="text-gvc-gold font-bold">~36 ETH</span> worth of $VIBESTR once all 30 GVCs are sold.
@@ -235,7 +235,7 @@ export default function ExampleFlow() {
                                     <p className="text-white/60 font-mundial text-sm pt-2 px-4 leading-tight">
                                         All $VIBESTR purchased by the protocol is automatically burned.
                                     </p>
-                                    <p className="text-gvc-green font-mundial font-bold text-sm pt-2">
+                                    <p className="text-gvc-orange font-mundial font-bold text-sm pt-2">
                                         That = 0.96% of the total supply
                                     </p>
                                 </div>
