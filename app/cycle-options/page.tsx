@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 // Simplified Step Component for the demo
-const DemoStep = ({ label, className = "" }) => (
+const DemoStep = ({ label, className = "" }: { label: string, className?: string }) => (
     <div className={`p-6 bg-white/5 border border-white/10 rounded-xl text-center backdrop-blur-sm ${className}`}>
         <span className="font-bold text-white/50">{label}</span>
     </div>
