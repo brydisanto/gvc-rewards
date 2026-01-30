@@ -96,7 +96,7 @@ export default function ExampleFlow() {
                                         <span className="text-gvc-gold">$80,000 (8%)</span> IS RESERVED AS FEES AND AUTOMATICALLY BUYS GVCS
                                     </p>
                                     <p className="text-white/60 text-base font-mundial leading-tight px-2">
-                                        The protocol would buy <span className="text-gvc-gold font-bold">30 GVCs</span> from OpenSea and add them to the treasury.
+                                        The protocol buys <span className="text-gvc-gold font-bold">30 GVCs</span> from the OpenSea floor and adds them to the treasury.
                                     </p>
                                     <p className="text-xs italic text-white/40 font-mundial mt-2">(If ETH = $3,000 & the GVC floor is .9ETH)</p>
                                 </div>
@@ -139,12 +139,12 @@ export default function ExampleFlow() {
                     <StepRibbon text="STEP 3" />
                     <div className="space-y-3">
                         <p className="font-cooper font-bold text-white text-lg leading-tight uppercase">
-                            THE PROTOCOL RELISTS THOSE <span className="text-gvc-gold">30 GVCS</span> AT A PREMIUM
+                            THE PROTOCOL IMMEDIATELY RELISTS THOSE <span className="text-gvc-gold">30 GVCS</span> AT A PREMIUM
                         </p>
                         <p className="text-white/60 font-mundial text-base leading-tight">
-                            Automatically relisted on OpenSea at 1.2 ETH on average
+                            Automatically relisted at ~1.2 ETH.
                         </p>
-                        <p className="text-xs italic text-white/40 font-mundial">(Randomized premium between 1.2-1.5x)</p>
+                        <p className="text-xs italic text-white/40 font-mundial">(Uses a randomized premium between 1.2-1.5x)</p>
                     </div>
                 </motion.div>
 
@@ -162,12 +162,12 @@ export default function ExampleFlow() {
                     <StepRibbon text="STEP 4" />
                     <div className="space-y-3">
                         <p className="font-cooper font-bold text-white text-lg leading-tight uppercase">
-                            ETH FROM EVERY PROTOCOL GVC THAT SELLS IS USED TO PURCHASE $VIBESTR
+                            AS THOSE <span className="text-gvc-gold">30 GVCS</span> SELL, THE PROTOCOL AUTOMATICALLY BUYS $VIBESTR
                         </p>
                         <p className="text-white/60 text-base font-mundial leading-tight">
-                            Unleashes ~36 ETH in buy pressure on $VIBESTR once all 30 GVCs are sold
+                            Unleashes <span className="text-gvc-gold font-bold">~36 ETH in buy pressure</span> on $VIBESTR once all 30 GVCs are sold.
                         </p>
-                        <p className="text-xs italic text-white/40 font-mundial">At $0.01, that = 9.6M $VIBESTR</p>
+                        <p className="text-xs italic text-white/40 font-mundial">(At $0.01, that = 9.6M $VIBESTR)</p>
                     </div>
                 </motion.div>
 
@@ -177,29 +177,34 @@ export default function ExampleFlow() {
                 </motion.div>
 
                 {/* Step 5: Burn */}
+                {/* Fixed ribbon clipping: Parent div holds ribbon, Child card holds overflow-hidden */}
                 <motion.div
                     variants={item}
                     whileHover={{ scale: 1.05 }}
-                    className="relative z-10 bg-[#111] border border-gvc-orange rounded-[32px] p-10 pt-16 w-full max-w-lg text-center overflow-hidden shadow-[0_0_30px_rgba(255,100,0,0.15)]"
+                    className="relative z-10 w-full max-w-lg"
                 >
                     <StepRibbon text="STEP 5" />
+                    <div className="bg-[#111] border border-gvc-orange rounded-[32px] p-10 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(255,100,0,0.15)]">
+                        {/* Interactive glow effects */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-red-600/10 via-orange-500/5 to-transparent animate-pulse pointer-events-none" />
 
-                    {/* Inner content matching hierarchy */}
-                    <div className="relative z-10 flex flex-col items-center space-y-2">
-                        <div className="flex items-center gap-2 mb-2">
-                            <Flame className="w-5 h-5 text-gvc-orange fill-gvc-orange animate-pulse" />
-                            <h3 className="text-white font-mundial font-bold tracking-widest text-sm uppercase">
-                                $VIBESTR BURNED
-                            </h3>
+                        {/* Inner content matching hierarchy */}
+                        <div className="relative z-10 flex flex-col items-center space-y-2">
+                            <div className="flex items-center gap-2 mb-2">
+                                <Flame className="w-5 h-5 text-gvc-orange fill-gvc-orange animate-pulse" />
+                                <h3 className="text-white font-mundial font-bold tracking-widest text-sm uppercase">
+                                    $VIBESTR BURNED
+                                </h3>
+                            </div>
+
+                            <p className="font-cooper font-bold text-gvc-orange text-5xl md:text-6xl leading-none tracking-tight">
+                                9.6M
+                            </p>
+
+                            <p className="text-gvc-green font-mundial font-bold text-lg pt-2">
+                                That = 0.96% of the total supply
+                            </p>
                         </div>
-
-                        <p className="font-cooper font-bold text-gvc-orange text-5xl md:text-6xl leading-none tracking-tight">
-                            9.6M
-                        </p>
-
-                        <p className="text-gvc-green font-mundial font-bold text-lg pt-2">
-                            That = 0.96% of the total supply
-                        </p>
                     </div>
                 </motion.div>
 
