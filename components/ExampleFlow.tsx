@@ -60,7 +60,7 @@ const BADGE_POSITIONS = [
     { className: "absolute -top-4 right-1/2 w-10 h-10 drop-shadow-lg z-0 opacity-80", animate: { y: [0, -5, 0] }, transition: { duration: 3.5, delay: 1.5 } },
     { className: "absolute bottom-0 right-1/3 w-8 h-8 drop-shadow-lg z-0 opacity-60", animate: { scale: [1, 1.1, 1] }, transition: { duration: 4, delay: 2 } },
     // New positions for density
-    { className: "absolute -top-8 left-2 w-10 h-10 drop-shadow-lg z-10", animate: { y: [0, 7, 0] }, transition: { duration: 4.2, delay: 0.8 } },
+    { className: "absolute -top-8 left-8 w-10 h-10 drop-shadow-lg z-10", animate: { y: [0, 7, 0] }, transition: { duration: 4.2, delay: 0.8 } },
     { className: "absolute bottom-1/4 -right-6 w-9 h-9 drop-shadow-lg z-20", animate: { rotate: [0, -10, 0] }, transition: { duration: 5.5, delay: 2.5 } },
     { className: "absolute top-1/4 right-0 w-8 h-8 drop-shadow-lg z-0 opacity-70", animate: { scale: [1, 1.2, 1] }, transition: { duration: 3.8, delay: 1.2 } },
     { className: "absolute -bottom-4 right-1/2 w-9 h-9 drop-shadow-lg z-10", animate: { y: [0, -6, 0] }, transition: { duration: 4.8, delay: 1.8 } },
