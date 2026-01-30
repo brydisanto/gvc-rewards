@@ -236,6 +236,9 @@ export default function ExampleFlow() {
                                     <p className="font-cooper font-bold text-gvc-orange text-4xl md:text-5xl leading-none tracking-tight">
                                         9.6M
                                     </p>
+                                    <p className="text-white/60 font-mundial text-sm pt-2 px-4 leading-tight">
+                                        All $VIBESTR purchased by the protocol is automatically burned.
+                                    </p>
                                     <p className="text-gvc-green font-mundial font-bold text-sm pt-2">
                                         That = 0.96% of the total supply
                                     </p>
@@ -262,7 +265,7 @@ export default function ExampleFlow() {
                                     </p>
 
                                     <p className="text-white/60 font-mundial font-bold text-sm leading-relaxed max-w-[200px] mx-auto">
-                                        On and on it goes. Automatically. Forever.
+                                        On and on it goes. Forever. Automatically.
                                     </p>
                                 </div>
                             </div>
