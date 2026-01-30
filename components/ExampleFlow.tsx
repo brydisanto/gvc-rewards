@@ -86,10 +86,13 @@ export default function ExampleFlow() {
                 <motion.div
                     variants={item}
                     whileHover={{ scale: 1.05 }}
-                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-8 pt-12 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
+                    className="relative z-10 bg-[#111] border border-gvc-green rounded-xl p-8 pt-12 w-full max-w-md text-center overflow-hidden shadow-[0_0_30px_rgba(0,255,100,0.15)] cursor-default transition-colors"
                 >
+                    {/* Interactive glow effects */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-green-600/10 via-green-500/5 to-transparent animate-pulse pointer-events-none" />
+
                     <StepRibbon text="STEP 1" />
-                    <div className="flex items-center justify-center gap-3">
+                    <div className="relative z-10 flex items-center justify-center gap-3">
                         <h3 className="text-xl md:text-2xl font-cooper font-bold text-white uppercase leading-tight">
                             $VIBESTR HITS <span className="text-gvc-gold">$1M</span> IN DAILY TRADING VOLUME
                         </h3>
