@@ -58,7 +58,7 @@ export default function ExampleFlow() {
                 {/* Intro Header */}
                 <motion.div variants={item} className="mb-12 text-center max-w-2xl px-4">
                     <h2 className="text-gvc-gold font-mundial font-bold tracking-widest text-sm md:text-base uppercase leading-relaxed">
-                        BELOW IS A SIMULATED EXAMPLE TO DEMONSTRATE HOW REAL $$$ FLOWS THROUGH THE VIBESTRATEGY PROTOCOL AS $VIBESTR AND GOOD VIBES CLUB NFTS TRADE ON THE MARKET.
+                        BELOW IS A SIMULATED EXAMPLE TO SHOW HOW $$$ AUTOMATICALLY FLOWS THROUGH THE VIBESTRATEGY PROTOCOL AS $VIBESTR & GOOD VIBES CLUB NFTS TRADE ON THE MARKET.
                     </h2>
                 </motion.div>
 
@@ -71,7 +71,7 @@ export default function ExampleFlow() {
                     <StepRibbon text="STEP 1" />
                     <div className="flex items-center justify-center gap-3">
                         <h3 className="text-xl md:text-2xl font-cooper font-bold text-white uppercase leading-tight">
-                            $VIBESTR HITS $1M IN DAILY TRADING VOLUME
+                            $VIBESTR HITS <span className="text-gvc-gold">$1M</span> IN DAILY TRADING VOLUME
                         </h3>
                     </div>
                 </motion.div>
@@ -93,10 +93,10 @@ export default function ExampleFlow() {
                                 <StepRibbon text="STEP 2A" />
                                 <div className="space-y-3">
                                     <p className="font-cooper font-bold text-white uppercase text-lg leading-tight">
-                                        $80,000 (8%) IS RESERVED AS FEES AND AUTOMATICALLY BUYS GVCS
+                                        <span className="text-gvc-gold">$80,000 (8%)</span> IS RESERVED AS FEES AND AUTOMATICALLY BUYS GVCS
                                     </p>
-                                    <p className="text-white/60 text-base font-mundial leading-relaxed">
-                                        The protocol would buy ~30 GVCs from OpenSea and add them to the treasury.
+                                    <p className="text-white/60 text-base font-mundial leading-tight px-2">
+                                        The protocol would buy <span className="text-gvc-gold font-bold">30 GVCs</span> from OpenSea and add them to the treasury.
                                     </p>
                                     <p className="text-xs italic text-white/40 font-mundial mt-2">(If ETH = $3,000 & the GVC floor is .9ETH)</p>
                                 </div>
@@ -109,9 +109,9 @@ export default function ExampleFlow() {
                                 <StepRibbon text="STEP 2B" />
                                 <div className="space-y-3">
                                     <p className="font-cooper font-bold text-white uppercase text-lg leading-tight">
-                                        $10,000 (1%) ACCRUES TO THE REWARDS POOL
+                                        <span className="text-gvc-gold">$10,000 (1%)</span> ACCRUES TO THE REWARDS POOL
                                     </p>
-                                    <p className="text-white/60 text-base font-mundial leading-relaxed">
+                                    <p className="text-white/60 text-base font-mundial leading-tight px-2">
                                         This is used to buy $VIBESTR, GVC NFTs, $PNKSTR and more as rewards for Badgeholders.
                                     </p>
                                 </div>
@@ -139,9 +139,9 @@ export default function ExampleFlow() {
                     <StepRibbon text="STEP 3" />
                     <div className="space-y-3">
                         <p className="font-cooper font-bold text-white text-lg leading-tight uppercase">
-                            THE PROTOCOL RELISTS THOSE 30 GVCS AT A PREMIUM
+                            THE PROTOCOL RELISTS THOSE <span className="text-gvc-gold">30 GVCS</span> AT A PREMIUM
                         </p>
-                        <p className="text-white/60 font-mundial text-base leading-relaxed">
+                        <p className="text-white/60 font-mundial text-base leading-tight">
                             Automatically relisted on OpenSea at 1.2 ETH on average
                         </p>
                         <p className="text-xs italic text-white/40 font-mundial">(Randomized premium between 1.2-1.5x)</p>
@@ -153,8 +153,7 @@ export default function ExampleFlow() {
                     <ConnectingLine />
                 </motion.div>
 
-                {/* Step 5 (Logic Step 4): Buy Pressure */}
-                {/* Note: User calls this "ETH FROM EVERY PROTOCOL GVC...", usually logic step 4 */}
+                {/* Step 4: Buy Pressure */}
                 <motion.div
                     variants={item}
                     whileHover={{ scale: 1.05 }}
@@ -165,7 +164,7 @@ export default function ExampleFlow() {
                         <p className="font-cooper font-bold text-white text-lg leading-tight uppercase">
                             ETH FROM EVERY PROTOCOL GVC THAT SELLS IS USED TO PURCHASE $VIBESTR
                         </p>
-                        <p className="text-white/60 text-base font-mundial leading-relaxed">
+                        <p className="text-white/60 text-base font-mundial leading-tight">
                             Unleashes ~36 ETH in buy pressure on $VIBESTR once all 30 GVCs are sold
                         </p>
                         <p className="text-xs italic text-white/40 font-mundial">At $0.01, that = 9.6M $VIBESTR</p>
@@ -178,7 +177,6 @@ export default function ExampleFlow() {
                 </motion.div>
 
                 {/* Step 5: Burn */}
-                {/* Styled based on Reference Image: Dark Box, Orange Border */}
                 <motion.div
                     variants={item}
                     whileHover={{ scale: 1.05 }}
