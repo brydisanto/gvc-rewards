@@ -139,10 +139,10 @@ export default function ExampleFlow() {
                     <StepRibbon text="STEP 3" />
                     <div className="space-y-3">
                         <p className="font-cooper font-bold text-white text-lg leading-tight uppercase">
-                            THE PROTOCOL IMMEDIATELY RELISTS THOSE <span className="text-gvc-gold">30 GVCS</span> AT A PREMIUM
+                            THE PROTOCOL IMMEDIATELY RELISTS THE <span className="text-gvc-gold">30 GVCS</span> AT A PREMIUM
                         </p>
                         <p className="text-white/60 font-mundial text-base leading-tight">
-                            Automatically relisted at ~1.2 ETH.
+                            They're automatically relisted on OpenSea at <span className="text-gvc-gold font-bold">~1.2 ETH</span>. They never move until sold.
                         </p>
                         <p className="text-xs italic text-white/40 font-mundial">(Uses a randomized premium between 1.2-1.5x)</p>
                     </div>
@@ -162,7 +162,7 @@ export default function ExampleFlow() {
                     <StepRibbon text="STEP 4" />
                     <div className="space-y-3">
                         <p className="font-cooper font-bold text-white text-lg leading-tight uppercase">
-                            AS THOSE <span className="text-gvc-gold">30 GVCS</span> SELL, THE PROTOCOL AUTOMATICALLY BUYS $VIBESTR
+                            AS THE <span className="text-gvc-gold">30 GVCS</span> SELL, THE PROTOCOL AUTOMATICALLY BUYS $VIBESTR
                         </p>
                         <p className="text-white/60 text-base font-mundial leading-tight">
                             Unleashes <span className="text-gvc-gold font-bold">~36 ETH in buy pressure</span> on $VIBESTR once all 30 GVCs are sold.
