@@ -248,9 +248,9 @@ export default function ExampleFlow() {
                             THE PROTOCOL IMMEDIATELY RELISTS THE 30 GVCS AT A PREMIUM
                         </p>
                         <p className="text-white/60 font-mundial text-base leading-tight">
-                            They're automatically relisted on OpenSea at ~1.2 ETH. They never move until sold.
+                            They're automatically relisted on OpenSea at ~1.6 ETH. They never move until sold.
                         </p>
-                        <p className="text-xs italic text-white/40 font-mundial">(Uses a randomized premium between 1.2-1.5x)</p>
+                        <p className="text-xs italic text-white/40 font-mundial">(Uses a randomized premium between 1.2-2x)</p>
                     </div>
                 </motion.div>
 
@@ -271,9 +271,9 @@ export default function ExampleFlow() {
                             AS THE 30 GVCS SELL, THE PROTOCOL AUTOMATICALLY BUYS $VIBESTR
                         </p>
                         <p className="text-white/60 text-base font-mundial leading-tight">
-                            This purchases <span className="text-gvc-gold font-bold">~36 ETH</span> worth of $VIBESTR once all 30 GVCs are sold.
+                            This purchases <span className="text-gvc-gold font-bold">~48 ETH</span> worth of $VIBESTR once all 30 GVCs are sold.
                         </p>
-                        <p className="text-xs italic text-white/40 font-mundial">(At $0.01, that = 9.6M $VIBESTR)</p>
+                        <p className="text-xs italic text-white/40 font-mundial">(At $0.01, that = 13.2M $VIBESTR)</p>
                     </div>
                 </motion.div>
 
@@ -306,13 +306,13 @@ export default function ExampleFlow() {
                                         </h3>
                                     </div>
                                     <p className="font-cooper font-bold text-gvc-orange text-4xl md:text-5xl leading-none tracking-tight">
-                                        9.6M
+                                        13.2M
                                     </p>
                                     <p className="text-white/60 font-mundial text-sm pt-2 px-4 leading-tight">
-                                        All $VIBESTR purchased by the protocol is automatically burned.
+                                        All $VIBESTR purchased by the protocol via GVC sales is automatically burned.
                                     </p>
                                     <p className="text-gvc-orange font-mundial font-bold text-sm pt-2">
-                                        That = 0.96% of the total supply
+                                        That = 1.3% of the total supply
                                     </p>
                                 </div>
                             </div>
@@ -336,7 +336,7 @@ export default function ExampleFlow() {
                                     </div>
 
                                     <p className="font-cooper font-bold text-gvc-green text-2xl md:text-3xl leading-tight uppercase">
-                                        GENERATES 36 ETH IN NEW TRADING VOLUME
+                                        GENERATES 48 ETH IN NEW TRADING VOLUME
                                     </p>
 
                                     <p className="text-white/60 font-mundial font-bold text-sm leading-tight max-w-[200px] mx-auto">
