@@ -222,7 +222,7 @@ export default function ExampleFlow() {
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </motion.div>
 
@@ -289,9 +289,12 @@ export default function ExampleFlow() {
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Left: Burn Box (Step 5) */}
-                        <div className="relative w-full">
+                        <motion.div
+                            className="relative w-full"
+                            whileHover={{ scale: 1.05 }}
+                        >
                             <StepRibbon text="STEP 5" />
-                            <div className="bg-[#111] border border-gvc-orange rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(255,100,0,0.15)] h-full flex flex-col justify-center">
+                            <div className="bg-[#111] border border-gvc-orange rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(255,100,0,0.15)] h-full flex flex-col justify-center transition-transform duration-300">
                                 {/* Interactive glow effects */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-red-600/10 via-orange-500/5 to-transparent animate-pulse pointer-events-none" />
 
@@ -313,11 +316,14 @@ export default function ExampleFlow() {
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Right: Green Box (Volume Loop) */}
-                        <div className="relative w-full">
-                            <div className="bg-[#111] border border-gvc-green rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(0,255,100,0.15)] h-full flex flex-col justify-center">
+                        <motion.div
+                            className="relative w-full"
+                            whileHover={{ scale: 1.05 }}
+                        >
+                            <div className="bg-[#111] border border-gvc-green rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(0,255,100,0.15)] h-full flex flex-col justify-center transition-transform duration-300">
                                 {/* Interactive glow effects */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-green-600/10 via-green-500/5 to-transparent animate-pulse pointer-events-none" />
 
@@ -338,11 +344,11 @@ export default function ExampleFlow() {
                                     </p>
                                 </div>
                             </div>
-                        </div>
                     </div>
-                </motion.div>
-
+                </div>
             </motion.div>
-        </div>
+
+        </motion.div>
+        </div >
     );
 }
