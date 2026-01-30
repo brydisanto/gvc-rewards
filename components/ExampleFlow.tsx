@@ -2,15 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Flame, RefreshCw } from 'lucide-react';
-
-const StepRibbon = ({ text }: { text: string }) => (
-    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-black/90 border border-gvc-gold/40 px-4 py-1 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.5)] z-20 whitespace-nowrap">
-        <span className="text-[10px] md:text-xs font-mono text-gvc-gold tracking-widest uppercase font-bold italic">
-            {text}
-        </span>
-    </div>
-);
+import { ChevronDown, Flame, RefreshCw, TrendingUp, ShoppingBag, Trophy, Tag, Zap } from 'lucide-react';
 
 const ConnectingLine = () => (
     <div className="flex flex-col items-center justify-center h-20 relative overflow-hidden">
@@ -99,10 +91,10 @@ export default function ExampleFlow() {
                 <motion.div
                     variants={item}
                     whileHover={{ scale: 1.05 }}
-                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-8 pt-12 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
+                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-8 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
                 >
-                    <StepRibbon text="STEP 1" />
-                    <div className="flex items-center justify-center gap-3">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-3 mb-2">
+                        <TrendingUp className="w-8 h-8 text-gvc-gold" />
                         <h3 className="text-xl md:text-2xl font-cooper font-bold text-white uppercase leading-tight">
                             $VIBESTR HITS <span className="text-gvc-gold">$1M</span> IN DAILY TRADING VOLUME
                         </h3>
@@ -122,8 +114,10 @@ export default function ExampleFlow() {
                     <div className="relative">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0">
                             {/* 2A: Buys GVCs */}
-                            <div className="relative bg-white/5 backdrop-blur-sm md:rounded-l-2xl md:rounded-r-none rounded-xl border border-white/10 md:border-r-white/10 p-8 pt-16 text-center group hover:bg-white/10 transition-colors">
-                                <StepRibbon text="STEP 2A" />
+                            <div className="relative bg-white/5 backdrop-blur-sm md:rounded-l-2xl md:rounded-r-none rounded-xl border border-white/10 md:border-r-white/10 p-8 pt-10 text-center group hover:bg-white/10 transition-colors">
+                                <div className="inline-flex p-3 bg-black/40 rounded-full mb-4 border border-gvc-gold/20 group-hover:border-gvc-gold">
+                                    <ShoppingBag className="w-6 h-6 text-gvc-gold" />
+                                </div>
                                 <div className="space-y-3">
                                     <p className="font-cooper font-bold text-white uppercase text-lg leading-tight">
                                         <span className="text-gvc-gold">$80,000 (8%)</span> IS RESERVED AS FEES AND AUTOMATICALLY BUYS GVCS
@@ -138,8 +132,10 @@ export default function ExampleFlow() {
                             </div>
 
                             {/* 2B: Rewards Pool */}
-                            <div className="relative bg-white/5 backdrop-blur-sm md:rounded-r-2xl md:rounded-l-none rounded-xl border border-white/10 md:border-l-0 p-8 pt-16 text-center group hover:bg-white/10 transition-colors">
-                                <StepRibbon text="STEP 2B" />
+                            <div className="relative bg-white/5 backdrop-blur-sm md:rounded-r-2xl md:rounded-l-none rounded-xl border border-white/10 md:border-l-0 p-8 pt-10 text-center group hover:bg-white/10 transition-colors">
+                                <div className="inline-flex p-3 bg-black/40 rounded-full mb-4 border border-gvc-gold/20 group-hover:border-gvc-gold">
+                                    <Trophy className="w-6 h-6 text-gvc-gold" />
+                                </div>
                                 <div className="space-y-3">
                                     <p className="font-cooper font-bold text-white uppercase text-lg leading-tight">
                                         <span className="text-gvc-gold">$10,000 (1%)</span> ACCRUES TO THE REWARDS POOL
@@ -167,13 +163,15 @@ export default function ExampleFlow() {
                 <motion.div
                     variants={item}
                     whileHover={{ scale: 1.05 }}
-                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-8 pt-12 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
+                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-6 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
                 >
-                    <StepRibbon text="STEP 3" />
-                    <div className="space-y-3">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-3 mb-2">
+                        <Tag className="w-8 h-8 text-gvc-gold" />
                         <p className="font-cooper font-bold text-white text-lg leading-tight uppercase">
                             THE PROTOCOL IMMEDIATELY RELISTS THE <span className="text-gvc-gold">30 GVCS</span> AT A PREMIUM
                         </p>
+                    </div>
+                    <div className="space-y-3">
                         <p className="text-white/60 font-mundial text-base leading-tight">
                             They're automatically relisted on OpenSea at <span className="text-gvc-gold font-bold">~1.2 ETH</span>. They never move until sold.
                         </p>
@@ -190,13 +188,15 @@ export default function ExampleFlow() {
                 <motion.div
                     variants={item}
                     whileHover={{ scale: 1.05 }}
-                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-8 pt-12 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
+                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-6 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
                 >
-                    <StepRibbon text="STEP 4" />
-                    <div className="space-y-3">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-3 mb-2">
+                        <Zap className="w-8 h-8 text-gvc-gold" />
                         <p className="font-cooper font-bold text-white text-lg leading-tight uppercase">
                             AS THE <span className="text-gvc-gold">30 GVCS</span> SELL, THE PROTOCOL AUTOMATICALLY BUYS $VIBESTR
                         </p>
+                    </div>
+                    <div className="space-y-3">
                         <p className="text-white/60 text-base font-mundial leading-tight">
                             This purchases <span className="text-gvc-gold font-bold">~36 ETH</span> worth of $VIBESTR once all 30 GVCs are sold.
                         </p>
@@ -221,14 +221,14 @@ export default function ExampleFlow() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Left: Burn Box (Step 5) */}
                         <div className="relative w-full">
-                            <StepRibbon text="STEP 5" />
-                            <div className="bg-[#111] border border-gvc-orange rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(255,100,0,0.15)] h-full flex flex-col justify-center">
+
+                            <div className="bg-[#111] border border-gvc-orange rounded-[32px] p-8 pt-10 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(255,100,0,0.15)] h-full flex flex-col justify-center">
                                 {/* Interactive glow effects */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-red-600/10 via-orange-500/5 to-transparent animate-pulse pointer-events-none" />
 
                                 <div className="relative z-10 flex flex-col items-center space-y-2">
                                     <div className="flex items-center gap-2 mb-2">
-                                        <Flame className="w-5 h-5 text-gvc-orange fill-gvc-orange animate-pulse" />
+                                        <Flame className="w-8 h-8 text-gvc-orange fill-gvc-orange animate-pulse" />
                                         <h3 className="text-white font-mundial font-bold tracking-widest text-sm uppercase">
                                             $VIBESTR BURNED
                                         </h3>
@@ -245,13 +245,13 @@ export default function ExampleFlow() {
 
                         {/* Right: Green Box (Volume Loop) */}
                         <div className="relative w-full">
-                            <div className="bg-[#111] border border-gvc-green rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(0,255,100,0.15)] h-full flex flex-col justify-center">
+                            <div className="bg-[#111] border border-gvc-green rounded-[32px] p-8 pt-10 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(0,255,100,0.15)] h-full flex flex-col justify-center">
                                 {/* Interactive glow effects */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-green-600/10 via-green-500/5 to-transparent animate-pulse pointer-events-none" />
 
                                 <div className="relative z-10 flex flex-col items-center space-y-4">
                                     <div className="flex items-center gap-2 mb-2">
-                                        <RefreshCw className="w-5 h-5 text-gvc-green animate-spin-slow" />
+                                        <RefreshCw className="w-8 h-8 text-gvc-green animate-spin-slow" />
                                         <h3 className="text-white font-mundial font-bold tracking-widest text-sm uppercase">
                                             CYCLE CONTINUES
                                         </h3>
