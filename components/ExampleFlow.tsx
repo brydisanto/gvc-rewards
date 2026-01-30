@@ -222,7 +222,7 @@ export default function ExampleFlow() {
                                     </p>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
                 </motion.div>
 
