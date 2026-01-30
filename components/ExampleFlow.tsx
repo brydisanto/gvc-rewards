@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Flame } from 'lucide-react';
+import { ChevronDown, Flame, RefreshCw } from 'lucide-react';
 
 const StepRibbon = ({ text }: { text: string }) => (
     <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-black/90 border border-gvc-gold/40 px-4 py-1 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.5)] z-20 whitespace-nowrap">
@@ -32,7 +32,6 @@ const ConnectingLine = () => (
 );
 
 // Feedback Loop Arrow (The Swoosh - Option A style)
-// Connecting Left of Step 4 (Buy Pressure) back to Left of Step 1 (Volume)
 const FeedbackLoopArrow = () => (
     <div className="absolute inset-0 pointer-events-none hidden lg:block overflow-visible z-0">
         <svg className="w-full h-full overflow-visible">
@@ -46,19 +45,6 @@ const FeedbackLoopArrow = () => (
                     <polygon points="0 0, 10 3.5, 0 7" fill="#D4AF37" />
                 </marker>
             </defs>
-            {/* 
-                Path Strategy:
-                Start: Left side of Step 4. Step 4 is roughly at 75% down the flow section (excluding Intro).
-                End: Left side of Step 1. Step 1 is at the top.
-                Control Points: Curve out to the left.
-                
-                We'll use relative coordinates based on the container size.
-                Assuming container is max-w-4xl (896px). 
-                Cards are max-w-md (448px).
-                Center is 50%.
-                Left edge of cards is approx 50% - 224px.
-                We want to start/end slightly left of that, say 50% - 260px.
-            */}
             <path
                 d="M calc(50% - 240px) 1150 C calc(50% - 350px) 1150, calc(50% - 350px) 200, calc(50% - 240px) 200"
                 fill="none"
@@ -73,7 +59,6 @@ const FeedbackLoopArrow = () => (
         </svg>
     </div>
 );
-
 
 export default function ExampleFlow() {
     const container = {
@@ -107,7 +92,7 @@ export default function ExampleFlow() {
                     </h2>
                 </motion.div>
 
-                {/* Global Feedback Loop Arrow - Positioned absolutely relative to the flex container */}
+                {/* Global Feedback Loop Arrow */}
                 <FeedbackLoopArrow />
 
                 {/* Step 1: Volume */}
@@ -219,39 +204,68 @@ export default function ExampleFlow() {
                     </div>
                 </motion.div>
 
-                {/* Line */}
-                <motion.div variants={item}>
-                    <ConnectingLine />
+                {/* Lines Forking to Step 5 Outcomes */}
+                <motion.div variants={item} className="w-full max-w-4xl mx-auto">
+                    <div className="flex justify-center relative h-16">
+                        {/* Fork Graphic */}
+                        <div className="absolute top-0 w-0.5 h-8 bg-white/10"></div>
+                        <div className="absolute top-8 w-[50%] h-8 border-t-2 border-l-2 border-r-2 border-white/10 rounded-t-xl"></div>
+                    </div>
                 </motion.div>
 
-                {/* Step 5: Burn */}
-                {/* Fixed ribbon clipping: Parent div holds ribbon, Child card holds overflow-hidden */}
+                {/* Step 5 Outcomes: Burn & Volume */}
                 <motion.div
                     variants={item}
-                    whileHover={{ scale: 1.05 }}
-                    className="relative z-10 w-full max-w-lg"
+                    className="w-full max-w-4xl mx-auto z-10 relative"
                 >
-                    <StepRibbon text="STEP 5" />
-                    <div className="bg-[#111] border border-gvc-orange rounded-[32px] p-10 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(255,100,0,0.15)]">
-                        {/* Interactive glow effects */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-red-600/10 via-orange-500/5 to-transparent animate-pulse pointer-events-none" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* Left: Burn Box (Step 5) */}
+                        <div className="relative w-full">
+                            <StepRibbon text="STEP 5" />
+                            <div className="bg-[#111] border border-gvc-orange rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(255,100,0,0.15)] h-full flex flex-col justify-center">
+                                {/* Interactive glow effects */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-red-600/10 via-orange-500/5 to-transparent animate-pulse pointer-events-none" />
 
-                        {/* Inner content matching hierarchy */}
-                        <div className="relative z-10 flex flex-col items-center space-y-2">
-                            <div className="flex items-center gap-2 mb-2">
-                                <Flame className="w-5 h-5 text-gvc-orange fill-gvc-orange animate-pulse" />
-                                <h3 className="text-white font-mundial font-bold tracking-widest text-sm uppercase">
-                                    $VIBESTR BURNED
-                                </h3>
+                                <div className="relative z-10 flex flex-col items-center space-y-2">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <Flame className="w-5 h-5 text-gvc-orange fill-gvc-orange animate-pulse" />
+                                        <h3 className="text-white font-mundial font-bold tracking-widest text-sm uppercase">
+                                            $VIBESTR BURNED
+                                        </h3>
+                                    </div>
+                                    <p className="font-cooper font-bold text-gvc-orange text-4xl md:text-5xl leading-none tracking-tight">
+                                        9.6M
+                                    </p>
+                                    <p className="text-gvc-green font-mundial font-bold text-sm pt-2">
+                                        That = 0.96% of the total supply
+                                    </p>
+                                </div>
                             </div>
+                        </div>
 
-                            <p className="font-cooper font-bold text-gvc-orange text-5xl md:text-6xl leading-none tracking-tight">
-                                9.6M
-                            </p>
+                        {/* Right: Green Box (Volume Loop) */}
+                        <div className="relative w-full">
+                            <div className="bg-[#111] border border-gvc-green rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(0,255,100,0.15)] h-full flex flex-col justify-center">
+                                {/* Interactive glow effects */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-green-600/10 via-green-500/5 to-transparent animate-pulse pointer-events-none" />
 
-                            <p className="text-gvc-green font-mundial font-bold text-lg pt-2">
-                                That = 0.96% of the total supply
-                            </p>
+                                <div className="relative z-10 flex flex-col items-center space-y-4">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <RefreshCw className="w-5 h-5 text-gvc-green animate-spin-slow" />
+                                        <h3 className="text-white font-mundial font-bold tracking-widest text-sm uppercase">
+                                            CYCLE CONTINUES
+                                        </h3>
+                                    </div>
+
+                                    <p className="font-cooper font-bold text-gvc-green text-2xl md:text-3xl leading-tight uppercase">
+                                        GENERATES 36 ETH IN NEW TRADING VOLUME
+                                    </p>
+
+                                    <p className="text-white/60 font-mundial font-bold text-sm leading-relaxed max-w-[200px] mx-auto">
+                                        On and on it goes. Automatically. Forever.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </motion.div>
