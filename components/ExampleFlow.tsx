@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Flame, RefreshCw } from 'lucide-react';
+import { ChevronsDown, Flame, RefreshCw } from 'lucide-react';
 
 const StepRibbon = ({ text }: { text: string }) => (
     <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-black/90 border border-gvc-gold/40 px-4 py-1 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.5)] z-20 whitespace-nowrap">
@@ -12,22 +12,9 @@ const StepRibbon = ({ text }: { text: string }) => (
     </div>
 );
 
-const ConnectingLine = () => (
-    <div className="flex flex-col items-center justify-center h-20 relative overflow-hidden">
-        {/* Static Line */}
-        <div className="w-0.5 h-full bg-white/10" />
-
-        {/* Animated Flow Packet */}
-        <motion.div
-            className="absolute top-0 w-0.5 h-8 bg-gradient-to-b from-transparent via-gvc-gold to-transparent"
-            animate={{ top: ["-100%", "200%"] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-        />
-
-        {/* Arrow Head */}
-        <div className="absolute bottom-0 text-white/50">
-            <ChevronDown className="w-6 h-6" />
-        </div>
+const ConnectingArrow = () => (
+    <div className="flex flex-col items-center justify-center py-4">
+        <ChevronsDown className="w-10 h-10 text-white/30 animate-bounce" />
     </div>
 );
 
@@ -109,9 +96,9 @@ export default function ExampleFlow() {
                     </div>
                 </motion.div>
 
-                {/* Line */}
+                {/* Arrow */}
                 <motion.div variants={item}>
-                    <ConnectingLine />
+                    <ConnectingArrow />
                 </motion.div>
 
                 {/* Step 2: The Split (Fork) */}
@@ -153,12 +140,12 @@ export default function ExampleFlow() {
                     </div>
                 </motion.div>
 
-                {/* Line Connecting 2A to Step 3 */}
+                {/* Arrow Connecting 2A to Step 3 */}
                 <motion.div variants={item} className="w-full max-w-4xl relative">
                     <div className="w-full flex md:block justify-center">
                         {/* Wrapper to position line correctly under left column on desktop */}
                         <div className="md:w-1/2 flex justify-center">
-                            <ConnectingLine />
+                            <ConnectingArrow />
                         </div>
                     </div>
                 </motion.div>
@@ -181,9 +168,9 @@ export default function ExampleFlow() {
                     </div>
                 </motion.div>
 
-                {/* Line */}
+                {/* Arrow */}
                 <motion.div variants={item}>
-                    <ConnectingLine />
+                    <ConnectingArrow />
                 </motion.div>
 
                 {/* Step 4: Buy Pressure */}
@@ -207,7 +194,16 @@ export default function ExampleFlow() {
                 {/* Lines Forking to Step 5 Outcomes */}
                 <motion.div variants={item} className="w-full max-w-4xl mx-auto">
                     <div className="flex justify-center relative h-16">
-                        {/* Fork Graphic */}
+                        {/* Fork Graphic maintained as lines for structure, or could replace with angled arrows? 
+                             Keeping lines for clean split structure, arrows might act as separators. 
+                             Let's replace the vertical line part with a chevron? 
+                             No, the fork structure (T-shape) is better represented by lines. 
+                             I'll modify the top vertical connection to be a Chevron if it fits, 
+                             but for a split, lines are often cleaner. I'll stick to lines for the fork itself 
+                             but ensure the connection TO the fork is valid.
+                             Actually, let's keep the Fork Graphic as is for now as directed "Let's use double chevrons *instead* (of lines/arrows)". 
+                             I'll assume they meant the sequential vertical flow arrows. Integrating chevrons into a T-split is messy.
+                         */}
                         <div className="absolute top-0 w-0.5 h-8 bg-white/10"></div>
                         <div className="absolute top-8 w-[50%] h-8 border-t-2 border-l-2 border-r-2 border-white/10 rounded-t-xl"></div>
                     </div>
