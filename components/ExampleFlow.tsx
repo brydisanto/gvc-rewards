@@ -31,6 +31,50 @@ const ConnectingLine = () => (
     </div>
 );
 
+// Feedback Loop Arrow (The Swoosh - Option A style)
+// Connecting Left of Step 4 (Buy Pressure) back to Left of Step 1 (Volume)
+const FeedbackLoopArrow = () => (
+    <div className="absolute inset-0 pointer-events-none hidden lg:block overflow-visible z-0">
+        <svg className="w-full h-full overflow-visible">
+            <defs>
+                <linearGradient id="gradLoop" x1="0%" y1="100%" x2="0%" y2="0%">
+                    <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.1" />
+                    <stop offset="50%" stopColor="#D4AF37" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#D4AF37" stopOpacity="0.1" />
+                </linearGradient>
+                <marker id="arrowhead-gold" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#D4AF37" />
+                </marker>
+            </defs>
+            {/* 
+                Path Strategy:
+                Start: Left side of Step 4. Step 4 is roughly at 75% down the flow section (excluding Intro).
+                End: Left side of Step 1. Step 1 is at the top.
+                Control Points: Curve out to the left.
+                
+                We'll use relative coordinates based on the container size.
+                Assuming container is max-w-4xl (896px). 
+                Cards are max-w-md (448px).
+                Center is 50%.
+                Left edge of cards is approx 50% - 224px.
+                We want to start/end slightly left of that, say 50% - 260px.
+            */}
+            <path
+                d="M calc(50% - 240px) 1150 C calc(50% - 350px) 1150, calc(50% - 350px) 200, calc(50% - 240px) 200"
+                fill="none"
+                stroke="url(#gradLoop)"
+                strokeWidth="2"
+                strokeDasharray="4 4"
+                markerEnd="url(#arrowhead-gold)"
+                className="opacity-60"
+            >
+                <animate attributeName="stroke-dashoffset" from="100" to="0" dur="30s" repeatCount="indefinite" />
+            </path>
+        </svg>
+    </div>
+);
+
+
 export default function ExampleFlow() {
     const container = {
         hidden: { opacity: 0 },
@@ -48,19 +92,23 @@ export default function ExampleFlow() {
     };
 
     return (
-        <div className="w-full max-w-4xl mx-auto mt-8 mb-20 px-4">
+        <div className="w-full max-w-4xl mx-auto mt-8 mb-20 px-4 relative">
+
             <motion.div
                 variants={container}
                 initial="hidden"
                 animate="show"
-                className="flex flex-col items-center space-y-0"
+                className="flex flex-col items-center space-y-0 relative"
             >
                 {/* Intro Header */}
-                <motion.div variants={item} className="mb-12 text-center max-w-2xl px-4">
+                <motion.div variants={item} className="mb-12 text-center max-w-2xl px-4 z-10 relative">
                     <h2 className="text-gvc-gold font-mundial font-bold tracking-widest text-sm md:text-base uppercase leading-relaxed">
                         BELOW IS A SIMULATED EXAMPLE TO SHOW HOW $$$ AUTOMATICALLY FLOWS THROUGH THE VIBESTRATEGY PROTOCOL AS $VIBESTR & GOOD VIBES CLUB NFTS TRADE ON THE MARKET.
                     </h2>
                 </motion.div>
+
+                {/* Global Feedback Loop Arrow - Positioned absolutely relative to the flex container */}
+                <FeedbackLoopArrow />
 
                 {/* Step 1: Volume */}
                 <motion.div
@@ -84,7 +132,7 @@ export default function ExampleFlow() {
                 {/* Step 2: The Split (Fork) */}
                 <motion.div
                     variants={item}
-                    className="w-full max-w-4xl mx-auto"
+                    className="w-full max-w-4xl mx-auto z-10 relative"
                 >
                     <div className="relative">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0">
@@ -165,7 +213,7 @@ export default function ExampleFlow() {
                             AS THE <span className="text-gvc-gold">30 GVCS</span> SELL, THE PROTOCOL AUTOMATICALLY BUYS $VIBESTR
                         </p>
                         <p className="text-white/60 text-base font-mundial leading-tight">
-                            Unleashes <span className="text-gvc-gold font-bold">~36 ETH in buy pressure</span> on $VIBESTR once all 30 GVCs are sold.
+                            This purchases <span className="text-gvc-gold font-bold">~36 ETH worth of $VIBESTR</span> once all 30 GVCs are sold.
                         </p>
                         <p className="text-xs italic text-white/40 font-mundial">(At $0.01, that = 9.6M $VIBESTR)</p>
                     </div>
