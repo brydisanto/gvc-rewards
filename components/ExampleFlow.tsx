@@ -181,7 +181,7 @@ export default function ExampleFlow() {
                     <div className="relative">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0">
                             {/* 2A: Buys GVCs */}
-                            <div className="relative bg-white/5 backdrop-blur-sm md:rounded-l-2xl md:rounded-r-none rounded-xl border border-white/10 md:border-r-white/10 p-8 pt-16 text-center group hover:bg-white/10 transition-colors">
+                            <div className="relative bg-white/5 backdrop-blur-sm md:rounded-l-2xl md:rounded-r-none rounded-xl border border-white/10 md:border-r-white/10 p-10 pt-20 text-center group hover:bg-white/10 transition-colors">
                                 <StepRibbon text="STEP 2A" />
                                 <div className="space-y-3">
                                     <p className="font-cooper font-bold text-white uppercase text-lg leading-tight">
@@ -197,7 +197,7 @@ export default function ExampleFlow() {
                             </div>
 
                             {/* 2B: Rewards Pool */}
-                            <div className="relative bg-white/5 backdrop-blur-sm md:rounded-r-2xl md:rounded-l-none rounded-xl border border-white/10 md:border-l-0 p-8 pt-16 text-center group hover:bg-white/10 transition-colors">
+                            <div className="relative bg-white/5 backdrop-blur-sm md:rounded-r-2xl md:rounded-l-none rounded-xl border border-white/10 md:border-l-0 p-10 pt-20 text-center group hover:bg-white/10 transition-colors">
                                 {/* Floating Badges Decoration */}
                                 <div className="absolute inset-0 pointer-events-none hidden md:block overflow-visible">
                                     {randomBadges.map((badgeSrc, index) => {
