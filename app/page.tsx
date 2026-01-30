@@ -405,7 +405,7 @@ export default function Home() {
           className={`font-mundial font-bold tracking-widest text-sm uppercase transition-colors px-4 py-2 border-b-2 ${viewMode === 'EXAMPLE_FLOW' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
             }`}
         >
-          Example Flow
+          THE FLYWHEEL AT WORK
         </button>
       </div>
 
