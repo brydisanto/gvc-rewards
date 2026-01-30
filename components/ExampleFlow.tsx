@@ -4,6 +4,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronsDown } from 'lucide-react';
 
+const StepRibbon = ({ text }: { text: string }) => (
+    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-black/90 border border-gvc-gold/40 px-4 py-1 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.5)] z-20 whitespace-nowrap">
+        <span className="text-[10px] md:text-xs font-mono text-gvc-gold tracking-widest uppercase font-bold italic">
+            {text}
+        </span>
+    </div>
+);
+
 export default function ExampleFlow() {
     const container = {
         hidden: { opacity: 0 },
@@ -39,10 +47,13 @@ export default function ExampleFlow() {
                 <motion.div
                     variants={item}
                     whileHover={{ scale: 1.05 }}
-                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-6 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
+                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-8 pt-10 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
                 >
-                    <div className="flex items-center justify-center gap-3 mb-2">
-                        <h3 className="text-lg md:text-xl font-cooper font-bold text-white uppercase">$VIBESTR SEES $1M IN DAILY TRADING VOLUME</h3>
+                    <StepRibbon text="STEP 1" />
+                    <div className="flex items-center justify-center gap-3">
+                        <h3 className="text-xl md:text-2xl font-cooper font-bold text-white uppercase leading-tight">
+                            $VIBESTR SEES $1M IN DAILY TRADING VOLUME
+                        </h3>
                     </div>
                 </motion.div>
 
@@ -61,23 +72,29 @@ export default function ExampleFlow() {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
                             {/* 2A: Buys GVCs - Continues Flow */}
-                            <div className="p-8 md:p-12 text-center group hover:bg-white/5 transition-colors relative">
-                                <h3 className="text-lg md:text-xl font-cooper font-bold text-white uppercase mb-4">STEP 2A</h3>
-                                <div className="text-white/60 text-sm font-mundial leading-relaxed space-y-2">
-                                    <p className="font-bold text-white uppercase mb-2">$80,000 (8%) IS RESERVED AS FEES AND USED TO BUY GVCS</p>
-                                    <p className="text-gvc-gold">THIS WOULD BUY ~30 GVCS PER DAY</p>
-                                    <p className="text-xs italic opacity-70">(IF ETH = $3,000 & THE GVC FLOOR IS .9ETH)</p>
+                            <div className="p-8 pt-12 text-center group hover:bg-white/5 transition-colors relative">
+                                <StepRibbon text="STEP 2A" />
+                                <div className="text-sm font-mundial leading-relaxed space-y-3">
+                                    <p className="font-bold text-white uppercase text-lg leading-tight">
+                                        $80,000 (8%) IS RESERVED AS FEES AND USED TO BUY GVCS
+                                    </p>
+                                    <p className="text-gvc-gold font-bold">THIS WOULD BUY ~30 GVCS PER DAY</p>
+                                    <p className="text-xs italic text-white/50">(IF ETH = $3,000 & THE GVC FLOOR IS .9ETH)</p>
                                 </div>
                                 {/* Visual cue for continuation downwards */}
                                 <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-4 h-4 bg-gvc-gold rounded-full z-20"></div>
                             </div>
 
                             {/* 2B: Rewards Pool - Endpoint */}
-                            <div className="p-8 md:p-12 text-center group hover:bg-white/5 transition-colors">
-                                <h3 className="text-lg md:text-xl font-cooper font-bold text-white uppercase mb-4">STEP 2B</h3>
-                                <div className="text-white/60 text-sm font-mundial leading-relaxed space-y-2">
-                                    <p className="font-bold text-white uppercase mb-2">$10,000 (1%) ACCRUES TO THE REWARDS POOL</p>
-                                    <p>THIS IS USED TO BUY $VIBESTR, GVC NFTS, $PNKSTR, ETC AND REWARD BADGEHOLDERS.</p>
+                            <div className="p-8 pt-12 text-center group hover:bg-white/5 transition-colors relative">
+                                <StepRibbon text="STEP 2B" />
+                                <div className="text-white/60 text-sm font-mundial leading-relaxed space-y-3">
+                                    <p className="font-bold text-white uppercase text-lg leading-tight">
+                                        $10,000 (1%) ACCRUES TO THE REWARDS POOL
+                                    </p>
+                                    <p className="text-white/80">
+                                        THIS IS USED TO BUY $VIBESTR, GVC NFTS, $PNKSTR, ETC AND REWARD BADGEHOLDERS.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -86,11 +103,8 @@ export default function ExampleFlow() {
 
                 {/* Arrow connecting specifically from 2A side */}
                 <motion.div variants={item} className="relative w-full max-w-4xl h-12">
-                    {/* Centered arrow that visually aligns with left column on desktop if possible, but centered is safer for mobile. 
-                       Let's try to align it to the left column (2A) on desktop */}
                     <div className="absolute left-1/2 -translate-x-1/2 md:left-1/4 md:translate-x-0 flex justify-center w-full md:w-auto">
                         <ChevronsDown className="w-12 h-12 text-white/50 animate-bounce relative z-10" />
-                        {/* Line connector from 2A bottom dot */}
                         <div className="hidden md:block absolute bottom-full left-1/2 w-0.5 h-8 bg-white/20 -translate-x-1/2"></div>
                     </div>
                 </motion.div>
@@ -99,14 +113,14 @@ export default function ExampleFlow() {
                 <motion.div
                     variants={item}
                     whileHover={{ scale: 1.05 }}
-                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-6 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
+                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-8 pt-10 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
                 >
-                    <div className="flex items-center justify-center gap-3 mb-2">
-                        <h3 className="text-lg md:text-xl font-cooper font-bold text-white uppercase">STEP 3</h3>
-                    </div>
-                    <div className="text-white/60 font-mundial text-sm space-y-2">
-                        <p className="uppercase font-bold text-white">THOSE 30 GVCS ARE RELISTED BY THE PROTOCOL AT 1.2-1.5X THE PURCHASE PRICE</p>
-                        <p className="text-gvc-gold">1.2 ETH Average (Randomized Premium)</p>
+                    <StepRibbon text="STEP 3" />
+                    <div className="text-white/60 font-mundial text-sm space-y-3">
+                        <p className="uppercase font-bold text-white text-lg leading-tight">
+                            THOSE 30 GVCS ARE RELISTED BY THE PROTOCOL AT 1.2-1.5X THE PURCHASE PRICE
+                        </p>
+                        <p className="text-gvc-gold font-bold">1.2 ETH Average (Randomized Premium)</p>
                     </div>
                 </motion.div>
 
@@ -119,14 +133,14 @@ export default function ExampleFlow() {
                 <motion.div
                     variants={item}
                     whileHover={{ scale: 1.05 }}
-                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-6 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
+                    className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-8 pt-10 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
                 >
-                    <div className="flex items-center justify-center gap-3 mb-2">
-                        <h3 className="text-lg md:text-xl font-cooper font-bold text-white uppercase">STEP 4</h3>
-                    </div>
-                    <div className="text-white/60 font-mundial text-sm space-y-2">
-                        <p className="uppercase font-bold text-white">PROCEEDS FROM EVERY GVC THAT SELLS ARE USED TO PURCHASE $VIBESTR</p>
-                        <p className="text-gvc-gold text-base">Unleashes 36 ETH Buy Pressure (1.2 ETH x 30)</p>
+                    <StepRibbon text="STEP 4" />
+                    <div className="text-white/60 font-mundial text-sm space-y-3">
+                        <p className="uppercase font-bold text-white text-lg leading-tight">
+                            PROCEEDS FROM EVERY GVC THAT SELLS ARE USED TO PURCHASE $VIBESTR
+                        </p>
+                        <p className="text-gvc-gold text-base font-bold">Unleashes 36 ETH Buy Pressure (1.2 ETH x 30)</p>
                         <p className="text-xs italic opacity-70">At $0.01, that = 9.6M $VIBESTR</p>
                     </div>
                 </motion.div>
@@ -140,14 +154,12 @@ export default function ExampleFlow() {
                 <motion.div
                     variants={item}
                     whileHover={{ scale: 1.05 }}
-                    className="relative z-10 bg-gradient-to-b from-red-900/20 to-gvc-dark border border-red-500/30 rounded-xl p-8 w-full max-w-lg text-center backdrop-blur-sm cursor-default transition-colors hover:border-red-500/60"
+                    className="relative z-10 bg-gradient-to-b from-red-900/20 to-gvc-dark border border-red-500/30 rounded-xl p-8 pt-12 w-full max-w-lg text-center backdrop-blur-sm cursor-default transition-colors hover:border-red-500/60"
                 >
-                    <div className="flex items-center justify-center gap-3 mb-4">
-                        <h3 className="text-2xl font-cooper font-bold text-white uppercase">STEP 5</h3>
-                    </div>
-                    <div className="text-white/80 font-mundial text-base space-y-2">
-                        <p className="uppercase font-bold text-white">9.6M $VIBESTR IS BURNED FOREVER</p>
-                        <p className="text-3xl font-bold text-red-500 my-4">FATAL BURN</p>
+                    <StepRibbon text="STEP 5" />
+                    <div className="text-white/80 font-mundial text-base space-y-3">
+                        <p className="uppercase font-bold text-white text-xl leading-tight">9.6M $VIBESTR IS BURNED FOREVER</p>
+                        <p className="text-3xl font-bold text-red-500 my-4 animate-pulse">FATAL BURN</p>
                         <p className="text-sm opacity-60 font-mono">THAT = 0.96% OF THE TOTAL SUPPLY</p>
                     </div>
                 </motion.div>
