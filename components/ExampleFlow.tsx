@@ -2,7 +2,64 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronsDown, Flame, RefreshCw } from 'lucide-react';
+import { ChevronsDown, Flame, RefreshCw, Trophy } from 'lucide-react';
+
+const ALL_BADGES = [
+    '/badges/any_gvc_1759173799963.webp',
+    '/badges/astro_balls_1759173838889.webp',
+    '/badges/baller_1759173868839.webp',
+    '/badges/billiards_1759173890603.webp',
+    '/badges/captain_1759173895611.webp',
+    '/badges/checkmate_1759173863329.webp',
+    '/badges/cosmic_1759173818340.webp',
+    '/badges/doge_1759173842640.webp',
+    '/badges/funky_fresh_1759174001274.webp',
+    '/badges/gold_member_1759173793799.webp',
+    '/badges/gradient_lover_1759173808918.webp',
+    '/badges/grayscale_seeker_1759173797002.webp',
+    '/badges/great_stacheby_1759173956903.webp',
+    '/badges/gud_meat_1759173936766.webp',
+    '/badges/hail_mary_heroes_1759173953534.webp',
+    '/badges/high_noon_hustler_1759174007143.webp',
+    '/badges/homerun_1759174013207.webp',
+    '/badges/hoodie_up_society_1759174015984.webp',
+    '/badges/king_1759173882056.webp',
+    '/badges/nounish_vibes_1759173973218.webp',
+    '/badges/party_in_the_back_1759173998578.webp',
+    '/badges/pepe_1759173846260.webp',
+    '/badges/plants_1759173871973.webp',
+    '/badges/plastic_lover_1759173806081.webp',
+    '/badges/poker_face_1759173884906.webp',
+    '/badges/pothead_1759173827603.webp',
+    '/badges/power_duo_1759173963251.webp',
+    '/badges/rainbow_boombox_1759173875165.webp',
+    '/badges/ranger_1759173821753.webp',
+    '/badges/robot_lover_1759173802514.webp',
+    '/badges/showtime_1759173995136.webp',
+    '/badges/stone_1759173815165.webp',
+    '/badges/straw_man_1759173985595.webp',
+    '/badges/suited_up_1759173934070.webp',
+    '/badges/super_rare_1759173833292.webp',
+    '/badges/tanks_a_lot_1759173976815.webp',
+    '/badges/toy_bricks_1759173887659.webp',
+    '/badges/varsity_vibes_1759173950723.webp',
+    '/badges/vibefoot_fan_club_1759173939420.webp',
+    '/badges/vibestr_blue_tier_1762440817215.webp',
+    '/badges/vibestr_bounty_hunter_1759174044563.webp',
+    '/badges/vibestr_cosmic_tier_1764590448508.webp',
+    '/badges/vibestr_gold_tier_1759174041345.webp',
+    '/badges/vibestr_silver_tier_1759174037847.webp',
+    '/badges/zoom_in_vibe_out_1759174018930.webp'
+];
+
+// Start with a smaller subset of positions suitable for a smaller card
+const BADGE_POSITIONS = [
+    { className: "absolute -top-6 -right-6 w-12 h-12 drop-shadow-lg z-20", animate: { y: [0, -8, 0], rotate: [0, 5, 0] }, transition: { duration: 4 } },
+    { className: "absolute -bottom-6 -right-4 w-14 h-14 drop-shadow-lg z-20", animate: { y: [0, 6, 0] }, transition: { duration: 5, delay: 0.5 } },
+    { className: "absolute top-1/2 -right-8 w-10 h-10 drop-shadow-lg z-10", animate: { x: [0, 5, 0] }, transition: { duration: 4.5, delay: 1 } },
+    { className: "absolute -top-4 right-1/2 w-10 h-10 drop-shadow-lg z-0 opacity-80", animate: { y: [0, -5, 0] }, transition: { duration: 3.5, delay: 1.5 } },
+    { className: "absolute bottom-0 right-1/3 w-8 h-8 drop-shadow-lg z-0 opacity-60", animate: { scale: [1, 1.1, 1] }, transition: { duration: 4, delay: 2 } }
+];
 
 const StepRibbon = ({ text }: { text: string }) => (
     <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-black/90 border border-gvc-gold/40 px-4 py-1 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.5)] z-20 whitespace-nowrap">
@@ -62,6 +119,14 @@ export default function ExampleFlow() {
         hidden: { opacity: 0, y: 20 },
         show: { opacity: 1, y: 0 }
     };
+
+    // Select random unique badges on mount
+    const [randomBadges, setRandomBadges] = React.useState<string[]>([]);
+
+    React.useEffect(() => {
+        const shuffled = [...ALL_BADGES].sort(() => 0.5 - Math.random());
+        setRandomBadges(shuffled.slice(0, BADGE_POSITIONS.length));
+    }, []);
 
     return (
         <div className="w-full max-w-4xl mx-auto mt-8 mb-20 px-4 relative">
@@ -127,6 +192,26 @@ export default function ExampleFlow() {
 
                             {/* 2B: Rewards Pool */}
                             <div className="relative bg-white/5 backdrop-blur-sm md:rounded-r-2xl md:rounded-l-none rounded-xl border border-white/10 md:border-l-0 p-8 pt-16 text-center group hover:bg-white/10 transition-colors">
+                                {/* Floating Badges Decoration */}
+                                <div className="absolute inset-0 pointer-events-none hidden md:block overflow-visible">
+                                    {randomBadges.map((badgeSrc, index) => {
+                                        const pos = BADGE_POSITIONS[index % BADGE_POSITIONS.length];
+                                        return (
+                                            <motion.img
+                                                key={`${badgeSrc}-${index}`}
+                                                src={badgeSrc}
+                                                className={pos.className}
+                                                animate={pos.animate}
+                                                transition={{
+                                                    repeat: Infinity,
+                                                    ease: "easeInOut",
+                                                    ...pos.transition
+                                                }}
+                                            />
+                                        );
+                                    })}
+                                </div>
+
                                 <StepRibbon text="STEP 2B" />
                                 <div className="space-y-3">
                                     <p className="font-cooper font-bold text-white uppercase text-lg leading-tight">
