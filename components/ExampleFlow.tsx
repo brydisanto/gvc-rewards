@@ -195,82 +195,80 @@ export default function ExampleFlow() {
                 {/* Lines Forking to Step 5 Outcomes */}
                 <motion.div variants={item} className="w-full max-w-4xl mx-auto">
                     <div className="flex justify-center relative h-16">
-                        {/* Fork Graphic maintained as lines for structure, or could replace with angled arrows? 
-                             Keeping lines for clean split structure, arrows might act as separators. 
-                             Let's replace the vertical line part with a chevron? 
-                             No, the fork structure (T-shape) is better represented by lines. 
-                             I'll modify the top vertical connection to be a Chevron if it fits, 
-                             but for a split, lines are often cleaner. I'll stick to lines for the fork itself 
-                             but ensure the connection TO the fork is valid.
-                             Actually, let's keep the Fork Graphic as is for now as directed "Let's use double chevrons *instead* (of lines/arrows)". 
-                             I'll assume they meant the sequential vertical flow arrows. Integrating chevrons into a T-split is messy.
-                         */}
-                        <div className="absolute top-0 w-0.5 h-8 bg-white/10"></div>
-                        <div className="absolute top-8 w-[50%] h-8 border-t-2 border-l-2 border-r-2 border-white/10 rounded-t-xl"></div>
-                    </div>
-                </motion.div>
+                        {/* Lines Forking to Step 5 Outcomes */}
+                        <motion.div variants={item} className="w-full max-w-4xl mx-auto">
+                            <div className="flex justify-center relative h-16">
+                                {/* Chevron leading into the split */}
+                                <div className="absolute -top-4 bg-gvc-dark z-20">
+                                    <ChevronsDown className="w-8 h-8 text-white/30 animate-bounce" />
+                                </div>
 
-                {/* Step 5 Outcomes: Burn & Volume */}
-                <motion.div
-                    variants={item}
-                    className="w-full max-w-4xl mx-auto z-10 relative"
-                >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* Left: Burn Box (Step 5) */}
-                        <div className="relative w-full">
-                            <StepRibbon text="STEP 5" />
-                            <div className="bg-[#111] border border-gvc-orange rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(255,100,0,0.15)] h-full flex flex-col justify-center">
-                                {/* Interactive glow effects */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-red-600/10 via-orange-500/5 to-transparent animate-pulse pointer-events-none" />
+                                {/* The Horizontal Split Bar */}
+                                <div className="absolute top-4 w-[50%] h-8 border-t-2 border-l-2 border-r-2 border-white/10 rounded-t-xl"></div>
+                            </div>
+                        </motion.div>
 
-                                <div className="relative z-10 flex flex-col items-center space-y-2">
-                                    <div className="flex items-center gap-2 mb-2">
-                                        <Flame className="w-5 h-5 text-gvc-orange fill-gvc-orange animate-pulse" />
-                                        <h3 className="text-white font-mundial font-bold tracking-widest text-sm uppercase">
-                                            $VIBESTR BURNED
-                                        </h3>
+                        {/* Step 5 Outcomes: Burn & Volume */}
+                        <motion.div
+                            variants={item}
+                            className="w-full max-w-4xl mx-auto z-10 relative"
+                        >
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                {/* Left: Burn Box (Step 5) */}
+                                <div className="relative w-full">
+                                    <StepRibbon text="STEP 5" />
+                                    <div className="bg-[#111] border border-gvc-orange rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(255,100,0,0.15)] h-full flex flex-col justify-center">
+                                        {/* Interactive glow effects */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-red-600/10 via-orange-500/5 to-transparent animate-pulse pointer-events-none" />
+
+                                        <div className="relative z-10 flex flex-col items-center space-y-2">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <Flame className="w-5 h-5 text-gvc-orange fill-gvc-orange animate-pulse" />
+                                                <h3 className="text-white font-mundial font-bold tracking-widest text-sm uppercase">
+                                                    $VIBESTR BURNED
+                                                </h3>
+                                            </div>
+                                            <p className="font-cooper font-bold text-gvc-orange text-4xl md:text-5xl leading-none tracking-tight">
+                                                9.6M
+                                            </p>
+                                            <p className="text-white/60 font-mundial text-sm pt-2 px-4 leading-tight">
+                                                All $VIBESTR purchased by the protocol is automatically burned.
+                                            </p>
+                                            <p className="text-gvc-orange font-mundial font-bold text-sm pt-2">
+                                                That = 0.96% of the total supply
+                                            </p>
+                                        </div>
                                     </div>
-                                    <p className="font-cooper font-bold text-gvc-orange text-4xl md:text-5xl leading-none tracking-tight">
-                                        9.6M
-                                    </p>
-                                    <p className="text-white/60 font-mundial text-sm pt-2 px-4 leading-tight">
-                                        All $VIBESTR purchased by the protocol is automatically burned.
-                                    </p>
-                                    <p className="text-gvc-orange font-mundial font-bold text-sm pt-2">
-                                        That = 0.96% of the total supply
-                                    </p>
+                                </div>
+
+                                {/* Right: Green Box (Volume Loop) */}
+                                <div className="relative w-full">
+                                    <div className="bg-[#111] border border-gvc-green rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(0,255,100,0.15)] h-full flex flex-col justify-center">
+                                        {/* Interactive glow effects */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-green-600/10 via-green-500/5 to-transparent animate-pulse pointer-events-none" />
+
+                                        <div className="relative z-10 flex flex-col items-center space-y-4">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <RefreshCw className="w-5 h-5 text-gvc-green animate-spin-slow" />
+                                                <h3 className="text-white font-mundial font-bold tracking-widest text-sm uppercase">
+                                                    CYCLE CONTINUES
+                                                </h3>
+                                            </div>
+
+                                            <p className="font-cooper font-bold text-gvc-green text-2xl md:text-3xl leading-tight uppercase">
+                                                GENERATES 36 ETH IN NEW TRADING VOLUME
+                                            </p>
+
+                                            <p className="text-white/60 font-mundial font-bold text-sm leading-tight max-w-[200px] mx-auto">
+                                                On and on it goes. Forever. Automatically.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        {/* Right: Green Box (Volume Loop) */}
-                        <div className="relative w-full">
-                            <div className="bg-[#111] border border-gvc-green rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(0,255,100,0.15)] h-full flex flex-col justify-center">
-                                {/* Interactive glow effects */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-green-600/10 via-green-500/5 to-transparent animate-pulse pointer-events-none" />
-
-                                <div className="relative z-10 flex flex-col items-center space-y-4">
-                                    <div className="flex items-center gap-2 mb-2">
-                                        <RefreshCw className="w-5 h-5 text-gvc-green animate-spin-slow" />
-                                        <h3 className="text-white font-mundial font-bold tracking-widest text-sm uppercase">
-                                            CYCLE CONTINUES
-                                        </h3>
-                                    </div>
-
-                                    <p className="font-cooper font-bold text-gvc-green text-2xl md:text-3xl leading-tight uppercase">
-                                        GENERATES 36 ETH IN NEW TRADING VOLUME
-                                    </p>
-
-                                    <p className="text-white/60 font-mundial font-bold text-sm leading-relaxed max-w-[200px] mx-auto">
-                                        On and on it goes. Forever. Automatically.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </motion.div>
-
-            </motion.div>
         </div>
     );
 }
