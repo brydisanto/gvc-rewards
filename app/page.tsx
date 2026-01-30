@@ -9,6 +9,7 @@ import RewardsNFTGrid from '@/components/RewardsNFTGrid';
 import TotalValueDisplay, { ChartModal } from '@/components/TotalValueDisplay';
 import ValueHistoryChart from '@/components/ValueHistoryChart';
 import HowItWorks from '@/components/HowItWorks';
+import ExampleFlow from '@/components/ExampleFlow';
 
 interface TokenStats {
   vibestr: number;
@@ -49,7 +50,7 @@ interface HistoryDataPoint {
 }
 
 export default function Home() {
-  const [viewMode, setViewMode] = useState<'POOL' | 'HOW_IT_WORKS'>('POOL');
+  const [viewMode, setViewMode] = useState<'POOL' | 'HOW_IT_WORKS' | 'EXAMPLE_FLOW'>('POOL');
   const [tokenStats, setTokenStats] = useState<TokenStats | null>(null);
   const [nfts, setNfts] = useState<NFT[]>([]);
   const [nftCounts, setNftCounts] = useState<NFTCounts | null>(null);
@@ -399,6 +400,13 @@ export default function Home() {
         >
           How it Works
         </button>
+        <button
+          onClick={() => setViewMode('EXAMPLE_FLOW')}
+          className={`font-mundial font-bold tracking-widest text-sm uppercase transition-colors px-4 py-2 border-b-2 ${viewMode === 'EXAMPLE_FLOW' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
+            }`}
+        >
+          Example Flow
+        </button>
       </div>
 
       {/* Content */}
@@ -414,7 +422,7 @@ export default function Home() {
           >
             <RewardsNFTGrid nfts={nfts} isLoading={isLoadingNfts} />
           </motion.div>
-        ) : (
+        ) : viewMode === 'HOW_IT_WORKS' ? (
           <motion.div
             key="how-it-works"
             initial={{ opacity: 0, x: 20 }}
@@ -424,6 +432,17 @@ export default function Home() {
             className="w-full"
           >
             <HowItWorks />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="example-flow"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+            className="w-full"
+          >
+            <ExampleFlow />
           </motion.div>
         )}
       </AnimatePresence>
