@@ -213,7 +213,7 @@ export default function ExampleFlow() {
                             AS THE <span className="text-gvc-gold">30 GVCS</span> SELL, THE PROTOCOL AUTOMATICALLY BUYS $VIBESTR
                         </p>
                         <p className="text-white/60 text-base font-mundial leading-tight">
-                            This purchases <span className="text-gvc-gold font-bold">~36 ETH worth of $VIBESTR</span> once all 30 GVCs are sold.
+                            This purchases <span className="text-gvc-gold font-bold">~36 ETH</span> worth of $VIBESTR once all 30 GVCs are sold.
                         </p>
                         <p className="text-xs italic text-white/40 font-mundial">(At $0.01, that = 9.6M $VIBESTR)</p>
                     </div>
