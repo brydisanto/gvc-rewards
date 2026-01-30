@@ -179,7 +179,7 @@ export default function ExampleFlow() {
                                 <StepRibbon text="STEP 2A" />
                                 <div className="space-y-3">
                                     <p className="font-cooper font-bold text-white uppercase text-lg leading-tight">
-                                        <span className="text-gvc-gold">$80,000 (8%)</span> IS RESERVED AS FEES AND AUTOMATICALLY BUYS GVCS
+                                        <span className="text-gvc-gold">$80,000 (8%)</span> IS RESERVED AS A FEE & AUTOMATICALLY BUYS GVCS
                                     </p>
                                     <p className="text-white/60 text-base font-mundial leading-tight px-2">
                                         The protocol buys <span className="text-gvc-gold font-bold">30 GVCs</span> from the OpenSea floor and adds them to the treasury.
