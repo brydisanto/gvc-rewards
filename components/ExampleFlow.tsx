@@ -135,7 +135,7 @@ export default function ExampleFlow() {
     }, []);
 
     return (
-        <div className="w-full max-w-4xl mx-auto mt-4 mb-20 px-4 relative">
+        <div className="w-full max-w-4xl mx-auto mt-6 mb-20 px-4 relative">
 
             <motion.div
                 variants={container}

@@ -418,9 +418,9 @@ export default function Home() {
       </div>
 
       {/* Section Title */}
-      <div className="text-center mb-2">
+      <div className="text-center mb-6">
         <h2 className="text-3xl md:text-5xl font-cooper text-white uppercase tracking-wider">
-          {viewMode === 'POOL' && 'THE REWARDS POOL'}
+          {viewMode === 'POOL' && 'CURRENT ASSETS'}
           {viewMode === 'HOW_IT_WORKS' && 'HOW IT WORKS'}
           {viewMode === 'EXAMPLE_FLOW' && 'THE REWARDS SIMULATOR'}
           {viewMode === 'VIBEWHEEL' && 'GIVE IT A SPIN!'}

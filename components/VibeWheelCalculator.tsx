@@ -141,7 +141,7 @@ export default function VibeWheelCalculator() {
     };
 
     return (
-        <div className="w-full max-w-4xl mx-auto mt-4 mb-20 px-4">
+        <div className="w-full max-w-4xl mx-auto mt-6 mb-20 px-4">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
