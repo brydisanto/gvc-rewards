@@ -147,7 +147,7 @@ export default function HowItWorks() {
     };
 
     return (
-        <div className="w-full max-w-4xl mx-auto mt-12 mb-20 px-4">
+        <div className="w-full max-w-4xl mx-auto mt-4 mb-20 px-4">
             <motion.div
                 variants={container}
                 initial="hidden"

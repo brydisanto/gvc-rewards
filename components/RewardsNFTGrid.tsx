@@ -55,7 +55,7 @@ export default function RewardsNFTGrid({ nfts, isLoading }: RewardsNFTGridProps)
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.5 }}
-            className="w-full max-w-6xl mx-auto mt-12"
+            className="w-full max-w-6xl mx-auto mt-4"
         >
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 <style>{`
