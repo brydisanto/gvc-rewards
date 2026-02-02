@@ -1,420 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signature Border Animations</title>
+    <title>VibeWheel Design Options</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
         body {
-            font-family: 'Mundial', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #050505;
-            color: white;
-            padding: 40px;
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a0a0a 0%, #2d1810 50%, #1a0a0a 100%);
         }
-
-        h1 {
-            color: #FFE048;
-            text-align: center;
-            margin-bottom: 16px;
-            font-size: 32px;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #ffffff80;
-            margin-bottom: 60px;
-            font-size: 16px;
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 60px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .option {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .option h2 {
-            color: #FFE048;
-            font-size: 18px;
-            margin-bottom: 12px;
-        }
-
-        .option .desc {
-            color: #ffffff80;
-            font-size: 13px;
-            margin-bottom: 24px;
-            text-align: center;
-            max-width: 300px;
-            line-height: 1.4;
-        }
-
-        /* Base Card Style */
-        .card {
-            width: 300px;
-            background: #121212;
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .img-wrap {
-            width: 100%;
-            aspect-ratio: 1;
-            position: relative;
-        }
-
-        .punk-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .info {
-            padding: 20px;
-            background: #121212;
-            position: relative;
-            z-index: 2;
-        }
-
-        .name {
-            font-size: 18px;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 4px;
-        }
-
-        .price {
-            font-size: 24px;
-            font-weight: bold;
-            background: linear-gradient(90deg, #FFE048, #FF6B9D);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .usd {
-            font-size: 14px;
-            color: #ffffff60;
-            font-weight: normal;
-            -webkit-text-fill-color: #ffffff60;
-        }
-
-        /* --- OPTION 1: ROTATING GRADIENT --- */
-        .card-rotating {
-            position: relative;
-            background: #121212;
-            border-radius: 16px;
-            z-index: 0;
-        }
-
-        /* The border container */
-        .card-rotating::before {
-            content: "";
-            position: absolute;
-            inset: -4px;
-            border-radius: 20px;
-            background: conic-gradient(from 0deg,
-                    #FFE048,
-                    #FF6B9D,
-                    #9333ea,
-                    #FFE048);
-            animation: spin 4s linear infinite;
-            z-index: -1;
-        }
-
-        /* Inner mask to show the border */
-        .card-rotating::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: #121212;
-            border-radius: 16px;
-            z-index: -1;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* --- OPTION 2: PULSING GLOW --- */
-        .card-pulsing {
-            border: 2px solid #FFE048;
-            box-shadow: 0 0 0 0 rgba(255, 224, 72, 0.7);
-            animation: pulse-gold 2s infinite;
-        }
-
-        @keyframes pulse-gold {
-            0% {
-                transform: scale(0.98);
-                box-shadow: 0 0 0 0 rgba(255, 224, 72, 0.7);
-            }
-
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 15px rgba(255, 224, 72, 0);
-            }
-
-            100% {
-                transform: scale(0.98);
-                box-shadow: 0 0 0 0 rgba(255, 224, 72, 0);
-            }
-        }
-
-        /* --- OPTION 3: SHIMMER BORDER --- */
-        .card-shimmer {
-            border: 3px solid #333;
-            position: relative;
-            /* Masking trick for border shimmer could be complex, using mask-image or similar. 
-               Simpler approach: overlaid pseudo-element */
-        }
-
-        .card-shimmer::before {
-            content: "";
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            border-radius: 16px;
-            border: 3px solid transparent;
-            background: linear-gradient(45deg, #FF6B9D, #FFE048, #FF6B9D) border-box;
-            -webkit-mask:
-                linear-gradient(#fff 0 0) padding-box,
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            background-size: 200% 200%;
-            animation: shimmer 3s linear infinite;
-        }
-
+        
+        .gvc-gold { color: #ffe048; }
+        .bg-gvc-gold { background-color: #ffe048; }
+        .gvc-orange { color: #ff6b35; }
+        .bg-gvc-orange { background-color: #ff6b35; }
+        
         @keyframes shimmer {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { transform: translateX(-100%) skewX(-12deg); }
+            100% { transform: translateX(200%) skewX(-12deg); }
         }
-
-        /* Add a glow behind it too */
-        .card-shimmer::after {
-            content: "";
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255,224,72,0.4); }
+            50% { box-shadow: 0 0 40px rgba(255,224,72,0.8); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .animate-shimmer {
+            animation: shimmer 2s infinite;
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .sparkle::before,
+        .sparkle::after {
+            content: '✦';
             position: absolute;
-            inset: -10px;
-            background: linear-gradient(45deg, #FF6B9D, #FFE048);
-            filter: blur(20px);
-            z-index: -2;
-            opacity: 0.4;
-            animation: pulse-opacity 3s ease-in-out infinite;
+            color: white;
+            opacity: 0.7;
+            animation: ping 2s infinite;
         }
-
-        @keyframes pulse-opacity {
-
-            0%,
-            100% {
-                opacity: 0.3;
-            }
-
-            50% {
-                opacity: 0.6;
-            }
-        }
-
-        /* --- OPTION 4: SNAKE BORDER --- */
-        .card-snake {
-            position: relative;
-            overflow: hidden;
-            background: #121212;
-        }
-
-        .card-snake span {
-            position: absolute;
-            display: block;
-        }
-
-        .card-snake span:nth-child(1) {
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #FFE048);
-            animation: snake1 2s linear infinite;
-        }
-
-        @keyframes snake1 {
-            0% {
-                left: -100%;
-            }
-
-            50%,
-            100% {
-                left: 100%;
-            }
-        }
-
-        .card-snake span:nth-child(2) {
-            top: -100%;
-            right: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, transparent, #FFE048);
-            animation: snake2 2s linear infinite;
-            animation-delay: 0.5s;
-        }
-
-        @keyframes snake2 {
-            0% {
-                top: -100%;
-            }
-
-            50%,
-            100% {
-                top: 100%;
-            }
-        }
-
-        .card-snake span:nth-child(3) {
-            bottom: 0;
-            right: -100%;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(270deg, transparent, #FFE048);
-            animation: snake3 2s linear infinite;
-            animation-delay: 1s;
-        }
-
-        @keyframes snake3 {
-            0% {
-                right: -100%;
-            }
-
-            50%,
-            100% {
-                right: 100%;
-            }
-        }
-
-        .card-snake span:nth-child(4) {
-            bottom: -100%;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(360deg, transparent, #FFE048);
-            animation: snake4 2s linear infinite;
-            animation-delay: 1.5s;
-        }
-
-        @keyframes snake4 {
-            0% {
-                bottom: -100%;
-            }
-
-            50%,
-            100% {
-                bottom: 100%;
-            }
+        .sparkle::before { top: 5px; right: 10px; font-size: 10px; }
+        .sparkle::after { bottom: 8px; left: 15px; font-size: 8px; animation-delay: 0.5s; }
+        
+        @keyframes ping {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
     </style>
 </head>
-
-<body>
-    <h1>Animated Border Concepts</h1>
-    <p class="subtitle">Looking for "Prominent" & "Standing Out" - Which vibe fits best?</p>
-
-    <div class="options-grid">
-
-        <!-- OPTION 1 -->
-        <div class="option">
-            <h2>1. Rotating Spectrum</h2>
-            <p class="desc">A continuous, high-energy border that cycles through the brand colors. Very noticeable.</p>
-            <div class="card card-rotating">
-                <div class="img-wrap">
-                    <img src="https://i.seadn.io/gae/ZWEV7BBCssLj4I2XD9zlPjbPTMcmR6gM9dSl96WqFHS02o4mucLFuM8gVxQ9PncRiCB-PnJG6AqrZJGJCY5OH0sJgDc0R6Jxmq_s?w=500"
-                        class="punk-img" alt="Punk">
-                </div>
-                <div class="info">
-                    <div class="name">CryptoPunk #2457</div>
-                    <div class="price">28.80 ETH <span class="usd">($83k)</span></div>
-                </div>
-            </div>
+<body class="min-h-screen p-8 text-white">
+    <div class="max-w-6xl mx-auto space-y-16">
+        
+        <!-- Header -->
+        <div class="text-center">
+            <h1 class="text-4xl font-bold gvc-gold mb-2">VIBEWHEEL DESIGN OPTIONS</h1>
+            <p class="text-white/60">Click buttons to see interaction effects</p>
         </div>
 
-        <!-- OPTION 2 -->
-        <div class="option">
-            <h2>2. Golden Pulse</h2>
-            <p class="desc">A "breathing" effect that feels alive. Suggests value and importance without too much
-                movement.</p>
-            <div class="card card-pulsing">
-                <div class="img-wrap">
-                    <img src="https://i.seadn.io/gae/ZWEV7BBCssLj4I2XD9zlPjbPTMcmR6gM9dSl96WqFHS02o4mucLFuM8gVxQ9PncRiCB-PnJG6AqrZJGJCY5OH0sJgDc0R6Jxmq_s?w=500"
-                        class="punk-img" alt="Punk">
+        <!-- BUTTON DESIGNS -->
+        <section>
+            <h2 class="text-2xl font-bold text-white mb-6 border-b border-white/20 pb-2">🎯 Button Designs</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Option 1: Classic Gold -->
+                <div class="bg-black/40 rounded-2xl p-6 space-y-4">
+                    <h3 class="text-sm font-bold text-white/60 uppercase tracking-wider">Option 1: Classic Gold</h3>
+                    <div class="flex justify-center">
+                        <button onclick="this.classList.add('scale-95'); setTimeout(() => this.classList.remove('scale-95'), 150)"
+                            class="bg-[#ffe048] text-black font-bold uppercase tracking-wider py-4 px-8 rounded-lg shadow-[0_0_20px_rgba(255,224,72,0.4)] hover:bg-white transition-all duration-200 transform">
+                            REV THE VIBEWHEEL!
+                        </button>
+                    </div>
+                    <p class="text-xs text-white/40">Clean, bold, professional</p>
                 </div>
-                <div class="info">
-                    <div class="name">CryptoPunk #2457</div>
-                    <div class="price">28.80 ETH <span class="usd">($83k)</span></div>
-                </div>
-            </div>
-        </div>
 
-        <!-- OPTION 3 -->
-        <div class="option">
-            <h2>3. Shimmer & Glow</h2>
-            <p class="desc">A premium metallic shimmer moving across the border, with a soft ambient backlight.</p>
-            <div class="card card-shimmer">
-                <div class="img-wrap">
-                    <img src="https://i.seadn.io/gae/ZWEV7BBCssLj4I2XD9zlPjbPTMcmR6gM9dSl96WqFHS02o4mucLFuM8gVxQ9PncRiCB-PnJG6AqrZJGJCY5OH0sJgDc0R6Jxmq_s?w=500"
-                        class="punk-img" alt="Punk">
+                <!-- Option 2: Gradient Fire -->
+                <div class="bg-black/40 rounded-2xl p-6 space-y-4">
+                    <h3 class="text-sm font-bold text-white/60 uppercase tracking-wider">Option 2: Gradient Fire 🔥</h3>
+                    <div class="flex justify-center">
+                        <button onclick="this.classList.add('scale-95'); setTimeout(() => this.classList.remove('scale-95'), 150)"
+                            class="bg-gradient-to-r from-[#ff6b35] via-[#ffe048] to-[#ff6b35] text-black font-bold uppercase tracking-wider py-4 px-8 rounded-lg shadow-[0_0_30px_rgba(255,107,53,0.5)] hover:shadow-[0_0_50px_rgba(255,107,53,0.7)] transition-all duration-200 transform bg-[length:200%_100%] hover:bg-right">
+                            REV THE VIBEWHEEL!
+                        </button>
+                    </div>
+                    <p class="text-xs text-white/40">Fiery gradient, intense energy</p>
                 </div>
-                <div class="info">
-                    <div class="name">CryptoPunk #2457</div>
-                    <div class="price">28.80 ETH <span class="usd">($83k)</span></div>
-                </div>
-            </div>
-        </div>
 
-        <!-- OPTION 4 -->
-        <div class="option">
-            <h2>4. Laser Snake</h2>
-            <p class="desc">Lines chasing each other around the card. Futuristic and tech-forward.</p>
-            <div class="card card-snake">
-                <span></span><span></span><span></span><span></span>
-                <div class="img-wrap">
-                    <img src="https://i.seadn.io/gae/ZWEV7BBCssLj4I2XD9zlPjbPTMcmR6gM9dSl96WqFHS02o4mucLFuM8gVxQ9PncRiCB-PnJG6AqrZJGJCY5OH0sJgDc0R6Jxmq_s?w=500"
-                        class="punk-img" alt="Punk">
+                <!-- Option 3: Neon Outline -->
+                <div class="bg-black/40 rounded-2xl p-6 space-y-4">
+                    <h3 class="text-sm font-bold text-white/60 uppercase tracking-wider">Option 3: Neon Outline</h3>
+                    <div class="flex justify-center">
+                        <button onclick="this.classList.add('scale-95'); setTimeout(() => this.classList.remove('scale-95'), 150)"
+                            class="relative bg-transparent border-2 border-[#ffe048] text-[#ffe048] font-bold uppercase tracking-wider py-4 px-8 rounded-lg shadow-[0_0_20px_rgba(255,224,72,0.3),inset_0_0_20px_rgba(255,224,72,0.1)] hover:bg-[#ffe048] hover:text-black transition-all duration-300 transform">
+                            REV THE VIBEWHEEL!
+                        </button>
+                    </div>
+                    <p class="text-xs text-white/40">Sleek outline, fills on hover</p>
                 </div>
-                <div class="info">
-                    <div class="name">CryptoPunk #2457</div>
-                    <div class="price">28.80 ETH <span class="usd">($83k)</span></div>
-                </div>
-            </div>
-        </div>
 
+                <!-- Option 4: Pulsing Glow -->
+                <div class="bg-black/40 rounded-2xl p-6 space-y-4">
+                    <h3 class="text-sm font-bold text-white/60 uppercase tracking-wider">Option 4: Pulsing Glow ✨</h3>
+                    <div class="flex justify-center">
+                        <button onclick="this.classList.add('scale-95'); setTimeout(() => this.classList.remove('scale-95'), 150)"
+                            class="bg-[#ffe048] text-black font-bold uppercase tracking-wider py-4 px-8 rounded-lg animate-pulse-glow hover:bg-white transition-colors duration-200 transform">
+                            REV THE VIBEWHEEL!
+                        </button>
+                    </div>
+                    <p class="text-xs text-white/40">Breathing glow, attention-grabbing</p>
+                </div>
+
+                <!-- Option 5: Shimmer Effect -->
+                <div class="bg-black/40 rounded-2xl p-6 space-y-4">
+                    <h3 class="text-sm font-bold text-white/60 uppercase tracking-wider">Option 5: Shimmer Effect</h3>
+                    <div class="flex justify-center">
+                        <button onclick="this.classList.add('scale-95'); setTimeout(() => this.classList.remove('scale-95'), 150)"
+                            class="sparkle relative overflow-hidden bg-[#ffe048] text-black font-bold uppercase tracking-wider py-4 px-8 rounded-lg shadow-[0_0_20px_rgba(255,224,72,0.4)] hover:bg-white transition-all duration-200 transform">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer"></div>
+                            <span class="relative z-10">REV THE VIBEWHEEL!</span>
+                        </button>
+                    </div>
+                    <p class="text-xs text-white/40">Premium shimmer + sparkles</p>
+                </div>
+
+                <!-- Option 6: 3D Button -->
+                <div class="bg-black/40 rounded-2xl p-6 space-y-4">
+                    <h3 class="text-sm font-bold text-white/60 uppercase tracking-wider">Option 6: 3D Depth</h3>
+                    <div class="flex justify-center">
+                        <button onclick="this.style.transform='translateY(4px)'; this.style.boxShadow='0 0 0 #b89a00'; setTimeout(() => {this.style.transform=''; this.style.boxShadow='';}, 150)"
+                            class="bg-[#ffe048] text-black font-bold uppercase tracking-wider py-4 px-8 rounded-lg shadow-[0_4px_0_#b89a00] hover:shadow-[0_2px_0_#b89a00] hover:translate-y-[2px] transition-all duration-100 transform">
+                            REV THE VIBEWHEEL!
+                        </button>
+                    </div>
+                    <p class="text-xs text-white/40">Physical button feel, satisfying click</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- OUTPUT PANEL LAYOUTS -->
+        <section>
+            <h2 class="text-2xl font-bold text-white mb-6 border-b border-white/20 pb-2">📊 Output Panel Layouts</h2>
+            
+            <div class="space-y-12">
+
+                <!-- Layout 1: Current Stacked -->
+                <div class="bg-black/40 rounded-2xl p-6">
+                    <h3 class="text-sm font-bold text-white/60 uppercase tracking-wider mb-4">Layout 1: Stacked Sections (Current)</h3>
+                    <div class="bg-gradient-to-b from-white/5 to-transparent border border-[#ffe048]/30 rounded-2xl p-8 space-y-8 text-center">
+                        <h3 class="text-3xl font-bold text-white uppercase">PROJECTED REV</h3>
+                        
+                        <!-- ETH Section -->
+                        <div class="space-y-2">
+                            <p class="text-white/60 text-sm uppercase">Sweeping 10 Strategy GVCs would generate</p>
+                            <p class="text-5xl font-bold gvc-gold">9.48 ETH</p>
+                            <p class="text-[#ffe048]/60 text-sm uppercase">IN BUY/BURN POWER</p>
+                        </div>
+                        
+                        <div class="w-full h-px bg-white/10"></div>
+                        
+                        <!-- Burn Section -->
+                        <div class="space-y-4">
+                            <p class="text-white/60 text-sm uppercase">🔥 THIS WOULD BUY & BURN</p>
+                            <p class="text-5xl font-bold gvc-orange">2.8M <span class="text-2xl">$VIBESTR</span></p>
+                            <div class="inline-block bg-[#ff6b35]/10 border border-[#ff6b35]/30 px-4 py-2 rounded-full">
+                                <p class="gvc-orange font-bold text-sm">That represents 0.283% of the total supply</p>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full h-px bg-white/10"></div>
+                        
+                        <!-- Price Impact -->
+                        <div class="space-y-4">
+                            <p class="text-white/60 text-sm uppercase">📈 PROJECTED PRICE IMPACT</p>
+                            <div class="flex items-center justify-center gap-6">
+                                <div class="text-center">
+                                    <p class="text-white/40 text-xs uppercase">Current</p>
+                                    <p class="text-2xl font-bold text-white">$0.0078</p>
+                                </div>
+                                <span class="text-green-500 text-2xl">→</span>
+                                <div class="text-center">
+                                    <p class="text-white/40 text-xs uppercase">Projected</p>
+                                    <p class="text-2xl font-bold text-green-400">$0.0084</p>
+                                </div>
+                            </div>
+                            <div class="inline-block bg-green-500/10 border border-green-500/30 px-4 py-2 rounded-full">
+                                <p class="text-green-400 font-bold text-sm">+7.20% Price Increase</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layout 2: Two Column -->
+                <div class="bg-black/40 rounded-2xl p-6">
+                    <h3 class="text-sm font-bold text-white/60 uppercase tracking-wider mb-4">Layout 2: Two Column Split</h3>
+                    <div class="bg-gradient-to-b from-white/5 to-transparent border border-[#ffe048]/30 rounded-2xl p-8">
+                        <h3 class="text-3xl font-bold text-white uppercase text-center mb-8">PROJECTED REV</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- Left Column: ETH + Burn -->
+                            <div class="space-y-6 text-center">
+                                <div class="bg-black/30 rounded-xl p-6 space-y-2">
+                                    <p class="text-white/60 text-xs uppercase">ETH Generated</p>
+                                    <p class="text-4xl font-bold gvc-gold">9.48 ETH</p>
+                                    <p class="text-[#ffe048]/60 text-xs uppercase">BUY/BURN POWER</p>
+                                </div>
+                                <div class="bg-black/30 rounded-xl p-6 space-y-2">
+                                    <p class="text-white/60 text-xs uppercase">🔥 Tokens Burned</p>
+                                    <p class="text-4xl font-bold gvc-orange">2.8M</p>
+                                    <p class="text-[#ff6b35]/60 text-xs">0.283% of supply</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Column: Price Impact -->
+                            <div class="bg-green-500/5 border border-green-500/20 rounded-xl p-6 flex flex-col justify-center text-center">
+                                <p class="text-green-500/60 text-xs uppercase mb-4">📈 Price Impact</p>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-center gap-4">
+                                        <div>
+                                            <p class="text-white/40 text-xs">Current</p>
+                                            <p class="text-xl font-bold text-white">$0.0078</p>
+                                        </div>
+                                        <span class="text-green-500 text-xl">→</span>
+                                        <div>
+                                            <p class="text-white/40 text-xs">Projected</p>
+                                            <p class="text-xl font-bold text-green-400">$0.0084</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-4xl font-bold text-green-400">+7.20%</p>
+                                    <p class="text-green-500/60 text-sm">Price Increase</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layout 3: Compact Cards -->
+                <div class="bg-black/40 rounded-2xl p-6">
+                    <h3 class="text-sm font-bold text-white/60 uppercase tracking-wider mb-4">Layout 3: Compact Cards Row</h3>
+                    <div class="bg-gradient-to-b from-white/5 to-transparent border border-[#ffe048]/30 rounded-2xl p-6">
+                        <h3 class="text-2xl font-bold text-white uppercase text-center mb-6">PROJECTED REV</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <!-- ETH Card -->
+                            <div class="bg-[#ffe048]/10 border border-[#ffe048]/30 rounded-xl p-4 text-center">
+                                <p class="text-[#ffe048]/60 text-xs uppercase mb-1">ETH Generated</p>
+                                <p class="text-3xl font-bold gvc-gold">9.48</p>
+                                <p class="text-[#ffe048]/80 text-sm">ETH</p>
+                            </div>
+                            
+                            <!-- Burn Card -->
+                            <div class="bg-[#ff6b35]/10 border border-[#ff6b35]/30 rounded-xl p-4 text-center">
+                                <p class="text-[#ff6b35]/60 text-xs uppercase mb-1">🔥 Tokens Burned</p>
+                                <p class="text-3xl font-bold gvc-orange">2.8M</p>
+                                <p class="text-[#ff6b35]/80 text-sm">$VIBESTR</p>
+                            </div>
+                            
+                            <!-- Price Card -->
+                            <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-4 text-center">
+                                <p class="text-green-500/60 text-xs uppercase mb-1">📈 Price Impact</p>
+                                <p class="text-3xl font-bold text-green-400">+7.20%</p>
+                                <p class="text-green-500/80 text-sm">$0.0078 → $0.0084</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layout 4: Hero Stat Focus -->
+                <div class="bg-black/40 rounded-2xl p-6">
+                    <h3 class="text-sm font-bold text-white/60 uppercase tracking-wider mb-4">Layout 4: Hero Stat Focus</h3>
+                    <div class="bg-gradient-to-b from-white/5 to-transparent border border-[#ffe048]/30 rounded-2xl p-8 text-center">
+                        <!-- Big Hero Number -->
+                        <div class="mb-8">
+                            <p class="text-white/60 text-sm uppercase mb-2">Sweeping 10 GVCs generates</p>
+                            <p class="text-7xl font-bold gvc-gold leading-none">9.48 ETH</p>
+                        </div>
+                        
+                        <!-- Stats Row -->
+                        <div class="flex items-center justify-center gap-8 flex-wrap">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">🔥</span>
+                                <div class="text-left">
+                                    <p class="text-white/40 text-xs uppercase">Burns</p>
+                                    <p class="text-xl font-bold gvc-orange">2.8M $VIBESTR</p>
+                                </div>
+                            </div>
+                            <div class="w-px h-12 bg-white/20"></div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">📈</span>
+                                <div class="text-left">
+                                    <p class="text-white/40 text-xs uppercase">Price Impact</p>
+                                    <p class="text-xl font-bold text-green-400">+7.20%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layout 5: Timeline Flow -->
+                <div class="bg-black/40 rounded-2xl p-6">
+                    <h3 class="text-sm font-bold text-white/60 uppercase tracking-wider mb-4">Layout 5: Flow Diagram</h3>
+                    <div class="bg-gradient-to-b from-white/5 to-transparent border border-[#ffe048]/30 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-white uppercase text-center mb-8">PROJECTED REV</h3>
+                        
+                        <div class="flex items-center justify-center gap-2 md:gap-4 flex-wrap">
+                            <!-- Step 1 -->
+                            <div class="bg-white/5 rounded-xl p-4 text-center min-w-[120px]">
+                                <p class="text-white/40 text-xs uppercase">Sweep</p>
+                                <p class="text-2xl font-bold text-white">10 GVCs</p>
+                            </div>
+                            <span class="text-white/30 text-2xl">→</span>
+                            
+                            <!-- Step 2 -->
+                            <div class="bg-[#ffe048]/10 rounded-xl p-4 text-center min-w-[120px]">
+                                <p class="text-[#ffe048]/60 text-xs uppercase">Generate</p>
+                                <p class="text-2xl font-bold gvc-gold">9.48 ETH</p>
+                            </div>
+                            <span class="text-white/30 text-2xl">→</span>
+                            
+                            <!-- Step 3 -->
+                            <div class="bg-[#ff6b35]/10 rounded-xl p-4 text-center min-w-[120px]">
+                                <p class="text-[#ff6b35]/60 text-xs uppercase">🔥 Burn</p>
+                                <p class="text-2xl font-bold gvc-orange">2.8M</p>
+                            </div>
+                            <span class="text-white/30 text-2xl">→</span>
+                            
+                            <!-- Step 4 -->
+                            <div class="bg-green-500/10 rounded-xl p-4 text-center min-w-[120px]">
+                                <p class="text-green-500/60 text-xs uppercase">📈 Result</p>
+                                <p class="text-2xl font-bold text-green-400">+7.20%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="text-center text-white/40 text-sm pb-8">
+            Click any button to test the interaction • Layouts are responsive
+        </div>
     </div>
 </body>
-
 </html>

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 const BADGE_IMAGES = [
     '/badges/any_gvc_1759173799963.webp',
@@ -31,56 +32,68 @@ const BADGE_IMAGES = [
 ];
 
 export default function HeroBadgeCluster() {
+    const [items, setItems] = useState<any[]>([]);
+
+    useEffect(() => {
+        const newItems = BADGE_IMAGES.slice(0, 18).map((src, i) => {
+            const count = 18;
+            const angle = (i / count) * Math.PI * 2;
+            const xRadius = 350 + Math.random() * 50;
+            const yRadius = 200 + Math.random() * 50;
+            const x = Math.cos(angle) * xRadius;
+            const y = Math.sin(angle) * yRadius;
+
+            return {
+                src,
+                x,
+                y,
+                animX: (Math.random() - 0.5) * 30,
+                animY: (Math.random() - 0.5) * 30,
+                animRotate: (Math.random() - 0.5) * 20,
+                duration: 4 + Math.random() * 4,
+                delay: Math.random() * 2,
+                entryDelay: i * 0.05
+            };
+        });
+        setItems(newItems);
+    }, []);
+
     return (
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] pointer-events-none z-0">
             {/* Center glow */}
             <div className="absolute inset-0 bg-gvc-gold/10 blur-[120px] rounded-full scale-50" />
 
-            {/* We'll pick ~18 badges to float around */}
-            {BADGE_IMAGES.slice(0, 18).map((src, i) => {
-                // Calculate position in a circle/oval
-                const count = 18;
-                const angle = (i / count) * Math.PI * 2;
-
-                // Elliptical spread: wider horizontally
-                const xRadius = 350 + Math.random() * 50;
-                const yRadius = 200 + Math.random() * 50;
-
-                const x = Math.cos(angle) * xRadius;
-                const y = Math.sin(angle) * yRadius;
-
-                return (
-                    <motion.div
-                        key={i}
-                        className="absolute top-1/2 left-1/2 w-16 h-16 md:w-20 md:h-20"
-                        style={{ x, y }} // animate x/y from center would be nice but let's just place them
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{
-                            opacity: 1,
-                            scale: 1,
-                            x: [x, x + (Math.random() - 0.5) * 30, x],
-                            y: [y, y + (Math.random() - 0.5) * 30, y],
-                            rotate: [0, (Math.random() - 0.5) * 20, 0]
-                        }}
-                        transition={{
-                            opacity: { duration: 1, delay: i * 0.05 },
-                            scale: { duration: 1, delay: i * 0.05 },
-                            default: {
-                                duration: 4 + Math.random() * 4,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                                delay: Math.random() * 2
-                            }
-                        }}
-                    >
-                        <img
-                            src={src}
-                            alt=""
-                            className="w-full h-full object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)] hover:scale-125 transition-transform duration-300"
-                        />
-                    </motion.div>
-                );
-            })}
+            {items.map((item, i) => (
+                <motion.div
+                    key={i}
+                    className="absolute top-1/2 left-1/2 w-16 h-16 md:w-20 md:h-20"
+                    style={{ x: item.x, y: item.y }}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{
+                        opacity: 1,
+                        scale: 1,
+                        x: [item.x, item.x + item.animX, item.x],
+                        y: [item.y, item.y + item.animY, item.y],
+                        rotate: [0, item.animRotate, 0]
+                    }}
+                    transition={{
+                        opacity: { duration: 1, delay: item.entryDelay },
+                        scale: { duration: 1, delay: item.entryDelay },
+                        default: {
+                            duration: item.duration,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: item.delay
+                        }
+                    }}
+                >
+                    <img
+                        src={item.src}
+                        alt=""
+                        className="w-full h-full object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)] hover:scale-125 transition-transform duration-300"
+                    />
+                </motion.div>
+            ))}
         </div>
     );
 }

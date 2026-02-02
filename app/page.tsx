@@ -10,6 +10,7 @@ import TotalValueDisplay, { ChartModal } from '@/components/TotalValueDisplay';
 import ValueHistoryChart from '@/components/ValueHistoryChart';
 import HowItWorks from '@/components/HowItWorks';
 import ExampleFlow from '@/components/ExampleFlow';
+import VibeWheelCalculator from '@/components/VibeWheelCalculator';
 
 interface TokenStats {
   vibestr: number;
@@ -50,7 +51,7 @@ interface HistoryDataPoint {
 }
 
 export default function Home() {
-  const [viewMode, setViewMode] = useState<'POOL' | 'HOW_IT_WORKS' | 'EXAMPLE_FLOW'>('POOL');
+  const [viewMode, setViewMode] = useState<'POOL' | 'HOW_IT_WORKS' | 'EXAMPLE_FLOW' | 'VIBEWHEEL'>('POOL');
   const [tokenStats, setTokenStats] = useState<TokenStats | null>(null);
   const [nfts, setNfts] = useState<NFT[]>([]);
   const [nftCounts, setNftCounts] = useState<NFTCounts | null>(null);
@@ -385,27 +386,34 @@ export default function Home() {
       <BadgeDivider />
 
       {/* Toggle View */}
-      <div className="flex justify-center gap-12 mb-8 relative z-20">
+      <div className="flex justify-center gap-4 md:gap-8 mb-8 relative z-20 overflow-x-auto w-full px-2 md:px-0 pb-2 scrollbar-hide">
         <button
           onClick={() => setViewMode('POOL')}
-          className={`font-mundial font-bold tracking-widest text-sm uppercase transition-colors px-4 py-2 border-b-2 ${viewMode === 'POOL' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
+          className={`font-mundial font-bold tracking-wider md:tracking-widest text-xs md:text-sm uppercase transition-colors px-2 md:px-4 py-2 border-b-2 whitespace-nowrap flex-shrink-0 ${viewMode === 'POOL' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
             }`}
         >
           Rewards Pool
         </button>
         <button
           onClick={() => setViewMode('HOW_IT_WORKS')}
-          className={`font-mundial font-bold tracking-widest text-sm uppercase transition-colors px-4 py-2 border-b-2 ${viewMode === 'HOW_IT_WORKS' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
+          className={`font-mundial font-bold tracking-wider md:tracking-widest text-xs md:text-sm uppercase transition-colors px-2 md:px-4 py-2 border-b-2 whitespace-nowrap flex-shrink-0 ${viewMode === 'HOW_IT_WORKS' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
             }`}
         >
-          How it Works
+          How It Works
         </button>
         <button
           onClick={() => setViewMode('EXAMPLE_FLOW')}
-          className={`font-mundial font-bold tracking-widest text-sm uppercase transition-colors px-4 py-2 border-b-2 ${viewMode === 'EXAMPLE_FLOW' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
+          className={`font-mundial font-bold tracking-wider md:tracking-widest text-xs md:text-sm uppercase transition-colors px-2 md:px-4 py-2 border-b-2 whitespace-nowrap flex-shrink-0 ${viewMode === 'EXAMPLE_FLOW' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
             }`}
         >
-          SIMULATOR
+          Simulator
+        </button>
+        <button
+          onClick={() => setViewMode('VIBEWHEEL')}
+          className={`font-mundial font-bold tracking-wider md:tracking-widest text-xs md:text-sm uppercase transition-colors px-2 md:px-4 py-2 border-b-2 whitespace-nowrap flex-shrink-0 ${viewMode === 'VIBEWHEEL' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
+            }`}
+        >
+          Rev the Vibewheel
         </button>
       </div>
 
@@ -433,7 +441,7 @@ export default function Home() {
           >
             <HowItWorks />
           </motion.div>
-        ) : (
+        ) : viewMode === 'EXAMPLE_FLOW' ? (
           <motion.div
             key="example-flow"
             initial={{ opacity: 0, x: 20 }}
@@ -444,11 +452,22 @@ export default function Home() {
           >
             <ExampleFlow />
           </motion.div>
+        ) : (
+          <motion.div
+            key="vibewheel"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+            className="w-full"
+          >
+            <VibeWheelCalculator />
+          </motion.div>
         )}
       </AnimatePresence>
 
       {/* Footer spacing */}
       <div className="h-16" />
-    </main>
+    </main >
   );
 }

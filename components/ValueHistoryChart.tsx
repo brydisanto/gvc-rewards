@@ -1,6 +1,6 @@
 'use client';
 
-import { ComposedChart, Area, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { ComposedChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface HistoryDataPoint {
     date: string;
@@ -24,13 +24,6 @@ export default function ValueHistoryChart({ data, isLoading }: ValueHistoryChart
         return '$' + num.toFixed(0);
     };
 
-    const formatDailyIncrease = (num: number) => {
-        if (num >= 10000) {
-            return '$' + (num / 1000).toFixed(1) + 'K';
-        }
-        return '$' + num.toLocaleString(undefined, { maximumFractionDigits: 0 });
-    };
-
     const getOrdinalSuffix = (day: number) => {
         if (day > 3 && day < 21) return 'th';
         switch (day % 10) {
@@ -41,9 +34,11 @@ export default function ValueHistoryChart({ data, isLoading }: ValueHistoryChart
         }
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const formatDate = (dateStr: any) => {
+        if (!dateStr) return '';
         // Create date object and force UTC interpretation
-        const date = new Date(dateStr + 'T00:00:00Z');
+        const date = new Date(String(dateStr) + 'T00:00:00Z');
         const month = date.toLocaleDateString('en-US', { month: 'long', timeZone: 'UTC' });
         const day = date.getUTCDate();
         return `${month} ${day}${getOrdinalSuffix(day)}`;
@@ -135,7 +130,7 @@ export default function ValueHistoryChart({ data, isLoading }: ValueHistoryChart
                             boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
                         }}
                         labelFormatter={formatDate}
-                        formatter={(value: any) => ['$' + value.toLocaleString(undefined, { maximumFractionDigits: 0 }), 'Total Value']}
+                        formatter={(value: number) => ['$' + value.toLocaleString(undefined, { maximumFractionDigits: 0 }), 'Total Value']}
                         itemStyle={{ color: '#FFE048' }}
                         labelStyle={{ color: '#ffffff', marginBottom: '8px', fontSize: '18px' }}
                     />

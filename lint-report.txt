@@ -1,0 +1,268 @@
+
+> vibestr-rewards@0.1.0 lint
+> eslint
+
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/api/strategy-holdings/route.ts
+   8:7   warning  'COLLECTION_SLUG' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  14:13  error    'listings' is never reassigned. Use 'const' instead   prefer-const
+  60:36  error    Unexpected any. Specify a different type              @typescript-eslint/no-explicit-any
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/cycle-options/page.tsx
+  4:10  warning  'motion' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/design-concepts/page.tsx
+   53:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @next/next/no-img-element
+   64:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @next/next/no-img-element
+   80:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @next/next/no-img-element
+   92:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @next/next/no-img-element
+  122:51  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/design-concepts/page.tsx:122:51
+  120 |                                 }}
+  121 |                                 transition={{
+> 122 |                                     duration: 3 + Math.random() * 2,
+      |                                                   ^^^^^^^^^^^^^ Cannot call impure function
+  123 |                                     repeat: Infinity,
+  124 |                                     ease: "easeInOut",
+  125 |                                     delay: Math.random() * 2                                                                    react-hooks/purity
+  125:44  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/design-concepts/page.tsx:125:44
+  123 |                                     repeat: Infinity,
+  124 |                                     ease: "easeInOut",
+> 125 |                                     delay: Math.random() * 2
+      |                                            ^^^^^^^^^^^^^ Cannot call impure function
+  126 |                                 }}
+  127 |                             />
+  128 |                         </motion.div>                                                                                                                         react-hooks/purity
+  142:46  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/design-concepts/page.tsx:142:46
+  140 |                     {BADGE_IMAGES.slice(0, 15).map((src, i) => {
+  141 |                         const angle = (i / 15) * Math.PI * 2;
+> 142 |                         const radius = 120 + Math.random() * 60; // Spread out
+      |                                              ^^^^^^^^^^^^^ Cannot call impure function
+  143 |                         const x = Math.cos(angle) * radius;
+  144 |                         const y = Math.sin(angle) * radius;
+  145 |                                                                   react-hooks/purity
+  152:49  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/design-concepts/page.tsx:152:49
+  150 |                                 style={{ x, y }}
+  151 |                                 animate={{
+> 152 |                                     x: [x, x + (Math.random() - 0.5) * 20, x],
+      |                                                 ^^^^^^^^^^^^^ Cannot call impure function
+  153 |                                     y: [y, y + (Math.random() - 0.5) * 20, y],
+  154 |                                     rotate: [0, (Math.random() - 0.5) * 10, 0]
+  155 |                                 }}                          react-hooks/purity
+  153:49  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/design-concepts/page.tsx:153:49
+  151 |                                 animate={{
+  152 |                                     x: [x, x + (Math.random() - 0.5) * 20, x],
+> 153 |                                     y: [y, y + (Math.random() - 0.5) * 20, y],
+      |                                                 ^^^^^^^^^^^^^ Cannot call impure function
+  154 |                                     rotate: [0, (Math.random() - 0.5) * 10, 0]
+  155 |                                 }}
+  156 |                                 transition={{                             react-hooks/purity
+  154:50  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/design-concepts/page.tsx:154:50
+  152 |                                     x: [x, x + (Math.random() - 0.5) * 20, x],
+  153 |                                     y: [y, y + (Math.random() - 0.5) * 20, y],
+> 154 |                                     rotate: [0, (Math.random() - 0.5) * 10, 0]
+      |                                                  ^^^^^^^^^^^^^ Cannot call impure function
+  155 |                                 }}
+  156 |                                 transition={{
+  157 |                                     duration: 4 + Math.random() * 4,  react-hooks/purity
+  157:51  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/design-concepts/page.tsx:157:51
+  155 |                                 }}
+  156 |                                 transition={{
+> 157 |                                     duration: 4 + Math.random() * 4,
+      |                                                   ^^^^^^^^^^^^^ Cannot call impure function
+  158 |                                     repeat: Infinity,
+  159 |                                     ease: "easeInOut"
+  160 |                                 }}                                                                                               react-hooks/purity
+  162:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @next/next/no-img-element
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/how-it-works-concepts/page.tsx
+  3:10  warning  'motion' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/icon-options/page.tsx
+  4:73  warning  'Heart' is defined but never used     @typescript-eslint/no-unused-vars
+  4:80  warning  'Siren' is defined but never used     @typescript-eslint/no-unused-vars
+  4:87  warning  'Smile' is defined but never used     @typescript-eslint/no-unused-vars
+  4:94  warning  'Activity' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/layout-options/page.tsx
+   4:10  warning  'motion' is defined but never used                               @typescript-eslint/no-unused-vars
+  34:85  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  34:98  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/page.tsx
+  64:10  warning  'todayChange' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/simulator-design/page.tsx
+   4:10   warning  'motion' is defined but never used                               @typescript-eslint/no-unused-vars
+  28:125  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  28:140  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/split-concepts/page.tsx
+   4:10   warning  'motion' is defined but never used                               @typescript-eslint/no-unused-vars
+  39:121  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  39:134  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/app/text-options/page.tsx
+  105:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/BadgeDivider.tsx
+  75:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/BadgeMarquee.tsx
+  78:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/ExampleFlow.tsx
+    5:42  warning  'Trophy' is defined but never used                               @typescript-eslint/no-unused-vars
+  257:33  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  364:40  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/FloatingBadges.tsx
+  64:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/FloatingBadges.tsx:64:9
+  62 |         }
+  63 |
+> 64 |         setItems(newItems);
+     |         ^^^^^^^^ Avoid calling setState() directly within an effect
+  65 |     }, []);
+  66 |
+  67 |     return (  react-hooks/set-state-in-effect
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/HeroBadgeCluster.tsx
+  46:39  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/HeroBadgeCluster.tsx:46:39
+  44 |
+  45 |                 // Elliptical spread: wider horizontally
+> 46 |                 const xRadius = 350 + Math.random() * 50;
+     |                                       ^^^^^^^^^^^^^ Cannot call impure function
+  47 |                 const yRadius = 200 + Math.random() * 50;
+  48 |
+  49 |                 const x = Math.cos(angle) * xRadius;                                                                                                                                react-hooks/purity
+  47:39  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/HeroBadgeCluster.tsx:47:39
+  45 |                 // Elliptical spread: wider horizontally
+  46 |                 const xRadius = 350 + Math.random() * 50;
+> 47 |                 const yRadius = 200 + Math.random() * 50;
+     |                                       ^^^^^^^^^^^^^ Cannot call impure function
+  48 |
+  49 |                 const x = Math.cos(angle) * xRadius;
+  50 |                 const y = Math.sin(angle) * yRadius;                                                                           react-hooks/purity
+  61:41  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/HeroBadgeCluster.tsx:61:41
+  59 |                             opacity: 1,
+  60 |                             scale: 1,
+> 61 |                             x: [x, x + (Math.random() - 0.5) * 30, x],
+     |                                         ^^^^^^^^^^^^^ Cannot call impure function
+  62 |                             y: [y, y + (Math.random() - 0.5) * 30, y],
+  63 |                             rotate: [0, (Math.random() - 0.5) * 20, 0]
+  64 |                         }}                                  react-hooks/purity
+  62:41  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/HeroBadgeCluster.tsx:62:41
+  60 |                             scale: 1,
+  61 |                             x: [x, x + (Math.random() - 0.5) * 30, x],
+> 62 |                             y: [y, y + (Math.random() - 0.5) * 30, y],
+     |                                         ^^^^^^^^^^^^^ Cannot call impure function
+  63 |                             rotate: [0, (Math.random() - 0.5) * 20, 0]
+  64 |                         }}
+  65 |                         transition={{                                    react-hooks/purity
+  63:42  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/HeroBadgeCluster.tsx:63:42
+  61 |                             x: [x, x + (Math.random() - 0.5) * 30, x],
+  62 |                             y: [y, y + (Math.random() - 0.5) * 30, y],
+> 63 |                             rotate: [0, (Math.random() - 0.5) * 20, 0]
+     |                                          ^^^^^^^^^^^^^ Cannot call impure function
+  64 |                         }}
+  65 |                         transition={{
+  66 |                             opacity: { duration: 1, delay: i * 0.05 },  react-hooks/purity
+  69:47  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/HeroBadgeCluster.tsx:69:47
+  67 |                             scale: { duration: 1, delay: i * 0.05 },
+  68 |                             default: {
+> 69 |                                 duration: 4 + Math.random() * 4,
+     |                                               ^^^^^^^^^^^^^ Cannot call impure function
+  70 |                                 repeat: Infinity,
+  71 |                                 ease: "easeInOut",
+  72 |                                 delay: Math.random() * 2               react-hooks/purity
+  72:40  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/HeroBadgeCluster.tsx:72:40
+  70 |                                 repeat: Infinity,
+  71 |                                 ease: "easeInOut",
+> 72 |                                 delay: Math.random() * 2
+     |                                        ^^^^^^^^^^^^^ Cannot call impure function
+  73 |                             }
+  74 |                         }}
+  75 |                     >                                                                                                                    react-hooks/purity
+  76:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @next/next/no-img-element
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/HowItWorks.tsx
+  5:10  warning  'ArrowDown' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/RewardsNFTGrid.tsx
+   4:24  warning  'Crown' is defined but never used                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  94:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/TotalValueDisplay.tsx
+  3:10  warning  'useState' is defined but never used    @typescript-eslint/no-unused-vars
+  3:20  warning  'useEffect' is defined but never used   @typescript-eslint/no-unused-vars
+  5:19  warning  'TrendingUp' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/bryan/.gemini/antigravity/playground/vibestr-rewards/components/UnifiedStatsPanel.tsx
+  164:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+✖ 53 problems (25 errors, 28 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+

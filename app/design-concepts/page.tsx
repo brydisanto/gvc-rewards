@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 const BADGE_IMAGES = [
     '/badges/any_gvc_1759173799963.webp',
@@ -31,6 +32,11 @@ const BADGE_IMAGES = [
 ];
 
 export default function DesignConcepts() {
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+
+    if (!mounted) return null;
+
     return (
         <main className="min-h-screen bg-gvc-black text-white p-8 md:p-12 overflow-x-hidden">
             <h1 className="text-4xl md:text-5xl font-cooper text-gvc-gold glowing-text mb-12 text-center">BADGE DISPLAY CONCEPTS</h1>

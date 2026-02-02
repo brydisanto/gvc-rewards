@@ -77,6 +77,15 @@ body {
   }
 }
 
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 224, 72, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 224, 72, 0.8);
+  }
+}
+
 /* Laser Snake Animation */
 .card-snake {
   position: relative;

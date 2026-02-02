@@ -61,7 +61,8 @@ export default function FloatingBadges() {
             });
         }
 
-        setItems(newItems);
+        // Wrap in setTimeout to avoid synchronous setState in effect warning
+        setTimeout(() => setItems(newItems), 0);
     }, []);
 
     return (
