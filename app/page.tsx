@@ -385,36 +385,33 @@ export default function Home() {
 
       <BadgeDivider />
 
-      {/* Toggle View */}
-      <div className="flex justify-center gap-4 md:gap-8 mb-8 relative z-20 overflow-x-auto w-full px-2 md:px-0 pb-2 scrollbar-hide">
-        <button
-          onClick={() => setViewMode('POOL')}
-          className={`font-mundial font-bold tracking-wider md:tracking-widest text-xs md:text-sm uppercase transition-colors px-2 md:px-4 py-2 border-b-2 whitespace-nowrap flex-shrink-0 ${viewMode === 'POOL' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
-            }`}
-        >
-          Rewards Pool
-        </button>
-        <button
-          onClick={() => setViewMode('HOW_IT_WORKS')}
-          className={`font-mundial font-bold tracking-wider md:tracking-widest text-xs md:text-sm uppercase transition-colors px-2 md:px-4 py-2 border-b-2 whitespace-nowrap flex-shrink-0 ${viewMode === 'HOW_IT_WORKS' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
-            }`}
-        >
-          How It Works
-        </button>
-        <button
-          onClick={() => setViewMode('EXAMPLE_FLOW')}
-          className={`font-mundial font-bold tracking-wider md:tracking-widest text-xs md:text-sm uppercase transition-colors px-2 md:px-4 py-2 border-b-2 whitespace-nowrap flex-shrink-0 ${viewMode === 'EXAMPLE_FLOW' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
-            }`}
-        >
-          Simulator
-        </button>
-        <button
-          onClick={() => setViewMode('VIBEWHEEL')}
-          className={`font-mundial font-bold tracking-wider md:tracking-widest text-xs md:text-sm uppercase transition-colors px-2 md:px-4 py-2 border-b-2 whitespace-nowrap flex-shrink-0 ${viewMode === 'VIBEWHEEL' ? 'text-gvc-gold border-gvc-gold' : 'text-white/40 border-transparent hover:text-white/70'
-            }`}
-        >
-          Rev the Vibewheel
-        </button>
+      {/* Toggle View - Slider Style */}
+      <div className="flex justify-center mb-8 relative z-20 px-4">
+        <div className="bg-[#121212] border border-white/10 p-1.5 rounded-xl flex items-center overflow-x-auto max-w-full scrollbar-hide shadow-lg">
+          {[
+            { id: 'POOL', label: 'REWARDS POOL' },
+            { id: 'HOW_IT_WORKS', label: 'HOW IT WORKS' },
+            { id: 'EXAMPLE_FLOW', label: 'SIMULATOR' },
+            { id: 'VIBEWHEEL', label: 'REV THE VIBEWHEEL' }
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setViewMode(tab.id as any)}
+              className="relative px-4 sm:px-6 py-3 rounded-lg text-xs sm:text-sm font-bold font-mundial tracking-wider uppercase transition-colors whitespace-nowrap flex-shrink-0"
+            >
+              <span className={`relative z-10 transition-colors duration-200 ${viewMode === tab.id ? 'text-black' : 'text-white/40 hover:text-white/70'}`}>
+                {tab.label}
+              </span>
+              {viewMode === tab.id && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-gvc-gold rounded-lg shadow-sm"
+                  transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Section Title */}
