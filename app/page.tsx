@@ -421,7 +421,7 @@ export default function Home() {
       <div className="text-center mb-8">
         <h2 className="text-3xl md:text-5xl font-cooper text-white uppercase tracking-wider">
           {viewMode === 'POOL' && 'THE REWARDS POOL'}
-          {viewMode === 'HOW_IT_WORKS' && 'HOW THE REWARDS POOL WORKS'}
+          {viewMode === 'HOW_IT_WORKS' && 'HOW IT WORKS'}
           {viewMode === 'EXAMPLE_FLOW' && 'THE REWARDS SIMULATOR'}
           {viewMode === 'VIBEWHEEL' && 'GIVE IT A SPIN!'}
         </h2>

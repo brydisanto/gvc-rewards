@@ -23,9 +23,6 @@ export default function RewardsNFTGrid({ nfts, isLoading }: RewardsNFTGridProps)
     if (isLoading) {
         return (
             <div className="w-full max-w-6xl mx-auto mt-12">
-                <h2 className="text-2xl font-display font-semibold text-white/80 mb-6 text-center uppercase tracking-wider">
-                    Rewards Pool Assets
-                </h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                     {[...Array(10)].map((_, i) => (
                         <div
@@ -41,9 +38,6 @@ export default function RewardsNFTGrid({ nfts, isLoading }: RewardsNFTGridProps)
     if (nfts.length === 0) {
         return (
             <div className="w-full max-w-6xl mx-auto mt-12 text-center">
-                <h2 className="text-2xl font-display font-semibold text-white/80 mb-6 uppercase tracking-wider">
-                    Rewards Pool Assets
-                </h2>
                 <p className="text-white/40 font-mundial">No NFTs found in the rewards pool</p>
             </div>
         );
@@ -63,9 +57,6 @@ export default function RewardsNFTGrid({ nfts, isLoading }: RewardsNFTGridProps)
             transition={{ delay: 0.8, duration: 0.5 }}
             className="w-full max-w-6xl mx-auto mt-12"
         >
-            <h2 className="text-2xl font-display font-semibold text-white/80 mb-6 text-center uppercase tracking-wider">
-                Rewards Pool Assets
-            </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 <style>{`
                     @keyframes pulse-gold-local {
