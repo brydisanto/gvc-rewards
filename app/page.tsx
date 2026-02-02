@@ -386,7 +386,7 @@ export default function Home() {
       <BadgeDivider />
 
       {/* Toggle View - Slider Style */}
-      <div className="flex justify-center mb-8 relative z-20 px-4">
+      <div className="flex justify-center mb-12 relative z-20 px-4">
         <div className="bg-[#121212] border border-white/10 p-1.5 rounded-xl flex items-center overflow-x-auto max-w-full scrollbar-hide shadow-lg">
           {[
             { id: 'POOL', label: 'REWARDS POOL' },
