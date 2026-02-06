@@ -13,6 +13,39 @@ interface TotalValueDisplayProps {
 }
 
 export default function TotalValueDisplay({ totalUsd, ethInflow, isLoading, onChartClick, isWiggling = false }: TotalValueDisplayProps) {
+    const [displayValue, setDisplayValue] = useState(0);
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    // Count-up animation effect
+    useEffect(() => {
+        if (isLoading || totalUsd === 0) return;
+        if (hasAnimated && Math.abs(displayValue - totalUsd) < 100) return;
+
+        const duration = hasAnimated ? 500 : 2000; // Faster for updates, slower for initial
+        const startValue = hasAnimated ? displayValue : 0;
+        const startTime = Date.now();
+        const endValue = totalUsd;
+
+        const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Easing function: easeOutExpo
+            const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            const current = startValue + (endValue - startValue) * eased;
+
+            setDisplayValue(Math.round(current));
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                setHasAnimated(true);
+            }
+        };
+
+        requestAnimationFrame(animate);
+    }, [totalUsd, isLoading]);
+
     const formatUsd = (num: number) => {
         return new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -38,6 +71,9 @@ export default function TotalValueDisplay({ totalUsd, ethInflow, isLoading, onCh
                     border: '2px solid rgba(255,224,72,0.5)',
                 }}
             >
+                {/* Noise texture overlay */}
+                <div className="absolute inset-0 opacity-[0.04] pointer-events-none rounded-2xl" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
+
                 {/* Shimmer Effect */}
                 <div
                     className="absolute inset-0 animate-shimmer opacity-30"
@@ -63,10 +99,10 @@ export default function TotalValueDisplay({ totalUsd, ethInflow, isLoading, onCh
                             className="text-5xl md:text-7xl lg:text-8xl font-cooper text-gvc-gold glowing-text group-hover:scale-[1.02] transition-transform"
                         >
                             {isLoading ? (
-                                <span className="animate-pulse">...</span>
+                                <span className="animate-pulse">…</span>
                             ) : (
-                                formatUsd(totalUsd).split(',').map((part, i, arr) => (
-                                    <span key={i}>
+                                formatUsd(displayValue).split(',').map((part, i, arr) => (
+                                    <span key={i} style={{ fontVariantNumeric: 'tabular-nums' }}>
                                         {part}
                                         {i < arr.length - 1 && <span className="mx-[2px]">,</span>}
                                     </span>

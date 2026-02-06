@@ -77,7 +77,14 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
             className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 w-full max-w-6xl mx-auto mt-8"
         >
             {/* VIBESTR Token */}
-            <div className="bg-gvc-dark/80 border border-white/40 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-white/5">
+            <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 0.7, duration: 0.4, type: "spring", stiffness: 100 }}
+                className="bg-gvc-dark/80 border border-white/40 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-white/5 relative overflow-hidden"
+            >
+                {/* Noise texture overlay */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
                 <div className="flex items-center gap-1.5 mb-1">
                     <VibestrIcon className="w-4 h-4 text-white" aria-hidden="true" />
                     <span className="text-white/60 font-mundial text-[10px] uppercase tracking-wider">$VIBESTR</span>
@@ -92,12 +99,19 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
                     )}
                 </div>
                 <p className="text-white/50 text-sm font-mundial mt-0.5">
-                    {isLoadingTokens ? '...' : tokenStats ? formatUsd(tokenStats.vibestrUsd) : '—'}
+                    {isLoadingTokens ? '…' : tokenStats ? formatUsd(tokenStats.vibestrUsd) : '—'}
                 </p>
-            </div>
+            </motion.div>
 
             {/* PNKSTR Token */}
-            <div className="bg-gvc-dark/80 border border-white/40 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-white/5">
+            <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 0.8, duration: 0.4, type: "spring", stiffness: 100 }}
+                className="bg-gvc-dark/80 border border-white/40 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-white/5 relative overflow-hidden"
+            >
+                {/* Noise texture overlay */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
                 <div className="flex items-center gap-1.5 mb-1">
                     <PnkstrIcon className="w-4 h-4 text-white" aria-hidden="true" />
                     <span className="text-white/60 font-mundial text-[10px] uppercase tracking-wider">$PNKSTR</span>
@@ -112,12 +126,19 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
                     )}
                 </div>
                 <p className="text-white/50 text-sm font-mundial mt-0.5">
-                    {isLoadingTokens ? '...' : tokenStats ? formatUsd(tokenStats.pnkstrUsd) : '—'}
+                    {isLoadingTokens ? '…' : tokenStats ? formatUsd(tokenStats.pnkstrUsd) : '—'}
                 </p>
-            </div>
+            </motion.div>
 
             {/* ETH */}
-            <div className="bg-gvc-dark/80 border border-white/40 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-white/5">
+            <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 0.9, duration: 0.4, type: "spring", stiffness: 100 }}
+                className="bg-gvc-dark/80 border border-white/40 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-white/5 relative overflow-hidden"
+            >
+                {/* Noise texture overlay */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
                 <div className="flex items-center gap-1.5 mb-1">
                     <svg viewBox="0 0 32 32" className="w-4 h-4 fill-current text-white" aria-hidden="true">
                         <path d="M15.925 23.96l-9.825-5.8 9.825 13.84 9.875-13.84-9.875 5.8zM16 0l-9.875 16.28 9.875 5.855 9.875-5.855L16 0z" />
@@ -134,12 +155,19 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
                     )}
                 </div>
                 <p className="text-white/50 text-sm font-mundial mt-0.5">
-                    {isLoadingTokens ? '...' : tokenStats ? formatUsd(tokenStats.ethUsd) : '—'}
+                    {isLoadingTokens ? '…' : tokenStats ? formatUsd(tokenStats.ethUsd) : '—'}
                 </p>
-            </div>
+            </motion.div>
 
             {/* CryptoPunks */}
-            <div className="bg-gvc-dark/80 border border-gvc-gold/50 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gvc-gold/20 hover:bg-white/5">
+            <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 1.0, duration: 0.4, type: "spring", stiffness: 100 }}
+                className="bg-gvc-dark/80 border border-gvc-gold/50 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gvc-gold/20 hover:bg-white/5 relative overflow-hidden"
+            >
+                {/* Noise texture overlay */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
                 <div className="flex items-center gap-1.5 mb-1">
                     <Crown className="w-4 h-4 text-gvc-gold" aria-hidden="true" />
                     <span className="text-white/60 font-mundial text-[10px] uppercase tracking-wider">CryptoPunks</span>
@@ -154,12 +182,19 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
                     )}
                 </div>
                 <p className="text-white/50 text-sm font-mundial mt-0.5">
-                    {isLoadingNfts ? '...' : nftCounts ? formatUsd(nftCounts.cryptoPunksUsd) : '—'}
+                    {isLoadingNfts ? '…' : nftCounts ? formatUsd(nftCounts.cryptoPunksUsd) : '—'}
                 </p>
-            </div>
+            </motion.div>
 
             {/* GVC NFTs */}
-            <div className="bg-gvc-dark/80 border border-gvc-gold/50 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gvc-gold/20 hover:bg-white/5">
+            <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 1.1, duration: 0.4, type: "spring", stiffness: 100 }}
+                className="bg-gvc-dark/80 border border-gvc-gold/50 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gvc-gold/20 hover:bg-white/5 relative overflow-hidden"
+            >
+                {/* Noise texture overlay */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
                 <div className="flex items-center gap-1.5 mb-1">
                     <img src="/shaka.png" alt="" width={16} height={16} className="w-auto h-4" aria-hidden="true" />
                     <span className="text-white/60 font-mundial text-[10px] uppercase tracking-wider">GVC NFTs</span>
@@ -174,9 +209,9 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
                     )}
                 </div>
                 <p className="text-white/50 text-sm font-mundial mt-0.5">
-                    {isLoadingNfts ? '...' : nftCounts ? formatUsd(nftCounts.gvcUsd) : '—'}
+                    {isLoadingNfts ? '…' : nftCounts ? formatUsd(nftCounts.gvcUsd) : '—'}
                 </p>
-            </div>
+            </motion.div>
         </motion.div>
     );
 }
