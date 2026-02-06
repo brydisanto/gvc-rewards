@@ -404,7 +404,7 @@ export default function Home() {
             <button
               key={tab.id}
               onClick={() => setViewMode(tab.id as any)}
-              className="relative px-4 sm:px-6 py-3 rounded-lg text-xs sm:text-sm font-bold font-mundial tracking-wider uppercase transition-colors whitespace-nowrap flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gvc-gold focus-visible:ring-offset-2 focus-visible:ring-offset-gvc-dark"
+              className={`relative px-4 sm:px-6 py-3 rounded-lg text-xs sm:text-sm font-bold font-mundial tracking-wider uppercase transition-all duration-200 whitespace-nowrap flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gvc-gold focus-visible:ring-offset-2 focus-visible:ring-offset-gvc-dark ${viewMode !== tab.id ? 'hover:scale-105 hover:bg-white/5' : ''}`}
             >
               <span className={`relative z-10 transition-colors duration-200 ${viewMode === tab.id ? 'text-black' : 'text-white/40 hover:text-white/70'}`}>
                 {tab.label}
@@ -412,7 +412,7 @@ export default function Home() {
               {viewMode === tab.id && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute inset-0 bg-gvc-gold rounded-lg shadow-sm"
+                  className="absolute inset-0 bg-gvc-gold rounded-lg shadow-[0_0_20px_rgba(255,224,72,0.4),0_0_40px_rgba(255,224,72,0.2)]"
                   transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                 />
               )}
