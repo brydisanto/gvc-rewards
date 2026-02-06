@@ -161,7 +161,7 @@ export default function HowItWorks() {
                     className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-6 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
                 >
                     <div className="flex items-center justify-center gap-3 mb-2">
-                        <TrendingUp className="w-8 h-8 text-gvc-gold" />
+                        <TrendingUp className="w-8 h-8 text-gvc-gold" aria-hidden="true" />
                         <h3 className="text-xl font-cooper font-bold text-white uppercase">USERS TRADE $VIBESTR</h3>
                     </div>
                     <p className="text-white/60 font-mundial text-sm">On either OpenSea or the TokenWorks website.</p>
@@ -169,7 +169,7 @@ export default function HowItWorks() {
 
                 {/* Arrow */}
                 <motion.div variants={item}>
-                    <ChevronsDown className="w-12 h-12 text-white/50 animate-bounce" />
+                    <ChevronsDown className="w-12 h-12 text-white/50 animate-bounce" aria-hidden="true" />
                 </motion.div>
 
                 {/* Step 2: Fees Generated */}
@@ -179,7 +179,7 @@ export default function HowItWorks() {
                     className="relative z-10 bg-gvc-dark border border-white/20 rounded-xl p-6 w-full max-w-md text-center backdrop-blur-sm cursor-default transition-colors hover:border-gvc-gold/50"
                 >
                     <div className="flex items-center justify-center gap-3 mb-2">
-                        <Coins className="w-8 h-8 text-gvc-gold" />
+                        <Coins className="w-8 h-8 text-gvc-gold" aria-hidden="true" />
                         <h3 className="text-xl font-cooper font-bold text-white uppercase">PROTOCOL GENERATES FEES</h3>
                     </div>
                     <p className="text-white/60 font-mundial text-sm">
@@ -189,7 +189,7 @@ export default function HowItWorks() {
 
                 {/* Arrow Down to Combined Step */}
                 <motion.div variants={item}>
-                    <ChevronsDown className="w-12 h-12 text-white/50 animate-bounce" />
+                    <ChevronsDown className="w-12 h-12 text-white/50 animate-bounce" aria-hidden="true" />
                 </motion.div>
 
                 {/* UNIFIED DUAL-CHAMBER CARD (Option A) */}
@@ -205,7 +205,7 @@ export default function HowItWorks() {
                             {/* Bucket 1 */}
                             <div className="p-8 md:p-12 text-center group hover:bg-white/5 transition-colors">
                                 <div className="inline-flex p-4 bg-black/40 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300 border border-gvc-gold/20 group-hover:border-gvc-gold">
-                                    <Trophy className="w-8 h-8 text-gvc-gold" />
+                                    <Trophy className="w-8 h-8 text-gvc-gold" aria-hidden="true" />
                                 </div>
                                 <h3 className="text-xl font-cooper font-bold text-white uppercase mb-4">1/ GROWS REWARDS</h3>
                                 <p className="text-white/60 text-sm font-mundial leading-relaxed">
@@ -216,7 +216,7 @@ export default function HowItWorks() {
                             {/* Bucket 2 */}
                             <div className="p-8 md:p-12 text-center group hover:bg-white/5 transition-colors">
                                 <div className="inline-flex p-4 bg-black/40 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300 border border-gvc-gold/20 group-hover:border-gvc-gold">
-                                    <BroomIcon className="w-8 h-8 text-gvc-gold" />
+                                    <BroomIcon className="w-8 h-8 text-gvc-gold" aria-hidden="true" />
                                 </div>
                                 <h3 className="text-xl font-cooper font-bold text-white uppercase mb-4">2/ BUYS GVCS</h3>
                                 <p className="text-white/60 text-sm font-mundial leading-relaxed">
@@ -234,7 +234,7 @@ export default function HowItWorks() {
 
                 {/* Arrow to Next Step */}
                 <motion.div variants={item}>
-                    <ChevronsDown className="w-12 h-12 text-white/50 animate-bounce" />
+                    <ChevronsDown className="w-12 h-12 text-white/50 animate-bounce" aria-hidden="true" />
                 </motion.div>
 
                 {/* Final Step: Rewards */}
@@ -254,6 +254,10 @@ export default function HowItWorks() {
                                 <motion.img
                                     key={`${badgeSrc}-${index}`}
                                     src={badgeSrc}
+                                    alt=""
+                                    width={64}
+                                    height={64}
+                                    aria-hidden="true"
                                     className={pos.className}
                                     animate={pos.animate}
                                     transition={{

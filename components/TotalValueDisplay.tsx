@@ -29,8 +29,9 @@ export default function TotalValueDisplay({ totalUsd, ethInflow, isLoading, onCh
             transition={{ delay: 1, duration: 0.5, type: "spring", stiffness: 100 }}
             className="w-full max-w-3xl mx-auto mt-10 mb-4"
         >
-            <div
-                className="relative rounded-2xl overflow-hidden p-8 md:p-12 text-center cursor-pointer group"
+            <button
+                type="button"
+                className="relative rounded-2xl overflow-hidden p-8 md:p-12 text-center cursor-pointer group w-full"
                 onClick={onChartClick}
                 style={{
                     background: 'linear-gradient(135deg, rgba(255,224,72,0.15), rgba(255,224,72,0.05))',
@@ -76,8 +77,11 @@ export default function TotalValueDisplay({ totalUsd, ethInflow, isLoading, onCh
                         {/* Wiggling Shaka */}
                         <motion.img
                             src="/shaka.png"
-                            alt="Shaka"
+                            alt=""
+                            width={80}
+                            height={80}
                             className="h-12 w-auto md:h-16 lg:h-20"
+                            aria-hidden="true"
                             animate={isWiggling ? {
                                 rotate: [0, -15, 15, -15, 15, -10, 10, 0],
                                 scale: [1, 1.1, 1.1, 1.1, 1.1, 1.05, 1.05, 1],
@@ -106,7 +110,7 @@ export default function TotalValueDisplay({ totalUsd, ethInflow, isLoading, onCh
                         </motion.div>
                     )}
                 </div>
-            </div>
+            </button>
 
             {/* Footnote */}
             <div className="text-center mt-3">
@@ -154,6 +158,7 @@ export function ChartModal({ isOpen, onClose, children }: ChartModalProps) {
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
                         transition={{ type: "spring", stiffness: 300, damping: 25 }}
                         className="fixed inset-4 md:inset-12 lg:inset-24 bg-gvc-dark border-2 border-gvc-gold/50 rounded-2xl z-50 overflow-hidden flex flex-col"
+                        style={{ overscrollBehavior: 'contain' }}
                     >
                         {/* Header */}
                         <div className="flex items-center justify-between p-4 md:p-6 border-b border-gvc-gray">
@@ -162,9 +167,10 @@ export function ChartModal({ isOpen, onClose, children }: ChartModalProps) {
                             </h2>
                             <button
                                 onClick={onClose}
+                                aria-label="Close chart modal"
                                 className="p-2 rounded-full hover:bg-white/10 transition-colors"
                             >
-                                <X className="w-6 h-6 text-white/60 hover:text-white" />
+                                <X className="w-6 h-6 text-white/60 hover:text-white" aria-hidden="true" />
                             </button>
                         </div>
 

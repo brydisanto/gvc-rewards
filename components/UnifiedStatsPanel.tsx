@@ -79,7 +79,7 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
             {/* VIBESTR Token */}
             <div className="bg-gvc-dark/80 border border-white/40 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-white/5">
                 <div className="flex items-center gap-1.5 mb-1">
-                    <VibestrIcon className="w-4 h-4 text-white" />
+                    <VibestrIcon className="w-4 h-4 text-white" aria-hidden="true" />
                     <span className="text-white/60 font-mundial text-[10px] uppercase tracking-wider">$VIBESTR</span>
                 </div>
                 <div className="text-xl md:text-2xl font-cooper text-white">
@@ -99,7 +99,7 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
             {/* PNKSTR Token */}
             <div className="bg-gvc-dark/80 border border-white/40 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-white/5">
                 <div className="flex items-center gap-1.5 mb-1">
-                    <PnkstrIcon className="w-4 h-4 text-white" />
+                    <PnkstrIcon className="w-4 h-4 text-white" aria-hidden="true" />
                     <span className="text-white/60 font-mundial text-[10px] uppercase tracking-wider">$PNKSTR</span>
                 </div>
                 <div className="text-xl md:text-2xl font-cooper text-white">
@@ -119,7 +119,7 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
             {/* ETH */}
             <div className="bg-gvc-dark/80 border border-white/40 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-white/5">
                 <div className="flex items-center gap-1.5 mb-1">
-                    <svg viewBox="0 0 32 32" className="w-4 h-4 fill-current text-white">
+                    <svg viewBox="0 0 32 32" className="w-4 h-4 fill-current text-white" aria-hidden="true">
                         <path d="M15.925 23.96l-9.825-5.8 9.825 13.84 9.875-13.84-9.875 5.8zM16 0l-9.875 16.28 9.875 5.855 9.875-5.855L16 0z" />
                     </svg>
                     <span className="text-white/60 font-mundial text-[10px] uppercase tracking-wider">ETH</span>
@@ -141,7 +141,7 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
             {/* CryptoPunks */}
             <div className="bg-gvc-dark/80 border border-gvc-gold/50 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gvc-gold/20 hover:bg-white/5">
                 <div className="flex items-center gap-1.5 mb-1">
-                    <Crown className="w-4 h-4 text-gvc-gold" />
+                    <Crown className="w-4 h-4 text-gvc-gold" aria-hidden="true" />
                     <span className="text-white/60 font-mundial text-[10px] uppercase tracking-wider">CryptoPunks</span>
                 </div>
                 <div className="text-xl md:text-2xl font-cooper text-gvc-gold">
@@ -161,7 +161,7 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
             {/* GVC NFTs */}
             <div className="bg-gvc-dark/80 border border-gvc-gold/50 rounded-xl p-3 md:p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gvc-gold/20 hover:bg-white/5">
                 <div className="flex items-center gap-1.5 mb-1">
-                    <img src="/shaka.png" alt="Shaka" className="w-auto h-4" />
+                    <img src="/shaka.png" alt="" width={16} height={16} className="w-auto h-4" aria-hidden="true" />
                     <span className="text-white/60 font-mundial text-[10px] uppercase tracking-wider">GVC NFTs</span>
                 </div>
                 <div className="text-xl md:text-2xl font-cooper text-gvc-gold">

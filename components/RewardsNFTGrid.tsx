@@ -85,6 +85,8 @@ export default function RewardsNFTGrid({ nfts, isLoading }: RewardsNFTGridProps)
                             <img
                                 src={nft.image}
                                 alt={nft.name}
+                                width={200}
+                                height={200}
                                 className="w-full h-full object-cover"
                                 loading="lazy"
                                 onError={(e) => {
@@ -99,7 +101,7 @@ export default function RewardsNFTGrid({ nfts, isLoading }: RewardsNFTGridProps)
                             />
                             {/* Hover overlay */}
                             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                <ExternalLink className="w-8 h-8 text-gvc-gold" />
+                                <ExternalLink className="w-8 h-8 text-gvc-gold" aria-hidden="true" />
                             </div>
                         </div>
 

@@ -306,6 +306,13 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-4 pt-8 md:p-12 md:pt-16 bg-[url('/grid.svg')] bg-center relative">
+      {/* Skip Link for Accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-gvc-gold focus:text-black focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"
+      >
+        Skip to main content
+      </a>
       {/* Header */}
       <div className="z-10 max-w-5xl w-full items-center justify-center font-mono text-sm lg:flex">
         <div className="flex flex-col items-center">
@@ -397,7 +404,7 @@ export default function Home() {
             <button
               key={tab.id}
               onClick={() => setViewMode(tab.id as any)}
-              className="relative px-4 sm:px-6 py-3 rounded-lg text-xs sm:text-sm font-bold font-mundial tracking-wider uppercase transition-colors whitespace-nowrap flex-shrink-0"
+              className="relative px-4 sm:px-6 py-3 rounded-lg text-xs sm:text-sm font-bold font-mundial tracking-wider uppercase transition-colors whitespace-nowrap flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gvc-gold focus-visible:ring-offset-2 focus-visible:ring-offset-gvc-dark"
             >
               <span className={`relative z-10 transition-colors duration-200 ${viewMode === tab.id ? 'text-black' : 'text-white/40 hover:text-white/70'}`}>
                 {tab.label}
@@ -415,7 +422,7 @@ export default function Home() {
       </div>
 
       {/* Section Title */}
-      <div className="text-center mb-6">
+      <div id="main-content" className="text-center mb-6">
         <h2 className="text-3xl md:text-5xl font-cooper text-white uppercase tracking-wider">
           {viewMode === 'POOL' && 'CURRENT ASSETS'}
           {viewMode === 'HOW_IT_WORKS' && 'HOW IT WORKS'}

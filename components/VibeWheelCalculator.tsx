@@ -164,7 +164,7 @@ export default function VibeWheelCalculator() {
 
                     {/* Input Section */}
                     <div className="space-y-4">
-                        <label className="block text-gvc-gold font-mundial font-bold tracking-widest text-sm uppercase">
+                        <label htmlFor="sweep-amount" className="block text-gvc-gold font-mundial font-bold tracking-widest text-sm uppercase">
                             VibeStrategy GVCs to Sweep
                         </label>
                         <div className="flex flex-col items-center gap-4">
@@ -172,11 +172,13 @@ export default function VibeWheelCalculator() {
                                 {/* Minus Button */}
                                 <button
                                     onClick={() => setSweepAmount(Math.max(0, sweepAmount - 5))}
+                                    aria-label="Decrease sweep amount by 5"
                                     className="w-12 h-12 rounded-lg bg-white/10 border border-white/20 text-white/60 hover:bg-white/20 hover:text-white hover:border-gvc-gold/50 transition-all flex items-center justify-center text-2xl font-bold active:scale-95"
                                 >
                                     −
                                 </button>
                                 <input
+                                    id="sweep-amount"
                                     type="number"
                                     min="1"
                                     max="185"
@@ -193,6 +195,7 @@ export default function VibeWheelCalculator() {
                                 {/* Plus Button */}
                                 <button
                                     onClick={() => setSweepAmount(Math.min(185, sweepAmount + 5))}
+                                    aria-label="Increase sweep amount by 5"
                                     className="w-12 h-12 rounded-lg bg-white/10 border border-white/20 text-white/60 hover:bg-white/20 hover:text-white hover:border-gvc-gold/50 transition-all flex items-center justify-center text-2xl font-bold active:scale-95"
                                 >
                                     +
@@ -248,7 +251,7 @@ export default function VibeWheelCalculator() {
 
                     {/* Results Connector */}
                     <div className="flex justify-center">
-                        <ChevronsDown className="w-12 h-12 text-white/30 animate-bounce" />
+                        <ChevronsDown className="w-12 h-12 text-white/30 animate-bounce" aria-hidden="true" />
                     </div>
 
                     {/* Results Box */}
@@ -274,7 +277,7 @@ export default function VibeWheelCalculator() {
                         {/* VIBESTR Burned */}
                         <div className="space-y-4">
                             <div className="flex items-center justify-center gap-2">
-                                <Flame className="w-6 h-6 text-gvc-orange fill-gvc-orange animate-pulse" />
+                                <Flame className="w-6 h-6 text-gvc-orange fill-gvc-orange animate-pulse" aria-hidden="true" />
                                 <p className="text-white/60 font-mundial text-sm tracking-wide uppercase">
                                     THIS WOULD BUY & BURN
                                 </p>
@@ -296,7 +299,7 @@ export default function VibeWheelCalculator() {
                         {/* Price Impact */}
                         <div className="space-y-4">
                             <div className="flex items-center justify-center gap-2">
-                                <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                                 </svg>
                                 <p className="text-white/60 font-mundial text-sm tracking-wide uppercase">

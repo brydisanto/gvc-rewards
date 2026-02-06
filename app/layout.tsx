@@ -40,7 +40,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
+      <head>
+        <meta name="theme-color" content="#050505" />
+      </head>
       <body className={`${inter.className} ${outfit.variable} ${mundial.variable} ${brice.variable} min-h-screen bg-gvc-black text-white selection:bg-gvc-gold selection:text-black font-sans`}>
         <Toaster
           position="top-right"
