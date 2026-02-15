@@ -188,9 +188,9 @@ export default function ExampleFlow() {
                                         <span className="text-gvc-gold">$80,000 (8%)</span> IS RESERVED AS A FEE & AUTOMATICALLY BUYS GVCS
                                     </p>
                                     <p className="text-white/60 text-base font-mundial leading-tight px-2">
-                                        The protocol buys <span className="text-gvc-gold font-bold">30 GVCs</span> from the OpenSea floor and adds them to the treasury.
+                                        The protocol buys <span className="text-gvc-gold font-bold">40 GVCs</span> from the OpenSea floor and adds them to the treasury.
                                     </p>
-                                    <p className="text-xs italic text-white/40 font-mundial mt-2">(If ETH = $3,000 & the GVC floor is .9ETH)</p>
+                                    <p className="text-xs italic text-white/40 font-mundial mt-2">(If ETH = $2,200 & the GVC floor is .9ETH)</p>
                                 </div>
                                 {/* Visual cue for continuation downwards - Desktop only */}
                                 <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3 h-3 bg-white/20 rounded-full z-20"></div>
@@ -251,7 +251,7 @@ export default function ExampleFlow() {
                     <StepRibbon text="STEP 3" />
                     <div className="space-y-3">
                         <p className="font-cooper font-bold text-white text-lg leading-tight uppercase">
-                            THE PROTOCOL IMMEDIATELY RELISTS THE 30 GVCS AT A PREMIUM
+                            THE PROTOCOL IMMEDIATELY RELISTS THE 40 GVCS AT A PREMIUM
                         </p>
                         <p className="text-white/60 font-mundial text-base leading-tight">
                             They're automatically relisted on OpenSea at ~1.6 ETH. They never move until sold.
@@ -274,12 +274,12 @@ export default function ExampleFlow() {
                     <StepRibbon text="STEP 4" />
                     <div className="space-y-3">
                         <p className="font-cooper font-bold text-white text-lg leading-tight uppercase">
-                            AS THE 30 GVCS SELL, THE PROTOCOL AUTOMATICALLY BUYS $VIBESTR
+                            AS THE 40 GVCS SELL, THE PROTOCOL AUTOMATICALLY BUYS $VIBESTR
                         </p>
                         <p className="text-white/60 text-base font-mundial leading-tight">
-                            This purchases <span className="text-gvc-gold font-bold">~48 ETH</span> worth of $VIBESTR once all 30 GVCs are sold.
+                            This purchases <span className="text-gvc-gold font-bold">~64 ETH</span> worth of $VIBESTR once all 40 GVCs are sold.
                         </p>
-                        <p className="text-xs italic text-white/40 font-mundial">(At $0.01, that = 13.2M $VIBESTR)</p>
+                        <p className="text-xs italic text-white/40 font-mundial">(At $0.008, that = 17.6M $VIBESTR)</p>
                     </div>
                 </motion.div>
 
@@ -312,13 +312,13 @@ export default function ExampleFlow() {
                                         </h3>
                                     </div>
                                     <p className="font-cooper font-bold text-gvc-orange text-4xl md:text-5xl leading-none tracking-tight">
-                                        13.2M
+                                        17.6M
                                     </p>
                                     <p className="text-white/60 font-mundial text-sm pt-2 px-4 leading-tight">
                                         All $VIBESTR purchased by the protocol via GVC sales is automatically burned.
                                     </p>
                                     <p className="text-gvc-orange font-mundial font-bold text-sm pt-2">
-                                        That = 1.3% of the total supply
+                                        That = 1.76% of the total supply
                                     </p>
                                 </div>
                             </div>
@@ -329,6 +329,7 @@ export default function ExampleFlow() {
                             className="relative w-full"
                             whileHover={{ scale: 1.05 }}
                         >
+                            <StepRibbon text="STEP 5" />
                             <div className="bg-[#111] border border-gvc-green rounded-[32px] p-8 pt-16 w-full text-center overflow-hidden shadow-[0_0_30px_rgba(0,255,100,0.15)] h-full flex flex-col justify-center transition-transform duration-300">
                                 {/* Interactive glow effects */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-green-600/10 via-green-500/5 to-transparent animate-pulse pointer-events-none" />
@@ -342,7 +343,7 @@ export default function ExampleFlow() {
                                     </div>
 
                                     <p className="font-cooper font-bold text-gvc-green text-2xl md:text-3xl leading-tight uppercase">
-                                        GENERATES 48 ETH IN NEW TRADING VOLUME
+                                        GENERATES 64 ETH IN NEW TRADING VOLUME
                                     </p>
 
                                     <p className="text-white/60 font-mundial font-bold text-sm leading-tight max-w-[200px] mx-auto">
