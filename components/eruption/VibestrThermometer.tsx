@@ -144,19 +144,19 @@ export default function VibestrThermometer({ balance }: { balance: number }) {
 
         {/* Footer — progress to next */}
         {next ? (
-          <div className="mt-6 pt-4 border-t border-white/10">
-            <div className="flex items-baseline justify-between mb-2">
-              <p className="font-mundial text-[10px] uppercase tracking-wider text-white/40">
-                Progress to <span className="text-white font-bold">{next.name}</span>
+          <div className="mt-8 pt-6 border-t border-white/10">
+            <div className="flex items-end justify-between gap-4 flex-wrap mb-3">
+              <p className="font-mundial font-bold tracking-[0.18em] text-xs uppercase text-white/50">
+                Progress to <span className="text-gvc-gold">{next.name}</span>
               </p>
-              <p className="font-mundial text-xs">
-                <span className="text-gvc-gold font-bold">
+              <p className="font-cooper text-2xl md:text-3xl text-white leading-none">
+                <span className="text-gvc-gold">
                   <CountUp value={next.threshold - balance} format={(n) => fmtAmount(Math.max(0, n))} />
                 </span>
-                <span className="text-white/40"> more $VIBESTR</span>
+                <span className="text-white/40 font-mundial font-bold text-xs uppercase tracking-wider ml-2 align-middle">more $VIBESTR</span>
               </p>
             </div>
-            <div className="relative h-1.5 rounded-full bg-white/5 overflow-hidden">
+            <div className="relative h-6 md:h-7 rounded-full bg-white/[0.05] border border-white/10 overflow-hidden shadow-inner">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{
@@ -170,8 +170,14 @@ export default function VibestrThermometer({ balance }: { balance: number }) {
                     )
                   )}%`,
                 }}
-                transition={{ duration: 1.2, ease: 'easeOut' }}
-                className="absolute inset-y-0 left-0 bg-gradient-to-r from-gvc-gold to-gvc-orange"
+                transition={{ duration: 1.4, ease: 'easeOut' }}
+                className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-gvc-orange via-gvc-gold to-gvc-gold shadow-[0_0_25px_rgba(255,224,72,0.55)]"
+              />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0.15, 0.4, 0.15] }}
+                transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent via-white/30 to-transparent mix-blend-overlay"
               />
             </div>
           </div>

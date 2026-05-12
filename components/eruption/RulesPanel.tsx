@@ -46,9 +46,11 @@ export default function RulesPanel() {
                         {TIER_POINTS[tier]}
                         {tier === 'Citizen' && <span className="text-xs text-white/40"> / GVC</span>}
                       </p>
-                      <p className="text-[10px] text-white/40 mt-1 uppercase tracking-wider">
-                        ×{HIGHEST_TIER_MULTIPLIER[tier].toFixed(2)} highest-tier
-                      </p>
+                      {tier !== 'Citizen' && (
+                        <p className="text-[10px] text-white/40 mt-1 uppercase tracking-wider">
+                          ×{HIGHEST_TIER_MULTIPLIER[tier].toFixed(2)} highest-tier
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
