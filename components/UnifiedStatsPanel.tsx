@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Zap, Sparkles, Crown, type LucideIcon } from 'lucide-react';
+import { withBase } from '@/lib/basePath';
 
 interface TokenStats {
     vibestr: number;
@@ -196,7 +197,7 @@ export default function UnifiedStatsPanel({ tokenStats, nftCounts, isLoadingToke
                 {/* Noise texture overlay */}
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
                 <div className="flex items-center gap-1.5 mb-1">
-                    <img src="/shaka.png" alt="" width={16} height={16} className="w-auto h-4" aria-hidden="true" />
+                    <img src={withBase('/shaka.png')} alt="" width={16} height={16} className="w-auto h-4" aria-hidden="true" />
                     <span className="text-white/60 font-mundial text-[10px] uppercase tracking-wider">GVC NFTs</span>
                 </div>
                 <div className="text-xl md:text-2xl font-cooper text-gvc-gold">

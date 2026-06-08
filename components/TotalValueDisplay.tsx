@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp, TrendingUp, X } from 'lucide-react';
+import { withBase } from '@/lib/basePath';
 
 interface TotalValueDisplayProps {
     totalUsd: number;
@@ -112,7 +113,7 @@ export default function TotalValueDisplay({ totalUsd, ethInflow, isLoading, onCh
 
                         {/* Wiggling Shaka */}
                         <motion.img
-                            src="/shaka.png"
+                            src={withBase('/shaka.png')}
                             alt=""
                             width={80}
                             height={80}

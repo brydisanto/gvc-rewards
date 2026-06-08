@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Flame, ChevronsDown } from 'lucide-react';
+import { withBase } from '@/lib/basePath';
 
 interface StrategyData {
     count: number;
@@ -33,8 +34,8 @@ export default function VibeWheelCalculator() {
         const fetchData = async () => {
             try {
                 const [strategyRes, pricesRes] = await Promise.all([
-                    fetch('/api/strategy-holdings'),
-                    fetch('/api/prices')
+                    fetch(withBase('/api/strategy-holdings')),
+                    fetch(withBase('/api/prices'))
                 ]);
 
                 const sData = await strategyRes.json();

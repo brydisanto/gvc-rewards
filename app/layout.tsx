@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import localFont from "next/font/local";
 import { Toaster } from "react-hot-toast";
+import { withBase } from "@/lib/basePath";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,9 +29,9 @@ export const metadata: Metadata = {
   title: "The VibeStrategy Rewards Pool",
   description: "Collect Badges. Participate in the Eco. Access Rewards.",
   icons: {
-    icon: '/shaka.png',
-    shortcut: '/shaka.png',
-    apple: '/shaka.png',
+    icon: withBase('/shaka.png'),
+    shortcut: withBase('/shaka.png'),
+    apple: withBase('/shaka.png'),
   }
 };
 

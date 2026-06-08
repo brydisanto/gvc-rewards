@@ -11,6 +11,7 @@ import ValueHistoryChart from '@/components/ValueHistoryChart';
 import HowItWorks from '@/components/HowItWorks';
 import ExampleFlow from '@/components/ExampleFlow';
 import VibeWheelCalculator from '@/components/VibeWheelCalculator';
+import { withBase } from '@/lib/basePath';
 
 interface TokenStats {
   vibestr: number;
@@ -80,7 +81,7 @@ export default function Home() {
   useEffect(() => {
     const fetchWallet = async () => {
       try {
-        const res = await fetch('/api/wallet');
+        const res = await fetch(withBase('/api/wallet'));
         const data = await res.json();
         return data;
       } catch (error) {
@@ -91,7 +92,7 @@ export default function Home() {
 
     const fetchPrices = async () => {
       try {
-        const res = await fetch('/api/prices');
+        const res = await fetch(withBase('/api/prices'));
         const data = await res.json();
         setPrices(data);
         return data;
@@ -103,7 +104,7 @@ export default function Home() {
 
     const fetchInflow = async () => {
       try {
-        const res = await fetch('/api/inflow');
+        const res = await fetch(withBase('/api/inflow'));
         const data = await res.json();
         setEthInflow(data.inflow24h || 0);
       } catch (error) {
@@ -136,7 +137,7 @@ export default function Home() {
   useEffect(() => {
     const fetchNfts = async () => {
       try {
-        const res = await fetch('/api/nfts');
+        const res = await fetch(withBase('/api/nfts'));
         const data = await res.json();
 
         // Store counts with USD values
@@ -269,7 +270,7 @@ export default function Home() {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await fetch('/api/history');
+        const res = await fetch(withBase('/api/history'));
         const data = await res.json();
         setHistory(data.history || []);
         setTodayChange(data.todayChange || 0);
@@ -288,13 +289,13 @@ export default function Home() {
     if (!isLoadingTokens && !isLoadingNfts && totalUsd > 0 && !hasSavedValue.current) {
       hasSavedValue.current = true;
 
-      fetch('/api/history', {
+      fetch(withBase('/api/history'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ value: totalUsd }),
       }).then(() => {
         // Refresh history to get updated todayChange
-        fetch('/api/history')
+        fetch(withBase('/api/history'))
           .then(res => res.json())
           .then(data => {
             setHistory(data.history || []);
@@ -305,7 +306,7 @@ export default function Home() {
   }, [totalUsd, isLoadingTokens, isLoadingNfts]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-4 pt-8 md:p-12 md:pt-16 bg-[url('/grid.svg')] bg-center relative">
+    <main className="flex min-h-screen flex-col items-center p-4 pt-8 md:p-12 md:pt-16 bg-[url('/rewards-pool/grid.svg')] bg-center relative">
       {/* Skip Link for Accessibility */}
       <a
         href="#main-content"
