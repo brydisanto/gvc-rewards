@@ -3,18 +3,18 @@
 import { motion } from 'framer-motion';
 
 const BADGE_IMAGES = [
-    '/badges/any_gvc_1759173799963.webp',
-    '/badges/astro_balls_1759173838889.webp',
-    '/badges/baller_1759173868839.webp',
-    '/badges/billiards_1759173890603.webp',
-    '/badges/captain_1759173895611.webp',
-    '/badges/cosmic_1759173818340.webp',
-    '/badges/doge_1759173842640.webp',
-    '/badges/funky_fresh_1759174001274.webp',
-    '/badges/gold_member_1759173793799.webp',
-    '/badges/homerun_1759174013207.webp',
-    '/badges/king_1759173882056.webp',
-    '/badges/pepe_1759173846260.webp',
+    '/rewards-pool/badges/any_gvc_1759173799963.webp',
+    '/rewards-pool/badges/astro_balls_1759173838889.webp',
+    '/rewards-pool/badges/baller_1759173868839.webp',
+    '/rewards-pool/badges/billiards_1759173890603.webp',
+    '/rewards-pool/badges/captain_1759173895611.webp',
+    '/rewards-pool/badges/cosmic_1759173818340.webp',
+    '/rewards-pool/badges/doge_1759173842640.webp',
+    '/rewards-pool/badges/funky_fresh_1759174001274.webp',
+    '/rewards-pool/badges/gold_member_1759173793799.webp',
+    '/rewards-pool/badges/homerun_1759174013207.webp',
+    '/rewards-pool/badges/king_1759173882056.webp',
+    '/rewards-pool/badges/pepe_1759173846260.webp',
 ];
 
 export default function TextOptions() {
