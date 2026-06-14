@@ -1,0 +1,253 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { VIBESTR_TIERS, getVibestrTier, getNextVibestrTier } from '@/data/badgeTiers';
+import { getVibestrTierImage } from '@/data/badgeImages';
+import CountUp from './CountUp';
+
+function fmtAmount(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(2)}M`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K`;
+  return Math.round(n).toLocaleString();
+}
+
+export default function VibestrThermometer({ balance }: { balance: number }) {
+  const current = getVibestrTier(balance);
+  const next = getNextVibestrTier(balance);
+  const activeIndex = current ? VIBESTR_TIERS.findIndex((t) => t.name === current.name) : -1;
+  const totalTiers = VIBESTR_TIERS.length;
+
+  // Position 0..1 along the track: completed tiers + partial within current
+  let progressFraction = 0;
+  if (activeIndex >= 0) {
+    const completedSegments = activeIndex; // segments fully crossed
+    let inSegment = 1; // default fully filled at top
+    if (next) {
+      const span = next.threshold - current!.threshold;
+      inSegment = span > 0 ? Math.min(1, Math.max(0, (balance - current!.threshold) / span)) : 1;
+    }
+    progressFraction = (completedSegments + inSegment) / (totalTiers - 1);
+  }
+  progressFraction = Math.min(1, Math.max(0, progressFraction));
+
+  return (
+    <div className="relative rounded-3xl bg-gradient-to-br from-black/60 via-black/50 to-black/60 border border-white/10 backdrop-blur-md p-6 md:p-8 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_right,rgba(255,224,72,0.06),transparent_55%)]" />
+
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
+          <div>
+            <p className="text-gvc-gold/90 font-mundial font-bold tracking-[0.2em] text-[11px] uppercase mb-2">
+              $VIBESTR Tier
+            </p>
+            <h3 className="text-4xl md:text-5xl font-cooper text-white uppercase leading-none">
+              {current?.name ?? 'No Tier'}
+            </h3>
+            <p className="font-mundial text-white/50 text-sm mt-2">
+              Holding <span className="text-gvc-gold font-bold">
+                <CountUp value={balance} format={(n) => fmtAmount(n)} />
+              </span> $VIBESTR
+            </p>
+          </div>
+          {current && (
+            <div className="flex items-center gap-3">
+              <div className="relative w-16 h-16 md:w-20 md:h-20 animate-pulse-slow">
+                <Image
+                  src={getVibestrTierImage(current.badgeId)}
+                  alt={`${current.name} tier`}
+                  fill
+                  className="object-contain drop-shadow-[0_0_20px_rgba(255,224,72,0.55)]"
+                  sizes="80px"
+                />
+              </div>
+              <div className="text-right">
+                <p className="text-white/40 font-mundial text-[10px] uppercase tracking-wider">Multiplier</p>
+                <p className="font-cooper text-3xl text-gvc-gold leading-none mt-1">
+                  ×{current.multiplier.toFixed(2)}
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Stepped tier track */}
+        <div className="relative pt-2 pb-2">
+          {/* Tier name row */}
+          <div className="grid gap-2 mb-3" style={{ gridTemplateColumns: `repeat(${totalTiers}, minmax(0, 1fr))` }}>
+            {VIBESTR_TIERS.map((tier, i) => {
+              const reached = i <= activeIndex;
+              const isCurrent = i === activeIndex;
+              return (
+                <p
+                  key={tier.name}
+                  className={`font-mundial text-[10px] md:text-[11px] uppercase tracking-[0.12em] text-center transition-colors ${
+                    isCurrent ? 'text-white font-bold' : reached ? 'text-white/65' : 'text-white/25'
+                  }`}
+                >
+                  {tier.name}
+                </p>
+              );
+            })}
+          </div>
+
+          {/* Node row with throughline behind nodes */}
+          <div className="relative px-6 md:px-8 py-3">
+            {/* Background track */}
+            <div className="absolute left-6 right-6 md:left-8 md:right-8 top-1/2 -translate-y-1/2 h-3 md:h-4 rounded-full bg-white/[0.06] border border-white/10" />
+            {/* Animated fill */}
+            <motion.div
+              initial={{ width: '0%' }}
+              animate={{ width: `${progressFraction * 100}%` }}
+              transition={{ duration: 1.4, ease: 'easeOut' }}
+              className="absolute left-6 md:left-8 top-1/2 -translate-y-1/2 h-3 md:h-4 rounded-full bg-gradient-to-r from-gvc-orange via-gvc-gold to-gvc-gold shadow-[0_0_25px_rgba(255,224,72,0.55)]"
+              style={{ maxWidth: 'calc(100% - 3rem)' }}
+            />
+            {/* Shimmer */}
+            <motion.div
+              initial={{ opacity: 0.15 }}
+              animate={{ opacity: [0.15, 0.4, 0.15] }}
+              transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute left-6 right-6 md:left-8 md:right-8 top-1/2 -translate-y-1/2 h-3 md:h-4 rounded-full pointer-events-none bg-gradient-to-r from-transparent via-white/30 to-transparent mix-blend-overlay"
+              style={{
+                clipPath: `inset(0 ${(1 - progressFraction) * 100}% 0 0)`,
+              }}
+            />
+
+            {/* Nodes */}
+            <div className="relative grid" style={{ gridTemplateColumns: `repeat(${totalTiers}, minmax(0, 1fr))` }}>
+              {VIBESTR_TIERS.map((tier, i) => {
+                const reached = i <= activeIndex;
+                const isCurrent = i === activeIndex;
+                return (
+                  <motion.div
+                    key={tier.name}
+                    initial={{ opacity: 0, scale: 0.7 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.15 + i * 0.05, type: 'spring', stiffness: 220, damping: 16 }}
+                    className="flex justify-center"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: 'spring', stiffness: 320, damping: 18 }}
+                      className={`relative rounded-full transition-all ${
+                        isCurrent
+                          ? 'w-14 h-14 md:w-16 md:h-16'
+                          : 'w-11 h-11 md:w-12 md:h-12'
+                      }`}
+                    >
+                      {/* Pulsing ring on active */}
+                      {isCurrent && (
+                        <motion.span
+                          initial={{ scale: 1, opacity: 0.7 }}
+                          animate={{ scale: [1, 1.4, 1], opacity: [0.7, 0, 0.7] }}
+                          transition={{ duration: 2.6, repeat: Infinity, ease: 'easeOut' }}
+                          className="absolute inset-0 rounded-full bg-gvc-gold/40"
+                        />
+                      )}
+                      {/* Node body */}
+                      <div
+                        className={`relative w-full h-full rounded-full border-2 overflow-hidden ${
+                          isCurrent
+                            ? 'border-gvc-gold bg-black shadow-[0_0_28px_rgba(255,224,72,0.65)]'
+                            : reached
+                            ? 'border-gvc-gold/60 bg-black'
+                            : 'border-white/15 bg-black/70'
+                        }`}
+                      >
+                        <Image
+                          src={getVibestrTierImage(tier.badgeId)}
+                          alt={`${tier.name} tier badge`}
+                          fill
+                          className={`object-contain p-0.5 transition-all ${
+                            isCurrent ? 'opacity-100' : reached ? 'opacity-85' : 'opacity-25 grayscale'
+                          }`}
+                          sizes="64px"
+                        />
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Multiplier + threshold rows */}
+          <div className="grid gap-2 mt-3" style={{ gridTemplateColumns: `repeat(${totalTiers}, minmax(0, 1fr))` }}>
+            {VIBESTR_TIERS.map((tier, i) => {
+              const reached = i <= activeIndex;
+              const isCurrent = i === activeIndex;
+              return (
+                <div key={tier.name} className="flex flex-col items-center text-center">
+                  <p
+                    className={`font-cooper text-sm md:text-base transition-colors ${
+                      isCurrent ? 'text-gvc-gold' : reached ? 'text-white/80' : 'text-white/25'
+                    }`}
+                  >
+                    ×{tier.multiplier.toFixed(2)}
+                  </p>
+                  <p
+                    className={`font-mundial text-[9px] md:text-[10px] mt-0.5 transition-colors tracking-wider ${
+                      reached ? 'text-white/45' : 'text-white/20'
+                    }`}
+                  >
+                    {fmtAmount(tier.threshold)}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Footer — progress to next */}
+        {next ? (
+          <div className="mt-8 pt-6 border-t border-white/10">
+            <div className="flex items-end justify-between gap-4 flex-wrap mb-3">
+              <p className="font-mundial font-bold tracking-[0.18em] text-xs uppercase text-white/50">
+                Progress to <span className="text-gvc-gold">{next.name}</span>
+              </p>
+              <p className="font-cooper text-2xl md:text-3xl text-white leading-none uppercase">
+                Collect{' '}
+                <span className="text-gvc-gold">
+                  <CountUp value={next.threshold - balance} format={(n) => fmtAmount(Math.max(0, n))} />
+                </span>
+                <span className="ml-2 text-white">more $VIBESTR</span>
+              </p>
+            </div>
+            <div className="relative h-6 md:h-7 rounded-full bg-white/[0.05] border border-white/10 overflow-hidden shadow-inner">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{
+                  width: `${Math.min(
+                    100,
+                    Math.max(
+                      0,
+                      ((balance - (current?.threshold ?? 0)) /
+                        (next.threshold - (current?.threshold ?? 0))) *
+                        100
+                    )
+                  )}%`,
+                }}
+                transition={{ duration: 1.4, ease: 'easeOut' }}
+                className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-gvc-orange via-gvc-gold to-gvc-gold shadow-[0_0_25px_rgba(255,224,72,0.55)]"
+              />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0.15, 0.4, 0.15] }}
+                transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent via-white/30 to-transparent mix-blend-overlay"
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="mt-6 pt-4 border-t border-white/10 text-center">
+            <p className="font-mundial text-[11px] uppercase tracking-[0.2em] text-gvc-gold">
+              Top Tier Reached
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
